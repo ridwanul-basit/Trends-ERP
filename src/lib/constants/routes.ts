@@ -1,10 +1,10 @@
 import {
   Gauge,
   Users,
-  BookOpen,
-  Trophy,
-  Layers,
-  ShieldCheck,
+  Wallet,
+  Package,
+  HeartHandshake,
+  ShoppingCart,
   Settings,
 } from "lucide-react";
 import type React from "react";
@@ -26,46 +26,35 @@ export const adminNavItems: AdminNavItem[] = [
     icon: Gauge,
   },
   {
-    title: "Participants",
-    href: "/participants",
-    permission: "participant:read",
+    title: "HR",
+    href: "/hr",
     icon: Users,
   },
   {
-    title: "Questions & Quizzes",
-    href: "/questions",
-    permission: "question:read",
-    icon: BookOpen,
+    title: "Finance",
+    href: "/finance",
+    icon: Wallet,
   },
   {
-    title: "Rounds / Stages",
-    href: "/rounds",
-    permission: "round:read",
-    icon: Layers,
+    title: "Inventory",
+    href: "/inventory",
+    icon: Package,
   },
   {
-    title: "Scoreboards",
-    href: "/scoreboards",
-    permission: "scoreboard:read",
-    icon: Trophy,
+    title: "CRM",
+    href: "/crm",
+    icon: HeartHandshake,
   },
   {
-    title: "Access Control",
-    icon: ShieldCheck,
-    permission: "role:read",
-    children: [
-      { title: "Users", href: "/users", permission: "user:read" },
-      { title: "Roles", href: "/roles", permission: "role:read" },
-      { title: "Permissions", href: "/permissions", permission: "permission:read" },
-    ],
+    title: "Procurement",
+    href: "/procurement",
+    icon: ShoppingCart,
   },
   {
     title: "Settings",
     icon: Settings,
     children: [
       { title: "General", href: "/settings" },
-      { title: "Seasons", href: "/settings/seasons", permission: "season:read" },
-      { title: "Zones", href: "/settings/zones", permission: "zone:read" },
     ],
   },
 ];
@@ -75,7 +64,6 @@ export function filterNavByPermissions(
   permissions: string[] = [],
   role?: string,
 ) {
-  // If user has wildcard '*' permission or is SUPER_ADMIN, show everything
   const hasWildcard = permissions.includes("*") || role === "SUPER_ADMIN" || role === "super_admin";
 
   return items
