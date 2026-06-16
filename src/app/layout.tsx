@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { StoreProvider } from "@/store/provider";
-import { Toaster } from "sonner";
+import { Toaster } from "react-hot-toast";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -10,8 +10,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Ispahani Banglabid Admin Portal",
-  description: "Management portal for Ispahani Banglabid contest",
+  title: "Trends ERP Portal",
+  description: "Management portal for Trends ERP",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-surface" suppressHydrationWarning>
         <StoreProvider>
           {children}
-          <Toaster position="top-right" richColors />
+          <Toaster position="top-right" />
         </StoreProvider>
       </body>
     </html>
