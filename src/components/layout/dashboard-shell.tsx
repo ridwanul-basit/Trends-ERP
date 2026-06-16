@@ -35,7 +35,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         <footer className="bg-white px-6 py-3.5 shadow-[0_-4px_18px_rgba(39,59,82,0.02)] border-t border-slate-100">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <div className="text-[11px] text-slate-500 text-center sm:text-left">
-              © 2026 <span className="text-brand-green font-semibold">Ispahani Banglabid</span>. All Rights Reserved.
+              © 2026 <span className="text-brand-green font-semibold">Trends ERP</span>. All Rights Reserved.
             </div>
 
             <div className="text-[11px] text-slate-400 text-center sm:text-right">

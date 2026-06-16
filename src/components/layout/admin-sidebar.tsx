@@ -70,10 +70,10 @@ export function AdminSidebar({
       </svg>
       <div className="flex flex-col text-left">
         <span className="font-sans text-sm font-black tracking-wider text-brand-green leading-none uppercase">
-          ISPAHANI
+          TRENDS
         </span>
         <span className="font-sans text-xs font-bold tracking-widest text-brand-orange leading-normal">
-          বাংলাবিদ
+          ERP
         </span>
       </div>
     </div>
