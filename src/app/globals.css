@@ -3,16 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #13162a;
-  --primary: #047646;
-  /* Ispahani deep green */
+  --primary: #486AB8;
   --primary-foreground: #ffffff;
   --muted: #f3f4f6;
   --border-soft: #e5e7eb;
   --table-header: #f3f4f5;
   --surface: #f9fafb;
-  --brand-green: #047646;
-  --brand-orange: #f58220;
-  /* Ispahani logo gold/orange */
+  --brand-green: #486AB8;
+  --brand-orange: #F5A623;
 }
 
 @theme inline {
