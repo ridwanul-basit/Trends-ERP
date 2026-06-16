@@ -2,25 +2,51 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #13162a;
+  --primary: #047646;
+  /* Ispahani deep green */
+  --primary-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --border-soft: #e5e7eb;
+  --table-header: #f3f4f5;
+  --surface: #f9fafb;
+  --brand-green: #047646;
+  --brand-orange: #f58220;
+  /* Ispahani logo gold/orange */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Outfit", "Inter", "Segoe UI", sans-serif;
+  --font-mono: "Fira Code", monospace;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-border-soft: var(--border-soft);
+  --color-table-header: var(--table-header);
+  --color-surface: var(--surface);
+  --color-brand-green: var(--brand-green);
+  --color-brand-orange: var(--brand-orange);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Outfit", "Inter", "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+
+.dashboard-content-scroll {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+.sidebar-scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
