@@ -48,11 +48,11 @@ export function AdminSidebar({
       <circle cx="25" cy="25" r="22" className="fill-brand-green" />
       <text
         x="25"
-        y="33"
+        y="32"
         textAnchor="middle"
         className="font-sans text-2xl font-extrabold fill-white"
       >
-        ব
+        T
       </text>
     </svg>
   ) : (
@@ -61,11 +61,11 @@ export function AdminSidebar({
         <circle cx="20" cy="20" r="18" className="fill-brand-green" />
         <text
           x="20"
-          y="27"
+          y="26"
           textAnchor="middle"
           className="font-sans text-xl font-black fill-white"
         >
-          ব
+          T
         </text>
       </svg>
       <div className="flex flex-col text-left">
