@@ -21,42 +21,38 @@ import {
    DATA
    ═══════════════════════════════════════════════════════════════════════ */
 
-/** Weekly registration trend data */
-const registrationData = [
-  { week: "W1", participants: 1200, questions: 180 },
-  { week: "W2", participants: 2800, questions: 320 },
-  { week: "W3", participants: 4100, questions: 410 },
-  { week: "W4", participants: 69000, questions: 540 },
-  { week: "W5", participants: 8200, questions: 620 },
-  { week: "W6", participants: 11500, questions: 780 },
-  { week: "W7", participants: 15800, questions: 920 },
-  { week: "W8", participants: 61400, questions: 1100 },
-  { week: "W9", participants: 28700, questions: 1350 },
-  { week: "W10", participants: 35200, questions: 1680 },
-  { week: "W11", participants: 41000, questions: 2100 },
-  { week: "W12", participants: 45820, questions: 3240 },
+/** Monthly revenue & expenses trend */
+const revenueData = [
+  { month: "Jan", revenue: 42000, expenses: 28000 },
+  { month: "Feb", revenue: 48000, expenses: 31000 },
+  { month: "Mar", revenue: 55000, expenses: 34000 },
+  { month: "Apr", revenue: 51000, expenses: 29000 },
+  { month: "May", revenue: 63000, expenses: 37000 },
+  { month: "Jun", revenue: 72000, expenses: 41000 },
+  { month: "Jul", revenue: 68000, expenses: 38000 },
+  { month: "Aug", revenue: 78000, expenses: 44000 },
+  { month: "Sep", revenue: 85000, expenses: 48000 },
+  { month: "Oct", revenue: 92000, expenses: 52000 },
+  { month: "Nov", revenue: 98000, expenses: 55000 },
+  { month: "Dec", revenue: 110000, expenses: 62000 },
 ];
 
-/** Division-wise participant distribution */
-const divisionData = [
-  { name: "Dhaka", value: 12400, color: "#10b981" },
-  { name: "Chattogram", value: 8200, color: "#3b82f6" },
-  { name: "Rajshahi", value: 6100, color: "#f59e0b" },
-  { name: "Khulna", value: 5400, color: "#ef4444" },
-  { name: "Sylhet", value: 4800, color: "#8b5cf6" },
-  { name: "Rangpur", value: 3900, color: "#ec4899" },
-  { name: "Barishal", value: 2800, color: "#14b8a6" },
-  { name: "Mymensingh", value: 2220, color: "#f97316" },
+/** Department budget allocation */
+const departmentData = [
+  { name: "HR", value: 185000, color: "#486AB8" },
+  { name: "Finance", value: 240000, color: "#3b82f6" },
+  { name: "Operations", value: 320000, color: "#10b981" },
+  { name: "Sales", value: 275000, color: "#f59e0b" },
+  { name: "IT", value: 195000, color: "#8b5cf6" },
+  { name: "Marketing", value: 150000, color: "#ec4899" },
 ];
 
-/** Score distribution data */
-const scoreData = [
-  { range: "0-20", selected: 0, waiting: 12, eliminated: 580 },
-  { range: "21-40", selected: 0, waiting: 45, eliminated: 1200 },
-  { range: "41-60", selected: 20, waiting: 380, eliminated: 2800 },
-  { range: "61-80", selected: 450, waiting: 1900, eliminated: 1600 },
-  { range: "81-90", selected: 2100, waiting: 1200, eliminated: 400 },
-  { range: "91-100", selected: 1800, waiting: 280, eliminated: 50 },
+/** Quarterly performance by department */
+const performanceData = [
+  { quarter: "Q1", sales: 180, procurement: 95, hr: 42 },
+  { quarter: "Q2", sales: 220, procurement: 110, hr: 58 },
+  { quarter: "Q3", sales: 195, procurement: 130, hr: 65 },
+  { quarter: "Q4", sales: 280, procurement: 145, hr: 72 },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -77,7 +73,9 @@ function ChartTooltip({ active, payload, label }: any) {
           <span className="text-slate-500">{entry.name}:</span>
           <span className="font-bold text-slate-800">
             {typeof entry.value === "number"
-              ? entry.value.toLocaleString()
+              ? entry.value >= 1000
+                ? `$${(entry.value / 1000).toFixed(0)}K`
+                : entry.value.toLocaleString()
               : entry.value}
           </span>
         </div>
@@ -99,7 +97,7 @@ function PieTooltip({ active, payload }: any) {
         <span className="font-bold text-slate-700">{data.name}</span>
       </div>
       <p className="mt-1 text-[11px] font-bold text-slate-800">
-        {data.value.toLocaleString()} participants
+        ${(data.value / 1000).toFixed(0)}K budget
       </p>
     </div>
   );
@@ -122,7 +120,7 @@ function renderCustomLabel({
   const radius = innerRadius + (outerRadius - innerRadius) * 1.4;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if (percent < 0.05) return null;
+  if (percent < 0.08) return null;
   return (
     <text
       x={x}
@@ -145,7 +143,7 @@ function ChartCard({
   title,
   subtitle,
   badge,
-  badgeColor = "bg-emerald-50 text-emerald-600",
+  badgeColor = "bg-blue-50 text-blue-600",
   children,
   className = "",
 }: {
@@ -192,40 +190,40 @@ function ChartCard({
 export function DashboardCharts() {
   return (
     <div className="grid gap-4 lg:grid-cols-3">
-      {/* ─── Spline / Area Chart ─────────────────────────────────── */}
+      {/* ─── Revenue & Expense Trend ─────────────────────────────────── */}
       <ChartCard
-        title="Registration Trend"
-        subtitle="Weekly participant & question growth over 12 weeks."
-        badge="↑ 12% this week"
+        title="Revenue & Expenses"
+        subtitle="Monthly financial performance over the year."
+        badge="↑ 18% YoY"
         badgeColor="bg-emerald-50 text-emerald-600"
         className="lg:col-span-2"
       >
         <div className="h-[280px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
-              data={registrationData}
+              data={revenueData}
               margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
             >
               <defs>
                 <linearGradient
-                  id="gradParticipants"
+                  id="gradRevenue"
                   x1="0"
                   y1="0"
                   x2="0"
                   y2="1"
                 >
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#486AB8" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#486AB8" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient
-                  id="gradQuestions"
+                  id="gradExpenses"
                   x1="0"
                   y1="0"
                   x2="0"
                   y2="1"
                 >
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#ef4444" stopOpacity={0.15} />
+                  <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid
@@ -234,7 +232,7 @@ export function DashboardCharts() {
                 vertical={false}
               />
               <XAxis
-                dataKey="week"
+                dataKey="month"
                 tick={{ fontSize: 10, fill: "#94a3b8" }}
                 axisLine={false}
                 tickLine={false}
@@ -244,40 +242,40 @@ export function DashboardCharts() {
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={(v: number) =>
-                  v >= 1000 ? `${(v / 1000).toFixed(0)}k` : String(v)
+                  v >= 1000 ? `$${(v / 1000).toFixed(0)}K` : `$${v}`
                 }
               />
               <Tooltip content={<ChartTooltip />} />
               <Area
                 type="monotone"
-                dataKey="participants"
-                name="Participants"
-                stroke="#10b981"
+                dataKey="revenue"
+                name="Revenue"
+                stroke="#486AB8"
                 strokeWidth={2.5}
-                fill="url(#gradParticipants)"
+                fill="url(#gradRevenue)"
                 animationDuration={1800}
                 animationEasing="ease-in-out"
                 dot={false}
                 activeDot={{
                   r: 5,
-                  fill: "#10b981",
+                  fill: "#486AB8",
                   stroke: "#fff",
                   strokeWidth: 2,
                 }}
               />
               <Area
                 type="monotone"
-                dataKey="questions"
-                name="Questions"
-                stroke="#3b82f6"
+                dataKey="expenses"
+                name="Expenses"
+                stroke="#ef4444"
                 strokeWidth={2}
-                fill="url(#gradQuestions)"
+                fill="url(#gradExpenses)"
                 animationDuration={2200}
                 animationEasing="ease-in-out"
                 dot={false}
                 activeDot={{
                   r: 4,
-                  fill: "#3b82f6",
+                  fill: "#ef4444",
                   stroke: "#fff",
                   strokeWidth: 2,
                 }}
@@ -287,18 +285,18 @@ export function DashboardCharts() {
         </div>
       </ChartCard>
 
-      {/* ─── Pie / Donut Chart ───────────────────────────────────── */}
+      {/* ─── Department Budget Pie Chart ───────────────────────────────── */}
       <ChartCard
-        title="Division Distribution"
-        subtitle="Participant spread across 8 divisions."
-        badge="8 Divisions"
+        title="Department Budget"
+        subtitle="Annual budget allocation across departments."
+        badge="6 Departments"
         badgeColor="bg-blue-50 text-blue-600"
       >
         <div className="h-[280px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
-                data={divisionData}
+                data={departmentData}
                 cx="50%"
                 cy="50%"
                 innerRadius={55}
@@ -310,7 +308,7 @@ export function DashboardCharts() {
                 animationEasing="ease-out"
                 stroke="none"
               >
-                {divisionData.map((entry, i) => (
+                {departmentData.map((entry, i) => (
                   <Cell key={i} fill={entry.color} />
                 ))}
               </Pie>
@@ -327,7 +325,7 @@ export function DashboardCharts() {
                   fill: "#1e293b",
                 }}
               >
-                45.8K
+                $1.37M
               </text>
               <text
                 x="50%"
@@ -340,25 +338,25 @@ export function DashboardCharts() {
                   fill: "#94a3b8",
                 }}
               >
-                Total
+                Total Budget
               </text>
             </PieChart>
           </ResponsiveContainer>
         </div>
       </ChartCard>
 
-      {/* ─── Stacked Bar Chart ───────────────────────────────────── */}
+      {/* ─── Quarterly Performance Bar Chart ───────────────────────────── */}
       <ChartCard
-        title="Score Distribution"
-        subtitle="Participant count by score range and status."
-        badge="Selection Phase"
+        title="Quarterly Performance"
+        subtitle="Tasks completed per department by quarter."
+        badge="FY 2026"
         badgeColor="bg-amber-50 text-amber-600"
         className="lg:col-span-3"
       >
         <div className="h-[260px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              data={scoreData}
+              data={performanceData}
               margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
               barCategoryGap="20%"
             >
@@ -368,7 +366,7 @@ export function DashboardCharts() {
                 vertical={false}
               />
               <XAxis
-                dataKey="range"
+                dataKey="quarter"
                 tick={{ fontSize: 10, fill: "#94a3b8" }}
                 axisLine={false}
                 tickLine={false}
@@ -377,9 +375,6 @@ export function DashboardCharts() {
                 tick={{ fontSize: 10, fill: "#94a3b8" }}
                 axisLine={false}
                 tickLine={false}
-                tickFormatter={(v: number) =>
-                  v >= 1000 ? `${(v / 1000).toFixed(1)}k` : String(v)
-                }
               />
               <Tooltip content={<ChartTooltip />} />
               <Legend
@@ -388,28 +383,28 @@ export function DashboardCharts() {
                 wrapperStyle={{ fontSize: "10px", paddingTop: "12px" }}
               />
               <Bar
-                dataKey="selected"
-                name="Selected"
+                dataKey="sales"
+                name="Sales"
                 stackId="a"
-                fill="#10b981"
+                fill="#486AB8"
                 radius={[0, 0, 0, 0]}
                 animationDuration={1400}
                 animationEasing="ease-out"
               />
               <Bar
-                dataKey="waiting"
-                name="Waiting"
+                dataKey="procurement"
+                name="Procurement"
                 stackId="a"
-                fill="#f59e0b"
+                fill="#10b981"
                 radius={[0, 0, 0, 0]}
                 animationDuration={1600}
                 animationEasing="ease-out"
               />
               <Bar
-                dataKey="eliminated"
-                name="Eliminated"
+                dataKey="hr"
+                name="HR"
                 stackId="a"
-                fill="#ef4444"
+                fill="#f59e0b"
                 radius={[4, 4, 0, 0]}
                 animationDuration={1800}
                 animationEasing="ease-out"
