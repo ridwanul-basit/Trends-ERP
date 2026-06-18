@@ -22,7 +22,7 @@ export const adminNavItems: AdminNavItem[] = [
   {
     title: "Dashboard",
     href: "/dashboard",
-    permission: "",
+    // permission: "",
     icon: Gauge,
   },
   {
