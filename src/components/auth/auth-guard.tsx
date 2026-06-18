@@ -45,7 +45,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
     const userRole = session.user.role || "";
 
     const hasWildcard = userPermissions.includes("*") || userRole.toUpperCase() === "SUPER_ADMIN";
-    
+
     // Check permission
     const hasPermission =
       hasWildcard ||
@@ -60,7 +60,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
     } else {
       // Unauthorized: Redirect to default authorized route based on permissions
       const defaultRoute = getDefaultAuthorizedRoute(userPermissions, userRole);
-      
+
       // Prevent infinite redirect loop
       if (defaultRoute === pathname) {
         setAuthorized(true);
