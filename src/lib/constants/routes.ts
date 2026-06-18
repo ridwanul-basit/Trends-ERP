@@ -22,7 +22,7 @@ export const adminNavItems: AdminNavItem[] = [
   {
     title: "Dashboard",
     href: "/dashboard",
-    permission: "dashboard:read",
+    permission: "",
     icon: Gauge,
   },
   {
@@ -54,7 +54,10 @@ export const adminNavItems: AdminNavItem[] = [
     title: "Settings",
     icon: Settings,
     children: [
-      { title: "General", href: "/settings" },
+      {
+        title: "General", href: "/settings"
+
+      },
     ],
   },
 ];
@@ -100,19 +103,19 @@ function collectRoutePermissions(items: AdminNavItem[]): AdminRoutePermission[] 
   return items.flatMap((item) => {
     const currentItem = item.href
       ? [
-          {
-            href: item.href,
-            permission: item.permission,
-            requiredRole: item.requiredRole,
-          },
-        ]
+        {
+          href: item.href,
+          permission: item.permission,
+          requiredRole: item.requiredRole,
+        },
+      ]
       : [];
     const children = item.children
       ? item.children.map((child) => ({
-          href: child.href ?? "",
-          permission: child.permission ?? item.permission,
-          requiredRole: child.requiredRole ?? item.requiredRole,
-        }))
+        href: child.href ?? "",
+        permission: child.permission ?? item.permission,
+        requiredRole: child.requiredRole ?? item.requiredRole,
+      }))
       : [];
 
     return [...currentItem, ...children].filter((route) => route.href);
