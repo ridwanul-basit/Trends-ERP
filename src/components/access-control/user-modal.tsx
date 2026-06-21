@@ -152,7 +152,7 @@ export function UserModal({ open, onClose, onSave, editData, roles }: UserModalP
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="operator@trendsbird.org"
+              placeholder="operator@trendserp.com"
               className="h-9 w-full rounded-lg border border-slate-200 bg-surface px-3 text-xs outline-none transition focus:border-brand-green focus:ring-2 focus:ring-brand-green/10"
             />
           </div>

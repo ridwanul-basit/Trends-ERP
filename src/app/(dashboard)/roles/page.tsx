@@ -246,7 +246,7 @@ export default function RolesPage() {
             <AlertCircle className="h-4 w-4 shrink-0 text-amber-600" />
             <div>
               <span className="font-bold">Offline Sandboxed Mode: </span>
-              Could not reach backend API at trendsbird.org. Serving local mock database.
+              Could not reach backend API at trendserp.com. Serving local mock database.
             </div>
           </div>
           <button
