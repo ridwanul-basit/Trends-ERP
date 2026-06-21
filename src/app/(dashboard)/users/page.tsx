@@ -21,7 +21,7 @@ const MOCK_ROLES: Role[] = [
 const MOCK_USERS: SystemUser[] = [
   {
     id: "u-1",
-    email: "superadmin@ispahanibanglabid.com",
+    email: "superadmin@trendserp.com",
     name: "Sifat Rahman",
     roleId: "r-1",
     isActive: true,
@@ -31,7 +31,7 @@ const MOCK_USERS: SystemUser[] = [
   },
   {
     id: "u-2",
-    email: "admin@ispahanibanglabid.com",
+    email: "admin@trendserp.com",
     name: "Tahmid Hasan",
     roleId: "r-2",
     isActive: true,
@@ -41,7 +41,7 @@ const MOCK_USERS: SystemUser[] = [
   },
   {
     id: "u-3",
-    email: "dataentry@ispahanibanglabid.com",
+    email: "dataentry@trendserp.com",
     name: "Mst. Jannat",
     roleId: "r-3",
     isActive: true,
