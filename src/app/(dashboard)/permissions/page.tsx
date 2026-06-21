@@ -83,7 +83,7 @@ export default function PermissionsPage() {
       setIsUsingMock(false);
     } catch (err: any) {
       if (err.status === 401) {
-        window.location.href = "/login";
+        // window.location.href = "/login";
         return;
       }
       if (err.status === 403) {
