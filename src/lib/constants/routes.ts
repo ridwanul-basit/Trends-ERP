@@ -6,6 +6,7 @@ import {
   HeartHandshake,
   ShoppingCart,
   Settings,
+  ShieldCheck,
 } from "lucide-react";
 import type React from "react";
 
@@ -49,6 +50,16 @@ export const adminNavItems: AdminNavItem[] = [
     title: "Procurement",
     href: "/procurement",
     icon: ShoppingCart,
+  },
+  {
+    title: "Access Control",
+    icon: ShieldCheck,
+    permission: "role:read",
+    children: [
+      { title: "Users", href: "/users", permission: "user:read" },
+      { title: "Roles", href: "/roles", permission: "role:read" },
+      { title: "Permissions", href: "/permissions", permission: "permission:read" },
+    ],
   },
   {
     title: "Settings",
