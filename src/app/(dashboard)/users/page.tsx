@@ -248,7 +248,7 @@ export default function UsersPage() {
             <AlertCircle className="h-4 w-4 shrink-0 text-amber-600" />
             <div>
               <span className="font-bold">Offline Sandboxed Mode: </span>
-              Could not reach backend API at trendsbird.org. Serving local database state for test actions.
+              Could not reach backend API at trendserp.com. Serving local database state for test actions.
             </div>
           </div>
           <button
