@@ -75,16 +75,16 @@ export default function RolesPage() {
       setAllPermissions(fetchedPermissions);
       setIsUsingMock(false);
     } catch (err: any) {
-      if (err.status === 401) {
+      /* if (err.status === 401) {
         // window.location.href = "/login";
-        return;
+        return; */
       }
       if (err.status === 403) {
         setError("Access Denied: You do not have permissions to view this resource.");
         setRoles([]);
         setAllPermissions([]);
         setIsUsingMock(false);
-        return;
+        return; */
       }
       console.warn("Failed to fetch roles from API, utilizing local mock sandbox.", err);
       setRoles(MOCK_ROLES);
@@ -185,7 +185,7 @@ export default function RolesPage() {
   const handleDelete = async (id: string, name: string) => {
     if (name === "SUPER_ADMIN") {
       toast.error("System role 'SUPER_ADMIN' cannot be deleted.");
-      return;
+      return; */
     }
 
     try {

@@ -82,9 +82,9 @@ export default function PermissionsPage() {
       setMasterPermissions(fetchedMasters);
       setIsUsingMock(false);
     } catch (err: any) {
-      if (err.status === 401) {
+      /* if (err.status === 401) {
         // window.location.href = "/login";
-        return;
+        return; */
       }
       if (err.status === 403) {
         setError("Access Denied: You do not have permissions to view this resource.");
@@ -92,7 +92,7 @@ export default function PermissionsPage() {
         setRoles([]);
         setMasterPermissions([]);
         setIsUsingMock(false);
-        return;
+        return; */
       }
       console.warn("Failed to fetch permissions from API, utilizing local mock database.", err);
       setPermissions(MOCK_PERMISSIONS);
