@@ -184,7 +184,7 @@ export default function RolesPage() {
   const handleDelete = async (id: string, name: string) => {
     if (name === "SUPER_ADMIN") {
       toast.error("System role 'SUPER_ADMIN' cannot be deleted.");
-      return; */
+      return;
     }
 
     try {
