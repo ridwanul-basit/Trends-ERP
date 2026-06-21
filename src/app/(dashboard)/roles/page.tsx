@@ -75,16 +75,15 @@ export default function RolesPage() {
       setAllPermissions(fetchedPermissions);
       setIsUsingMock(false);
     } catch (err: any) {
-      /* if (err.status === 401) {
-        // window.location.href = "/login";
-        return; */
-      }
-      if (err.status === 403) {
+      if (err.status === 401) {
+        // Mock fallback instead of redirecting
+        console.warn("Got 401 Unauthorized, but proceeding to mock data since there is no backend yet.");
+      } else if (err.status === 403) {
         setError("Access Denied: You do not have permissions to view this resource.");
         setRoles([]);
         setAllPermissions([]);
         setIsUsingMock(false);
-        return; */
+        return;
       }
       console.warn("Failed to fetch roles from API, utilizing local mock sandbox.", err);
       setRoles(MOCK_ROLES);
