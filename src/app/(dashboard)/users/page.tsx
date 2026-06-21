@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { Users, AlertCircle, RefreshCw } from "lucide-react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 import { confirmAction } from "@/lib/toast-utils";
 import { DataTable, PageToolbar, TableActions, Pagination } from "@/components/shared";
 import { UserModal } from "@/components/access-control/user-modal";

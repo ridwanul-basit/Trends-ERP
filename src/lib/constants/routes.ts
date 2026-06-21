@@ -56,9 +56,9 @@ export const adminNavItems: AdminNavItem[] = [
     icon: ShieldCheck,
     // permission: "role:read",
     children: [
-      { title: "Users", href: "/users", },
-      { title: "Roles", href: "/roles", },
-      { title: "Permissions", href: "/permissions", },
+      { title: "Users", href: "/users" },
+      { title: "Roles", href: "/roles" },
+      { title: "Permissions", href: "/permissions" },
     ],
   },
   {

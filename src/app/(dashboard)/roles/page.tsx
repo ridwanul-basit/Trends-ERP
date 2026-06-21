@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { ShieldCheck, AlertCircle, RefreshCw } from "lucide-react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 import { DataTable, PageToolbar, TableActions, Pagination } from "@/components/shared";
 import { RoleModal } from "@/components/access-control/role-modal";
 import { roleService } from "@/services/roleService";
