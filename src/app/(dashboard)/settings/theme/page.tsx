@@ -4,12 +4,24 @@ import { useTheme } from "@/components/theme-provider";
 import { PageToolbar } from "@/components/shared";
 import { Paintbrush, RotateCcw } from "lucide-react";
 import toast from "react-hot-toast";
+import { ThemeColors } from "@/types/theme";
 
 export default function ThemeSettingsPage() {
   const { theme, updateTheme, resetTheme } = useTheme();
 
-  const handleColorChange = (key: keyof typeof theme, value: string) => {
-    updateTheme({ [key]: value });
+  const handleColorChange = (key: keyof ThemeColors, value: string) => {
+    if (key === "primary") {
+      // If primary is changed, cascade the change to sidebar and pagination as well
+      // so they act linked by default. The user can still override them individually later.
+      updateTheme({ 
+        primary: value,
+        sidebarParentBg: value,
+        sidebarChildText: value,
+        paginationActiveBg: value
+      });
+    } else {
+      updateTheme({ [key]: value });
+    }
   };
 
   const handleReset = () => {
