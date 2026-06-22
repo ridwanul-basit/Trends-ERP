@@ -96,17 +96,15 @@ export function filterNavByPermissions(
   items: AdminNavItem[],
   permissions: string[] = [],
   role?: string,
-) {
+): AdminNavItem[] {
   const hasWildcard = permissions.includes("*") || role === "SUPER_ADMIN" || role === "super_admin";
 
   return items
     .map((item) => {
-      const children = item.children?.filter(
-        (child) =>
-          hasWildcard ||
-          ((!child.permission || permissions.includes(child.permission)) &&
-            (!child.requiredRole || child.requiredRole === role)),
-      );
+      let children = item.children;
+      if (children) {
+        children = filterNavByPermissions(children, permissions, role);
+      }
 
       return { ...item, children };
     })
