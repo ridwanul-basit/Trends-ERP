@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { StoreProvider } from "@/store/provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "react-hot-toast";
 
 const outfit = Outfit({
