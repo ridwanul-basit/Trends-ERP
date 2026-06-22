@@ -19,6 +19,13 @@
   --theme-action-primary: #00bcd4; /* cyan button */
   --theme-action-danger: #ff5252; /* red button */
   --theme-section-highlight: #f59e0b; /* amber-500 equivalent */
+  
+  /* Sidebar & Pagination */
+  --theme-sidebar-parent-bg: #00bcd4;
+  --theme-sidebar-parent-text: #ffffff;
+  --theme-sidebar-child-text: #00bcd4;
+  --theme-pagination-active-bg: #00bcd4;
+  --theme-pagination-active-text: #ffffff;
 }
 
 @theme inline {
@@ -42,6 +49,11 @@
   --color-theme-action-primary: var(--theme-action-primary);
   --color-theme-action-danger: var(--theme-action-danger);
   --color-theme-section-highlight: var(--theme-section-highlight);
+  --color-theme-sidebar-parent-bg: var(--theme-sidebar-parent-bg);
+  --color-theme-sidebar-parent-text: var(--theme-sidebar-parent-text);
+  --color-theme-sidebar-child-text: var(--theme-sidebar-child-text);
+  --color-theme-pagination-active-bg: var(--theme-pagination-active-bg);
+  --color-theme-pagination-active-text: var(--theme-pagination-active-text);
 }
 
 body {
