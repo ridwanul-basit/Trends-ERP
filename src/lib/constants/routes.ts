@@ -15,8 +15,8 @@ export type AdminNavItem = {
   href?: string;
   permission?: string;
   requiredRole?: string;
-  icon: React.ComponentType<{ className?: string }>;
-  children?: Omit<AdminNavItem, "icon" | "children">[];
+  icon?: React.ComponentType<{ className?: string }>;
+  children?: AdminNavItem[];
 };
 
 export const adminNavItems: AdminNavItem[] = [
@@ -34,6 +34,9 @@ export const adminNavItems: AdminNavItem[] = [
       {
         title: "Payroll Setup",
         href: "/hrm/payroll",
+
+
+
         // Note: AdminNavItem currently only supports 1 level of children in types.
         // For a multi-level sidebar, we can just link to /hrm/payroll which has Set Salary and Payslip
         // Or we can add them flat for now as requested.
@@ -86,10 +89,6 @@ export const adminNavItems: AdminNavItem[] = [
   {
     title: "Settings",
     icon: Settings,
-    children: [
-      { title: "General", href: "/settings" },
-      { title: "Theme", href: "/settings/theme" },
-    ],
   },
 ];
 
