@@ -142,6 +142,91 @@ export default function ThemeSettingsPage() {
                 <p className="text-[11px] text-slate-500 flex-1">Color for the vertical highlight bar on section headers.</p>
               </div>
             </div>
+            
+            {/* Sidebar Parent BG */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Sidebar Parent Active BG
+                <span className="font-mono text-slate-400">{theme.sidebarParentBg}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.sidebarParentBg}
+                  onChange={(e) => handleColorChange("sidebarParentBg", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Background color for active top-level sidebar items.</p>
+              </div>
+            </div>
+
+            {/* Sidebar Parent Text */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Sidebar Parent Active Text
+                <span className="font-mono text-slate-400">{theme.sidebarParentText}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.sidebarParentText}
+                  onChange={(e) => handleColorChange("sidebarParentText", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Text color for active top-level sidebar items.</p>
+              </div>
+            </div>
+
+            {/* Sidebar Child Text */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Sidebar Child Active Text
+                <span className="font-mono text-slate-400">{theme.sidebarChildText}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.sidebarChildText}
+                  onChange={(e) => handleColorChange("sidebarChildText", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Text color for active nested child sidebar items.</p>
+              </div>
+            </div>
+
+            {/* Pagination Active BG */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Pagination Active BG
+                <span className="font-mono text-slate-400">{theme.paginationActiveBg}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.paginationActiveBg}
+                  onChange={(e) => handleColorChange("paginationActiveBg", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Background color for the active page number.</p>
+              </div>
+            </div>
+
+            {/* Pagination Active Text */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Pagination Active Text
+                <span className="font-mono text-slate-400">{theme.paginationActiveText}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.paginationActiveText}
+                  onChange={(e) => handleColorChange("paginationActiveText", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Text color for the active page number.</p>
+              </div>
+            </div>
 
           </div>
         </div>
