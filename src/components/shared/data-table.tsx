@@ -69,12 +69,12 @@ export function DataTable({
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-2xl border border-theme-border bg-white shadow-sm">
       <div className="overflow-x-auto">
-        <table className="min-w-full text-xs [&_tbody_tr]:border-b [&_tbody_tr]:border-slate-50 [&_tbody_tr]:transition [&_tbody_tr:hover]:bg-slate-50/60 [&_tbody_tr:last-child]:border-0">
+        <table className="min-w-full text-xs [&_tbody_tr]:border-b [&_tbody_tr]:border-theme-border [&_tbody_tr]:transition [&_tbody_tr:hover]:bg-slate-50/60 [&_tbody_tr:last-child]:border-0">
           {/* ─── Head ────────────────────────────────────────── */}
-          <thead className="sticky top-0 z-20 bg-table-header">
-            <tr className="text-left text-slate-500 font-semibold">
+          <thead className="sticky top-0 z-20 bg-theme-header">
+            <tr className="text-left text-slate-700 font-bold uppercase tracking-wider text-[10px]">
               {selectable && (
                 <th className="w-10 px-3 py-3">
                   <input
