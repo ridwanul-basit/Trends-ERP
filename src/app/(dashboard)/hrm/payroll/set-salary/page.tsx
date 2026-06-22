@@ -61,7 +61,7 @@ export default function SetSalaryPage() {
         {/* Employee Salary */}
         <SalarySection
           title="Employee Salary"
-          headers={[{ label: "PAYSLIP TYPE" }, { label: "SALARY" }, { label: "ACCOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "PAYSLIP TYPE" }, { label: "SALARY" }, { label: "ACCOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", payslipType: "Hourly Payslip", salary: "15000", account: "ROUND BANK" },
             { id: "2", payslipType: "Hourly Payslip", salary: "15000", account: "ROUND BANK" },
@@ -72,7 +72,7 @@ export default function SetSalaryPage() {
         {/* Allowance */}
         <SalarySection
           title="Allowance"
-          headers={[{ label: "EMPLOYEE NAME" }, { label: "ALLOWANCE OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "EMPLOYEE NAME" }, { label: "ALLOWANCE OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
             { id: "2", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
@@ -83,7 +83,7 @@ export default function SetSalaryPage() {
         {/* Commission */}
         <SalarySection
           title="Commission"
-          headers={[{ label: "PAYSLIP TYPE" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "PAYSLIP TYPE" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", payslip: "Hourly Payslip", title: "Base Salary Plus Commission", type: "Fixed", amount: "USD 3,500.00" },
             { id: "2", payslip: "Hourly Payslip", title: "Base Salary Plus Commission", type: "Fixed", amount: "USD 2,000.00" },
@@ -94,7 +94,7 @@ export default function SetSalaryPage() {
         {/* Loan */}
         <SalarySection
           title="Loan"
-          headers={[{ label: "EMPLOYEE NAME" }, { label: "LOAN OPTIONS" }, { label: "TITLE" }, { label: "TYPE" }, { label: "LOAN AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "EMPLOYEE NAME" }, { label: "LOAN OPTIONS" }, { label: "TITLE" }, { label: "TYPE" }, { label: "LOAN AMOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Emergency Loan", title: "Emergency Loan", type: "Percentage", amount: "10.00% ($1500)" },
             { id: "2", emp: "Richard Atkinson", opt: "Housing Loan", title: "Housing Loan", type: "Fixed", amount: "USD 2,200.00" },
@@ -105,7 +105,7 @@ export default function SetSalaryPage() {
         {/* Saturation Deduction */}
         <SalarySection
           title="Saturation Deduction"
-          headers={[{ label: "EMPLOYEE NAME" }, { label: "DEDUCTION OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "EMPLOYEE NAME" }, { label: "DEDUCTION OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Social Security", title: "Social Security System", type: "Fixed", amount: "USD 1,000.00" },
             { id: "2", emp: "Richard Atkinson", opt: "Retirement", title: "Retirement Contributions", type: "Percentage", amount: "1.00% ($150)" },
@@ -116,7 +116,7 @@ export default function SetSalaryPage() {
         {/* Other Payment */}
         <SalarySection
           title="Other Payment"
-          headers={[{ label: "EMPLOYEE NAME" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
+          headers={[{ label: "EMPLOYEE NAME" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block ">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
             { id: "2", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
