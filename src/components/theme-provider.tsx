@@ -9,6 +9,11 @@ type ThemeColors = {
   actionPrimary: string;
   actionDanger: string;
   sectionHighlight: string;
+  sidebarParentBg: string;
+  sidebarParentText: string;
+  sidebarChildText: string;
+  paginationActiveBg: string;
+  paginationActiveText: string;
 };
 
 const defaultTheme: ThemeColors = {
@@ -18,6 +23,11 @@ const defaultTheme: ThemeColors = {
   actionPrimary: "#00bcd4",
   actionDanger: "#ff5252",
   sectionHighlight: "#f59e0b",
+  sidebarParentBg: "#00bcd4",
+  sidebarParentText: "#ffffff",
+  sidebarChildText: "#00bcd4",
+  paginationActiveBg: "#00bcd4",
+  paginationActiveText: "#ffffff",
 };
 
 type ThemeContextType = {
@@ -56,6 +66,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.style.setProperty("--theme-action-primary", theme.actionPrimary);
     root.style.setProperty("--theme-action-danger", theme.actionDanger);
     root.style.setProperty("--theme-section-highlight", theme.sectionHighlight);
+    root.style.setProperty("--theme-sidebar-parent-bg", theme.sidebarParentBg);
+    root.style.setProperty("--theme-sidebar-parent-text", theme.sidebarParentText);
+    root.style.setProperty("--theme-sidebar-child-text", theme.sidebarChildText);
+    root.style.setProperty("--theme-pagination-active-bg", theme.paginationActiveBg);
+    root.style.setProperty("--theme-pagination-active-text", theme.paginationActiveText);
     
     // Save to local storage
     localStorage.setItem("erp-theme-colors", JSON.stringify(theme));
