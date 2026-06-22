@@ -128,7 +128,7 @@ export default function SetSalaryPage() {
         <div className="xl:col-span-2">
           <SalarySection
             title="Overtime"
-            headers={[{ label: "EMPLOYEE NAME" }, { label: "OVERTIME TITLE" }, { label: "NUMBER OF DAYS" }, { label: "HOURS" }, { label: "RATE" }, { label: <span className="block text-center">ACTION</span> }]}
+            headers={[{ label: "EMPLOYEE NAME" }, { label: "OVERTIME TITLE" }, { label: "NUMBER OF DAYS" }, { label: "HOURS" }, { label: "RATE" }, { label: <span className="block ">ACTION</span> }]}
             data={[
               { id: "1", emp: "Richard Atkinson", title: "Increased Workload", days: "5", hours: "2", rate: "USD 3.00" },
               { id: "2", emp: "Richard Atkinson", title: "Unexpected Situations", days: "1", hours: "94", rate: "USD 5.00" },
