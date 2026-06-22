@@ -22,10 +22,9 @@ export default function ThemeSettingsPage() {
       <PageToolbar
         title="Theme Customization"
         description="Personalize the visual appearance of your ERP."
-        hideSearch
+        showSearch={false}
         actionLabel="Reset to Defaults"
         onAction={handleReset}
-        actionIcon={RotateCcw}
       />
 
       <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden max-w-2xl">
