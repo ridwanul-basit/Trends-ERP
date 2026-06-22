@@ -81,7 +81,7 @@ export default function SetSalaryPage() {
         {/* Allowance */}
         <SalarySection
           title="Allowance"
-          colorClass="bg-teal-500"
+          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "ALLOWANCE OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
@@ -105,7 +105,7 @@ export default function SetSalaryPage() {
         {/* Loan */}
         <SalarySection
           title="Loan"
-          colorClass="bg-teal-500"
+          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "LOAN OPTIONS" }, { label: "TITLE" }, { label: "TYPE" }, { label: "LOAN AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Emergency Loan", title: "Emergency Loan", type: "Percentage", amount: "10.00% ($1500)" },
@@ -117,7 +117,7 @@ export default function SetSalaryPage() {
         {/* Saturation Deduction */}
         <SalarySection
           title="Saturation Deduction"
-          colorClass="bg-blue-500"
+          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "DEDUCTION OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Social Security", title: "Social Security System", type: "Fixed", amount: "USD 1,000.00" },
@@ -129,7 +129,7 @@ export default function SetSalaryPage() {
         {/* Other Payment */}
         <SalarySection
           title="Other Payment"
-          colorClass="bg-teal-500"
+          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
