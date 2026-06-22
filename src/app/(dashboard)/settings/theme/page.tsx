@@ -126,6 +126,23 @@ export default function ThemeSettingsPage() {
               </div>
             </div>
 
+            {/* Section Highlight */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Section Highlight Bar
+                <span className="font-mono text-slate-400">{theme.sectionHighlight}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.sectionHighlight}
+                  onChange={(e) => handleColorChange("sectionHighlight", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Color for the vertical highlight bar on section headers.</p>
+              </div>
+            </div>
+
           </div>
         </div>
 
