@@ -13,18 +13,18 @@
   --brand-orange: #F5A623;
   
   /* Dynamic Theme Variables */
-  --theme-primary: #00bcd4; /* cyan match from image */
-  --theme-border: #e0f2f1; /* light border */
-  --theme-header: #e0f7fa; /* light cyan header */
-  --theme-action-primary: #00bcd4; /* cyan button */
-  --theme-action-danger: #ff5252; /* red button */
-  --theme-section-highlight: #f59e0b; /* amber-500 equivalent */
+  --theme-primary: #486AB8;
+  --theme-border: #e0f2f1;
+  --theme-header: #e0f7fa;
+  --theme-action-primary: #486AB8;
+  --theme-action-danger: #ff5252;
+  --theme-section-highlight: #f59e0b;
   
   /* Sidebar & Pagination */
-  --theme-sidebar-parent-bg: #00bcd4;
+  --theme-sidebar-parent-bg: #486AB8;
   --theme-sidebar-parent-text: #ffffff;
-  --theme-sidebar-child-text: #00bcd4;
-  --theme-pagination-active-bg: #00bcd4;
+  --theme-sidebar-child-text: #486AB8;
+  --theme-pagination-active-bg: #486AB8;
   --theme-pagination-active-text: #ffffff;
 }
 
