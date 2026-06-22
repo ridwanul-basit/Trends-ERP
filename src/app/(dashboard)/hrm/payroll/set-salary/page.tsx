@@ -71,7 +71,6 @@ export default function SetSalaryPage() {
         {/* Allowance */}
         <SalarySection
           title="Allowance"
-          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "ALLOWANCE OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
@@ -83,7 +82,6 @@ export default function SetSalaryPage() {
         {/* Commission */}
         <SalarySection
           title="Commission"
-          colorClass="bg-amber-500"
           headers={[{ label: "PAYSLIP TYPE" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", payslip: "Hourly Payslip", title: "Base Salary Plus Commission", type: "Fixed", amount: "USD 3,500.00" },
@@ -95,7 +93,6 @@ export default function SetSalaryPage() {
         {/* Loan */}
         <SalarySection
           title="Loan"
-          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "LOAN OPTIONS" }, { label: "TITLE" }, { label: "TYPE" }, { label: "LOAN AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Emergency Loan", title: "Emergency Loan", type: "Percentage", amount: "10.00% ($1500)" },
@@ -107,7 +104,6 @@ export default function SetSalaryPage() {
         {/* Saturation Deduction */}
         <SalarySection
           title="Saturation Deduction"
-          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "DEDUCTION OPTION" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", opt: "Social Security", title: "Social Security System", type: "Fixed", amount: "USD 1,000.00" },
@@ -119,7 +115,6 @@ export default function SetSalaryPage() {
         {/* Other Payment */}
         <SalarySection
           title="Other Payment"
-          colorClass="bg-amber-500"
           headers={[{ label: "EMPLOYEE NAME" }, { label: "TITLE" }, { label: "TYPE" }, { label: "AMOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
@@ -132,7 +127,6 @@ export default function SetSalaryPage() {
         <div className="xl:col-span-2">
           <SalarySection
             title="Overtime"
-            colorClass="bg-amber-500"
             headers={[{ label: "EMPLOYEE NAME" }, { label: "OVERTIME TITLE" }, { label: "NUMBER OF DAYS" }, { label: "HOURS" }, { label: "RATE" }, { label: <span className="block text-center">ACTION</span> }]}
             data={[
               { id: "1", emp: "Richard Atkinson", title: "Increased Workload", days: "5", hours: "2", rate: "USD 3.00" },
