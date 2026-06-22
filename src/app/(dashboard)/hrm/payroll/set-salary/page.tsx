@@ -12,7 +12,7 @@ type SalarySectionProps = {
 
 function SalarySection({ title, colorClass, headers, data }: SalarySectionProps) {
   return (
-    <div className="rounded-xl border border-theme-border bg-white shadow-sm overflow-hidden flex flex-col h-full">
+    <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full">
       {/* Header Area */}
       <div className="relative flex items-center justify-between px-5 py-4 border-b border-theme-border">
         {/* Left colored bar flush with the edge */}
@@ -22,7 +22,7 @@ function SalarySection({ title, colorClass, headers, data }: SalarySectionProps)
           <Plus className="h-4 w-4" />
         </button>
       </div>
-      
+
       {/* Table Area */}
       <div className="p-0 flex-1">
         <DataTable
