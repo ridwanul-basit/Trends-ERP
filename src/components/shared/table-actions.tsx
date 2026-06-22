@@ -69,9 +69,9 @@ export function TableActions({
   };
 
   const buttons = [
-    { show: showView, handler: handleView, Icon: Eye, label: "View", hoverClass: "hover:bg-slate-200" },
-    { show: showEdit, handler: handleEdit, Icon: Edit, label: "Edit", hoverClass: "hover:bg-slate-200" },
-    { show: showDelete, handler: handleDelete, Icon: Trash2, label: "Delete", hoverClass: "hover:bg-red-100 hover:text-red-600" },
+    { show: showView, handler: handleView, Icon: Eye, label: "View", baseClass: "bg-slate-100 text-slate-600 hover:bg-slate-200" },
+    { show: showEdit, handler: handleEdit, Icon: Edit, label: "Edit", baseClass: "bg-theme-action-primary text-white opacity-90 hover:opacity-100" },
+    { show: showDelete, handler: handleDelete, Icon: Trash2, label: "Delete", baseClass: "bg-theme-action-danger text-white opacity-90 hover:opacity-100" },
   ];
 
   return (
@@ -79,12 +79,12 @@ export function TableActions({
       <div className="flex items-center  gap-1.5">
         {buttons
           .filter((b) => b.show)
-          .map(({ handler, Icon, label, hoverClass }) => (
+          .map(({ handler, Icon, label, baseClass }) => (
             <div key={label} className="group relative">
               <button
                 type="button"
                 onClick={handler}
-                className={`flex h-7 w-7 cursor-pointer items-center justify-center rounded-md bg-muted text-slate-600 transition ${hoverClass}`}
+                className={`flex h-7 w-7 cursor-pointer items-center justify-center rounded-md transition ${baseClass}`}
                 aria-label={name ? `${label} ${name}` : label}
               >
                 <Icon className="h-3.5 w-3.5" />
