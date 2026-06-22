@@ -57,7 +57,7 @@ export function Pagination({
         <button
           onClick={() => currentPage > 1 && onPageChange?.(currentPage - 1)}
           disabled={currentPage <= 1}
-          className="flex items-center cursor-pointer gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 transition hover:text-primary disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex items-center cursor-pointer gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 transition hover:text-theme-pagination-active-bg disabled:cursor-not-allowed disabled:opacity-30"
         >
           <ChevronLeft className="h-4 w-4" />
           Previous
@@ -75,7 +75,7 @@ export function Pagination({
                   className={cn(
                     "flex cursor-pointer h-7 w-7 items-center justify-center rounded-full text-xs font-medium transition-all",
                     page === currentPage
-                      ? "bg-primary text-white shadow-sm"
+                      ? "bg-theme-pagination-active-bg text-theme-pagination-active-text shadow-sm"
                       : "text-slate-500 hover:bg-slate-100 hover:text-slate-800"
                   )}
                   aria-current={page === currentPage ? "page" : undefined}
@@ -93,7 +93,7 @@ export function Pagination({
             currentPage < lastPage && onPageChange?.(currentPage + 1)
           }
           disabled={currentPage >= lastPage}
-          className="flex cursor-pointer items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 transition hover:text-primary disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex cursor-pointer items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 transition hover:text-theme-pagination-active-bg disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next
           <ChevronRight className="h-4 w-4" />
@@ -114,12 +114,12 @@ export function Pagination({
           placeholder={String(currentPage)}
           onChange={(e) => setGoToValue(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleGoTo()}
-          className="h-7 w-14 rounded-lg border border-slate-200 bg-white px-2 text-center text-xs font-medium text-slate-700 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          className="h-7 w-14 rounded-lg border border-slate-200 bg-white px-2 text-center text-xs font-medium text-slate-700 outline-none transition focus:border-theme-pagination-active-bg focus:ring-2 focus:ring-theme-pagination-active-bg/10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
         />
         <span className="text-xs text-slate-400">of {lastPage}</span>
         <button
           onClick={handleGoTo}
-          className="flex cursor-pointer h-7 items-center rounded-lg bg-primary px-3 text-xs font-semibold text-white transition hover:bg-primary/90 active:scale-95"
+          className="flex cursor-pointer h-7 items-center rounded-lg bg-theme-pagination-active-bg px-3 text-xs font-semibold text-theme-pagination-active-text transition hover:opacity-90 active:scale-95"
         >
           Go
         </button>
