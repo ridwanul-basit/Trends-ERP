@@ -133,7 +133,41 @@ export default function ThemeSettingsPage() {
                   onChange={(e) => handleColorChange("actionDanger", e.target.value)}
                   className="h-10 w-14 cursor-pointer rounded border-0 p-0"
                 />
-                <p className="text-[11px] text-slate-500 flex-1">Color for 'Delete' or destructive actions.</p>
+                <p className="text-[11px] text-slate-500 flex-1">Background color for destructive actions (e.g. Delete, Reject).</p>
+              </div>
+            </div>
+
+            {/* Table Header */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Table Header Background
+                <span className="font-mono text-slate-400">{theme.header}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.header}
+                  onChange={(e) => handleColorChange("header", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Background color for data table headers.</p>
+              </div>
+            </div>
+
+            {/* Table Border */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-slate-700 flex justify-between">
+                Table Border Color
+                <span className="font-mono text-slate-400">{theme.border}</span>
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="color"
+                  value={theme.border}
+                  onChange={(e) => handleColorChange("border", e.target.value)}
+                  className="h-10 w-14 cursor-pointer rounded border-0 p-0"
+                />
+                <p className="text-[11px] text-slate-500 flex-1">Color for data table borders and row separators.</p>
               </div>
             </div>
 
