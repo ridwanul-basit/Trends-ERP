@@ -87,10 +87,8 @@ export const adminNavItems: AdminNavItem[] = [
     title: "Settings",
     icon: Settings,
     children: [
-      {
-        title: "General", href: "/settings"
-
-      },
+      { title: "General", href: "/settings" },
+      { title: "Theme", href: "/settings/theme" },
     ],
   },
 ];
