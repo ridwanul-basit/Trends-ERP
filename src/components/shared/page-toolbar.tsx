@@ -129,7 +129,7 @@ export function PageToolbar({
                 onChange={(e) => onPerPageChange(Number(e.target.value))}
                 className="h-8 cursor-pointer rounded-lg border border-slate-200 bg-surface px-2 text-xs outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/10"
               >
-                {[10, 20, 30, 50, 100].map((v) => (
+                {[10, 20, 30, 50, 100, 200].map((v) => (
                   <option key={v} value={v}>
                     {v}
                   </option>
