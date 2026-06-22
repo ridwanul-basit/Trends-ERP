@@ -18,6 +18,7 @@
   --theme-header: #e0f7fa; /* light cyan header */
   --theme-action-primary: #00bcd4; /* cyan button */
   --theme-action-danger: #ff5252; /* red button */
+  --theme-section-highlight: #f59e0b; /* amber-500 equivalent */
 }
 
 @theme inline {
@@ -40,6 +41,7 @@
   --color-theme-header: var(--theme-header);
   --color-theme-action-primary: var(--theme-action-primary);
   --color-theme-action-danger: var(--theme-action-danger);
+  --color-theme-section-highlight: var(--theme-section-highlight);
 }
 
 body {
