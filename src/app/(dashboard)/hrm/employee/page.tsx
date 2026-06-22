@@ -45,7 +45,7 @@ export default function EmployeeSetupPage() {
     { label: "DESIGNATION" },
     { label: "LINE MANAGER" },
     { label: "SUPERVISOR" },
-    { label: <span className="block text-center">ACTION</span> },
+    { label: <span className="block ">ACTION</span> },
   ];
 
   return (

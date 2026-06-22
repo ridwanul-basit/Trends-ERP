@@ -105,24 +105,24 @@ export function DataTable({
           <tbody>
             {isLoading
               ? Array.from({ length: skeletonRows }).map((_, rowIdx) => (
-                  <tr
-                    key={rowIdx}
-                    className="animate-pulse border-b border-slate-50 last:border-0"
-                  >
-                    {selectable && (
-                      <td className="px-3 py-4">
-                        <div className="h-3.5 w-3.5 rounded bg-slate-100" />
-                      </td>
-                    )}
-                    {Array.from({ length: colSpan }).map((_, colIdx) => (
-                      <td key={colIdx} className="px-5 py-4">
-                        <div className="h-3.5 w-full rounded-md bg-slate-100" />
-                      </td>
-                    ))}
-                  </tr>
-                ))
+                <tr
+                  key={rowIdx}
+                  className="animate-pulse border-b border-slate-50 last:border-0"
+                >
+                  {selectable && (
+                    <td className="px-3 py-4">
+                      <div className="h-3.5 w-3.5 rounded bg-slate-100" />
+                    </td>
+                  )}
+                  {Array.from({ length: colSpan }).map((_, colIdx) => (
+                    <td key={colIdx} className="px-5 py-4">
+                      <div className="h-3.5 w-full rounded-md bg-slate-100" />
+                    </td>
+                  ))}
+                </tr>
+              ))
               : isEmpty
-              ? (
+                ? (
                   <tr>
                     <td colSpan={totalColSpan} className="py-16 text-center">
                       <div className="flex flex-col items-center gap-2 text-slate-400">
@@ -133,7 +133,7 @@ export function DataTable({
                     </td>
                   </tr>
                 )
-              : children}
+                : children}
           </tbody>
         </table>
       </div>
