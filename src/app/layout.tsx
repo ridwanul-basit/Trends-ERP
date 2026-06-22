@@ -26,10 +26,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-surface" suppressHydrationWarning>
-        <StoreProvider>
-          {children}
-          <Toaster position="top-right" />
-        </StoreProvider>
+        <ThemeProvider>
+          <StoreProvider>
+            {children}
+            <Toaster position="top-right" />
+          </StoreProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
