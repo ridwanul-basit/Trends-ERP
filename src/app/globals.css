@@ -11,6 +11,13 @@
   --surface: #f9fafb;
   --brand-green: #486AB8;
   --brand-orange: #F5A623;
+  
+  /* Dynamic Theme Variables */
+  --theme-primary: #00bcd4; /* cyan match from image */
+  --theme-border: #e0f2f1; /* light border */
+  --theme-header: #e0f7fa; /* light cyan header */
+  --theme-action-primary: #00bcd4; /* cyan button */
+  --theme-action-danger: #ff5252; /* red button */
 }
 
 @theme inline {
@@ -26,6 +33,13 @@
   --color-surface: var(--surface);
   --color-brand-green: var(--brand-green);
   --color-brand-orange: var(--brand-orange);
+  
+  /* Dynamic Theme utility colors */
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-border: var(--theme-border);
+  --color-theme-header: var(--theme-header);
+  --color-theme-action-primary: var(--theme-action-primary);
+  --color-theme-action-danger: var(--theme-action-danger);
 }
 
 body {
