@@ -17,16 +17,16 @@ type ThemeColors = {
 };
 
 const defaultTheme: ThemeColors = {
-  primary: "#00bcd4",
+  primary: "#486AB8",
   border: "#e0f2f1",
   header: "#e0f7fa",
-  actionPrimary: "#00bcd4",
+  actionPrimary: "#486AB8",
   actionDanger: "#ff5252",
   sectionHighlight: "#f59e0b",
-  sidebarParentBg: "#00bcd4",
+  sidebarParentBg: "#486AB8",
   sidebarParentText: "#ffffff",
-  sidebarChildText: "#00bcd4",
-  paginationActiveBg: "#00bcd4",
+  sidebarChildText: "#486AB8",
+  paginationActiveBg: "#486AB8",
   paginationActiveText: "#ffffff",
 };
 
@@ -49,9 +49,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       try {
         const parsed = JSON.parse(savedTheme);
         const primaryToUse = parsed.primary || defaultTheme.primary;
-        
-        setTheme({ 
-          ...defaultTheme, 
+
+        setTheme({
+          ...defaultTheme,
           ...parsed,
           // Fall back to the saved primary color if these new fields aren't in local storage yet
           sidebarParentBg: parsed.sidebarParentBg || primaryToUse,
@@ -68,7 +68,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Apply CSS variables to root
   useEffect(() => {
     if (!mounted) return;
-    
+
     const root = document.documentElement;
     root.style.setProperty("--theme-primary", theme.primary);
     root.style.setProperty("--theme-border", theme.border);
@@ -81,7 +81,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.style.setProperty("--theme-sidebar-child-text", theme.sidebarChildText);
     root.style.setProperty("--theme-pagination-active-bg", theme.paginationActiveBg);
     root.style.setProperty("--theme-pagination-active-text", theme.paginationActiveText);
-    
+
     // Save to local storage
     localStorage.setItem("erp-theme-colors", JSON.stringify(theme));
   }, [theme, mounted]);
