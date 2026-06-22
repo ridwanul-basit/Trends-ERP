@@ -1,27 +1,19 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { DataTable, TableActions } from "@/components/shared";
+import { DataTable, TableActions, SectionHeader } from "@/components/shared";
 
 type SalarySectionProps = {
   title: string;
-  colorClass: string;
+  colorClass?: string;
   headers: any[];
   data: any[];
 };
 
-function SalarySection({ title, colorClass, headers, data }: SalarySectionProps) {
+function SalarySection({ title, colorClass = "bg-theme-section-highlight", headers, data }: SalarySectionProps) {
   return (
-    <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full">
-      {/* Header Area */}
-      <div className="relative flex items-center justify-between px-5 py-4 border-b border-theme-border">
-        {/* Left colored bar flush with the edge */}
-        <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${colorClass}`} />
-        <h3 className="font-semibold text-slate-700 text-sm">{title}</h3>
-        <button className="flex h-7 w-7 items-center justify-center rounded bg-theme-primary text-white transition hover:opacity-90">
-          <Plus className="h-4 w-4" />
-        </button>
-      </div>
+    <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full border border-theme-border shadow-sm">
+      <SectionHeader title={title} colorClass={colorClass} />
 
       {/* Table Area */}
       <div className="p-0 flex-1">
