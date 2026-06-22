@@ -12,7 +12,7 @@ type SalarySectionProps = {
 
 function SalarySection({ title, colorClass = "bg-theme-section-highlight", headers, data }: SalarySectionProps) {
   return (
-    <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full border border-theme-border shadow-sm">
+    <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full ">
       <SectionHeader title={title} colorClass={colorClass} />
 
       {/* Table Area */}

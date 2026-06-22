@@ -27,9 +27,9 @@ export function SectionHeader({
     <div className="relative flex items-center justify-between px-5 py-4 border-b border-theme-border bg-white">
       {/* Left colored bar flush with the edge */}
       <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${colorClass}`} />
-      
+
       <h3 className="font-semibold text-slate-700 text-sm">{title}</h3>
-      
+
       <div className="flex items-center gap-2">
         {actionElement}
         {showAdd && !actionElement && (
