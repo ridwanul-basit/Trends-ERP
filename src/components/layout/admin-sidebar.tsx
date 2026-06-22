@@ -196,39 +196,17 @@ export function AdminSidebar({
   );
 
   const logoSVG = collapsed ? (
-    <svg viewBox="0 0 50 50" className="h-9 w-9">
-      <circle cx="25" cy="25" r="22" className="fill-brand-green" />
-      <text
-        x="25"
-        y="32"
-        textAnchor="middle"
-        className="font-sans text-2xl font-extrabold fill-white"
-      >
-        T
-      </text>
-    </svg>
+    <img 
+      src="/Site_Logo-removebg-preview.png" 
+      alt="Trends ERP Logo" 
+      className="h-9 w-9 object-contain"
+    />
   ) : (
-    <div className="flex items-center gap-2">
-      <svg viewBox="0 0 40 40" className="h-9 w-9 shrink-0">
-        <circle cx="20" cy="20" r="18" className="fill-brand-green" />
-        <text
-          x="20"
-          y="26"
-          textAnchor="middle"
-          className="font-sans text-xl font-black fill-white"
-        >
-          T
-        </text>
-      </svg>
-      <div className="flex flex-col text-left">
-        <span className="font-sans text-sm font-black tracking-wider text-brand-green leading-none uppercase">
-          TRENDS
-        </span>
-        <span className="font-sans text-xs font-bold tracking-widest text-brand-orange leading-normal">
-          ERP
-        </span>
-      </div>
-    </div>
+    <img 
+      src="/Site_Logo-removebg-preview.png" 
+      alt="Trends ERP Logo" 
+      className="h-10 w-auto object-contain"
+    />
   );
 
   const sidebar = (
