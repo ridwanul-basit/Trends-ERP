@@ -129,23 +129,23 @@ type AdminRoutePermission = {
   requiredRole?: string;
 };
 
-function collectRoutePermissions(items: AdminNavItem[]): AdminRoutePermission[] {
+function collectRoutePermissions(items: AdminNavItem[], parentPermission?: string, parentRole?: string): AdminRoutePermission[] {
   return items.flatMap((item) => {
+    const currentPermission = item.permission ?? parentPermission;
+    const currentRole = item.requiredRole ?? parentRole;
+
     const currentItem = item.href
       ? [
         {
           href: item.href,
-          permission: item.permission,
-          requiredRole: item.requiredRole,
+          permission: currentPermission,
+          requiredRole: currentRole,
         },
       ]
       : [];
+      
     const children = item.children
-      ? item.children.map((child) => ({
-        href: child.href ?? "",
-        permission: child.permission ?? item.permission,
-        requiredRole: child.requiredRole ?? item.requiredRole,
-      }))
+      ? collectRoutePermissions(item.children, currentPermission, currentRole)
       : [];
 
     return [...currentItem, ...children].filter((route) => route.href);
