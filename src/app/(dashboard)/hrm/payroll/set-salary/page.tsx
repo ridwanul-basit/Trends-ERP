@@ -60,6 +60,7 @@ export default function SetSalaryPage() {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
         {/* Employee Salary */}
         <SalarySection
+          title="Employee Salary"
           headers={[{ label: "PAYSLIP TYPE" }, { label: "SALARY" }, { label: "ACCOUNT" }, { label: <span className="block text-center">ACTION</span> }]}
           data={[
             { id: "1", payslipType: "Hourly Payslip", salary: "15000", account: "ROUND BANK" },
