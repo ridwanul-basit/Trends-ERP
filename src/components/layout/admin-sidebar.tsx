@@ -105,135 +105,19 @@ export function AdminSidebar({
         )}
       >
         <div className={cn(collapsed ? "space-y-2" : "space-y-1")}>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive =
-              Boolean(item.href && pathname.startsWith(item.href)) ||
-              Boolean(
-                item.children?.some(
-                  (child) => child.href && pathname.startsWith(child.href),
-                ),
-              );
-
-            if (item.children?.length) {
-              const isOpen = openItems[item.title] ?? activeFolderTitle === item.title;
-
-              return (
-                <div key={item.title}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (collapsed) return;
-                      // Accordion behavior: close others when opening one
-                      setOpenItems({
-                        [item.title]: !isOpen,
-                      });
-                    }}
-                    title={collapsed ? item.title : undefined}
-                    className={cn(
-                      "flex items-center gap-3 rounded-[13px] text-left transition-colors cursor-pointer",
-                      isActive
-                        ? "bg-primary font-semibold text-white"
-                        : "text-foreground hover:bg-muted",
-                      collapsed
-                        ? "h-12 w-12 justify-center p-0"
-                        : "h-[47px] w-full px-2",
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        "flex h-9 w-9 shrink-0 items-center justify-center rounded-[13px] shadow-[0_6px_18px_rgba(17,33,51,0.06)] transition-all",
-                        isActive
-                          ? "bg-white text-brand-green"
-                          : "bg-surface text-brand-green",
-                      )}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    {!collapsed && (
-                      <>
-                        <span className="flex-1 truncate">{item.title}</span>
-                        <ChevronRight
-                          className={cn(
-                            "h-3.5 w-3.5 transition-transform",
-                            isOpen && "rotate-90",
-                          )}
-                        />
-                      </>
-                    )}
-                  </button>
-
-                  {!collapsed && isOpen && (
-                    <div className="ml-7 mt-1 space-y-1 pl-3 border-l border-slate-100">
-                      {item.children.map((child) => {
-                        const childHasNestedSibling = Boolean(
-                          child.href &&
-                          item.children?.some(
-                            (sibling) =>
-                              sibling.href !== child.href &&
-                              child.href &&
-                              sibling.href?.startsWith(`${child.href}/`),
-                          ),
-                        );
-
-                        const childActive = Boolean(
-                          child.href &&
-                          (pathname === child.href ||
-                            (!childHasNestedSibling && pathname.startsWith(`${child.href}/`))),
-                        );
-
-                        return (
-                          <Link
-                            key={child.title}
-                            href={child.href ?? "#"}
-                            onClick={onCloseMobile}
-                            className={cn(
-                              "flex h-[41px] items-center rounded-[13px] px-4 transition-colors",
-                              childActive
-                                ? "bg-primary font-semibold text-white"
-                                : "text-foreground hover:bg-muted",
-                            )}
-                          >
-                            {child.title}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            }
-
-            return (
-              <Link
-                key={item.title}
-                href={item.href ?? "#"}
-                title={collapsed ? item.title : undefined}
-                onClick={onCloseMobile}
-                className={cn(
-                  "flex items-center gap-3 rounded-[13px] transition-colors",
-                  isActive
-                    ? "bg-primary font-semibold text-white"
-                    : "text-foreground hover:bg-muted",
-                  collapsed
-                    ? "h-12 w-12 justify-center p-0"
-                    : "h-[47px] w-full px-2",
-                )}
-              >
-                <span
-                  className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-[13px] shadow-[0_6px_18px_rgba(17,33,51,0.06)] transition-all",
-                    isActive
-                      ? "bg-white text-brand-green"
-                      : "bg-surface text-brand-green",
-                  )}
-                >
-                  <Icon className="h-5 w-5" />
-                </span>
-                {!collapsed && <span className="flex-1 truncate">{item.title}</span>}
-              </Link>
-            );
-          })}
+          {navItems.map((item) => (
+            <SidebarItem
+              key={item.title}
+              item={item}
+              level={0}
+              pathname={pathname}
+              collapsed={collapsed}
+              onCloseMobile={onCloseMobile}
+              openItems={openItems}
+              setOpenItems={setOpenItems}
+              activeFolderTitle={activeFolderTitle}
+            />
+          ))}
         </div>
       </nav>
 
