@@ -139,9 +139,9 @@ function SidebarItem({
       className={cn(
         "flex items-center gap-3 rounded-[13px] transition-colors",
         isParentActive
-          ? "bg-primary font-semibold text-white"
+          ? "bg-theme-sidebar-parent-bg font-semibold text-theme-sidebar-parent-text"
           : isChildActive
-          ? "text-theme-primary font-semibold"
+          ? "text-theme-sidebar-child-text font-semibold"
           : "text-foreground hover:bg-muted",
         collapsed && level === 0
           ? "h-12 w-12 justify-center p-0"
