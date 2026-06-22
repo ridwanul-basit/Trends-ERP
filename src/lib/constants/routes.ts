@@ -27,9 +27,31 @@ export const adminNavItems: AdminNavItem[] = [
     icon: Gauge,
   },
   {
-    title: "HR",
-    href: "/hr",
+    title: "HRM system",
     icon: Users,
+    children: [
+      { title: "Employee Setup", href: "/hrm/employee" },
+      {
+        title: "Payroll Setup",
+        href: "/hrm/payroll",
+        // Note: AdminNavItem currently only supports 1 level of children in types.
+        // For a multi-level sidebar, we can just link to /hrm/payroll which has Set Salary and Payslip
+        // Or we can add them flat for now as requested.
+        // I will add Set Salary directly so it matches the image.
+      },
+      { title: "Set Salary", href: "/hrm/payroll/set-salary" },
+      { title: "Leave Management", href: "/hrm/leave" },
+      { title: "Performance Setup", href: "/hrm/performance" },
+      { title: "Training Setup", href: "/hrm/training" },
+      { title: "Recruitment Setup", href: "/hrm/recruitment" },
+      { title: "HR Admin Setup", href: "/hrm/admin" },
+      { title: "Event Setup", href: "/hrm/event" },
+      { title: "Meeting", href: "/hrm/meeting" },
+      { title: "Employee Asset Setup", href: "/hrm/assets" },
+      { title: "Document Setup", href: "/hrm/document" },
+      { title: "Company Policy", href: "/hrm/policy" },
+      { title: "HRM System Setup", href: "/hrm/system" },
+    ]
   },
   {
     title: "Finance",
