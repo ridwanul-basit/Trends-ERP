@@ -8,6 +8,7 @@ type ThemeColors = {
   header: string;
   actionPrimary: string;
   actionDanger: string;
+  sectionHighlight: string;
 };
 
 const defaultTheme: ThemeColors = {
@@ -16,6 +17,7 @@ const defaultTheme: ThemeColors = {
   header: "#e0f7fa",
   actionPrimary: "#00bcd4",
   actionDanger: "#ff5252",
+  sectionHighlight: "#f59e0b",
 };
 
 type ThemeContextType = {
@@ -53,6 +55,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.style.setProperty("--theme-header", theme.header);
     root.style.setProperty("--theme-action-primary", theme.actionPrimary);
     root.style.setProperty("--theme-action-danger", theme.actionDanger);
+    root.style.setProperty("--theme-section-highlight", theme.sectionHighlight);
     
     // Save to local storage
     localStorage.setItem("erp-theme-colors", JSON.stringify(theme));
