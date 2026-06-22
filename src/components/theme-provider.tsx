@@ -66,11 +66,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme(defaultTheme);
   };
 
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
   return (
     <ThemeContext.Provider value={{ theme, updateTheme, resetTheme }}>
       {children}
