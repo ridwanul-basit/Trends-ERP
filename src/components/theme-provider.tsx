@@ -47,7 +47,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem("erp-theme-colors");
     if (savedTheme) {
       try {
-        setTheme({ ...defaultTheme, ...JSON.parse(savedTheme) });
+        const parsed = JSON.parse(savedTheme);
+        const primaryToUse = parsed.primary || defaultTheme.primary;
+        
+        setTheme({ 
+          ...defaultTheme, 
+          ...parsed,
+          // Fall back to the saved primary color if these new fields aren't in local storage yet
+          sidebarParentBg: parsed.sidebarParentBg || primaryToUse,
+          sidebarChildText: parsed.sidebarChildText || primaryToUse,
+          paginationActiveBg: parsed.paginationActiveBg || primaryToUse,
+        });
       } catch (e) {
         console.error("Failed to parse theme from local storage");
       }

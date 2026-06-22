@@ -40,7 +40,7 @@ export default function ThemeSettingsPage() {
 
         <div className="p-6 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
+
             {/* Primary Color */}
             <div className="space-y-2">
               <label className="text-xs font-semibold text-slate-700 flex justify-between">
@@ -142,7 +142,7 @@ export default function ThemeSettingsPage() {
                 <p className="text-[11px] text-slate-500 flex-1">Color for the vertical highlight bar on section headers.</p>
               </div>
             </div>
-            
+
             {/* Sidebar Parent BG */}
             <div className="space-y-2">
               <label className="text-xs font-semibold text-slate-700 flex justify-between">
@@ -234,7 +234,7 @@ export default function ThemeSettingsPage() {
         {/* Live Preview */}
         <div className="border-t border-slate-100 p-6 bg-slate-50/30">
           <h4 className="text-xs font-bold text-slate-800 mb-4 uppercase tracking-wider">Live Preview</h4>
-          
+
           <div className="rounded-lg overflow-hidden border border-theme-border">
             <div className="bg-theme-header px-4 py-3 border-b border-theme-border flex justify-between items-center">
               <span className="text-xs font-bold text-slate-700">Sample Table Header</span>
