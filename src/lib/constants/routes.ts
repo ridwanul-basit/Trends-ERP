@@ -27,7 +27,7 @@ export const adminNavItems: AdminNavItem[] = [
     icon: Gauge,
   },
   {
-    title: "HRM system",
+    title: "HRMm",
     icon: Users,
     children: [
       { title: "Employee Setup", href: "/hrm/employee" },
@@ -139,7 +139,7 @@ function collectRoutePermissions(items: AdminNavItem[], parentPermission?: strin
         },
       ]
       : [];
-      
+
     const children = item.children
       ? collectRoutePermissions(item.children, currentPermission, currentRole)
       : [];
