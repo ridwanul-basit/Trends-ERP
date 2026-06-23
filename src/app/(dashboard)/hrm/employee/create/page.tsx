@@ -53,7 +53,7 @@ export default function CreateEmployeePage() {
         ]}
       />
 
-      <div className="flex-1 overflow-y-auto p-6 sidebar-scrollbar-hidden">
+      <div className="flex-1 overflow-y-auto p-4 sidebar-scrollbar-hidden">
         <form onSubmit={handleSubmit} className="w-full space-y-6">
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
 
