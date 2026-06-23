@@ -8,7 +8,14 @@ import {
   Printer,
   RefreshCw,
   Search,
+  ChevronRight,
 } from "lucide-react";
+import Link from "next/link";
+
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
 
 type PageToolbarProps = {
   /** Page heading */
@@ -45,6 +52,8 @@ type PageToolbarProps = {
   showUtilities?: boolean;
   /** Disable the action button */
   actionDisabled?: boolean;
+  /** Breadcrumb navigation items */
+  breadcrumbs?: BreadcrumbItem[];
 };
 
 export function PageToolbar({
@@ -66,6 +75,7 @@ export function PageToolbar({
   showSearch = true,
   showUtilities = true,
   actionDisabled = false,
+  breadcrumbs,
 }: PageToolbarProps) {
   const ActionIcon = actionLabel?.toLowerCase() === "back" ? ArrowLeft : Plus;
 
