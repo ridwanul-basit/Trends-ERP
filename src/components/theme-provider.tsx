@@ -14,7 +14,7 @@ type ThemeColors = {
   sidebarChildText: string;
   paginationActiveBg: string;
   paginationActiveText: string;
-  layoutPosition: "vertical" | "horizontal";
+  layoutPosition: "left" | "right" | "top" | "bottom";
 };
 
 const defaultTheme: ThemeColors = {
@@ -29,7 +29,7 @@ const defaultTheme: ThemeColors = {
   sidebarChildText: "#486AB8",
   paginationActiveBg: "#486AB8",
   paginationActiveText: "#ffffff",
-  layoutPosition: "vertical",
+  layoutPosition: "left",
 };
 
 type ThemeContextType = {
@@ -52,9 +52,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         const parsed = JSON.parse(savedTheme);
         const primaryToUse = parsed.primary || defaultTheme.primary;
 
+        let parsedLayoutPosition = parsed.layoutPosition;
+        if (parsedLayoutPosition === "vertical") parsedLayoutPosition = "left";
+        if (parsedLayoutPosition === "horizontal") parsedLayoutPosition = "top";
+
         setTheme({
           ...defaultTheme,
           ...parsed,
+          layoutPosition: parsedLayoutPosition || defaultTheme.layoutPosition,
           // Fall back to the saved primary color if these new fields aren't in local storage yet
           sidebarParentBg: parsed.sidebarParentBg || primaryToUse,
           sidebarChildText: parsed.sidebarChildText || primaryToUse,
