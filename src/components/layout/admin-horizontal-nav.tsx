@@ -123,7 +123,7 @@ export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
 
   return (
     <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 overflow-x-auto sidebar-scrollbar-hidden sticky", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
-      <div className="flex h-full items-center gap-1 min-w-max">
+      <div className="flex h-full items-center gap-1 min-w-max mx-auto">
         {allowedNavItems.map((item) => (
           <HorizontalNavItem
             key={item.title}
