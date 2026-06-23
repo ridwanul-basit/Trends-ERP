@@ -13,7 +13,7 @@ export default function CreateEmployeePage() {
     email: "",
     address: "",
     password: "",
-    employeeId: "#EMP0000021",
+    employeeId: "EMP0000021",
     branch: "",
     department: "",
     designation: "",
@@ -148,7 +148,7 @@ export default function CreateEmployeePage() {
           <div className="pb-6">
             <FormActions
               onCancel={() => toast("Cancelled")}
-              onSubmit={() => {}}
+              onSubmit={() => { }}
             />
           </div>
         </form>
