@@ -54,8 +54,7 @@ export default function CreateEmployeePage() {
 
             {/* ── Personal Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
-              <div className="relative border-b border-slate-100 py-3.5 px-5">
-                <FormSectionHeader title="Personal Detail" />
+              <FormSectionHeader title="Personal Detail" />
               </div>
               <div className="p-5 space-y-4">
                 <FormField
@@ -121,8 +120,7 @@ export default function CreateEmployeePage() {
 
             {/* ── Company Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
-              <div className="relative border-b border-slate-100 py-3.5 px-5">
-                <FormSectionHeader title="Company Detail" />
+              <FormSectionHeader title="Company Detail" />
               </div>
               <div className="p-5 space-y-4">
                 <FormField
@@ -181,8 +179,7 @@ export default function CreateEmployeePage() {
 
             {/* ── Bank Account Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
-              <div className="relative border-b border-slate-100 py-3.5 px-5">
-                <FormSectionHeader title="Bank Account Detail" />
+              <FormSectionHeader title="Bank Account Detail" />
               </div>
               <div className="p-5">
                 <div className="grid grid-cols-2 gap-4">
@@ -228,8 +225,7 @@ export default function CreateEmployeePage() {
 
             {/* ── Document ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
-              <div className="relative border-b border-slate-100 py-3.5 px-5">
-                <FormSectionHeader title="Document" />
+              <FormSectionHeader title="Document" />
               </div>
               <div className="p-5 space-y-5">
                 <div className="flex gap-4 items-start">
