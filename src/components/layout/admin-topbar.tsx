@@ -97,16 +97,18 @@ export function AdminTopbar({ onToggleSidebar, hideSidebarToggle }: AdminTopbarP
   return (
     <header className="bg-white px-4 py-3 shadow-[0_4px_18px_rgba(39,59,82,0.04)] border-b border-slate-100">
       <div className="flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={onToggleSidebar}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] text-slate-500 hover:bg-muted cursor-pointer"
-          aria-label="Toggle sidebar"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+        {!hideSidebarToggle && (
+          <button
+            type="button"
+            onClick={onToggleSidebar}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] text-slate-500 hover:bg-muted cursor-pointer"
+            aria-label="Toggle sidebar"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        )}
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+        <div className={cn("flex items-center gap-2 sm:gap-3", hideSidebarToggle ? "ml-0 flex-1 justify-end" : "ml-auto")}>
           {/* Quick Search */}
           <div className="relative" ref={searchRef}>
             <button
