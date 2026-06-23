@@ -55,7 +55,7 @@ export default function EmployeeSetupPage() {
         breadcrumbs={[
           { label: "Dashboard", href: "/dashboard" },
           { label: "HRM" },
-          { label: "Employee Setup" },
+          { label: "Employee Setup", href: "/hrm/employee" },
         ]}
         actionLabel="New Employee"
         onAction={() => { window.location.href = "/hrm/employee/create"; }}
