@@ -22,7 +22,7 @@ export function FormActions({
       <button
         type="button"
         onClick={onCancel}
-        className="rounded-md bg-theme-section-highlight px-6 py-2 text-xs font-bold text-white transition hover:opacity-90 active:scale-95"
+        className="rounded-md bg-theme-section-highlight px-6 py-2 text-xs font-bold cursor-pointer text-white transition hover:opacity-90 active:scale-95"
       >
         {cancelText}
       </button>
