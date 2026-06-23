@@ -54,7 +54,7 @@ export default function CreateEmployeePage() {
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
 
             {/* ── Personal Detail ── */}
-            <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
+            <div className="rounded-2xl border border-theme-border bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Personal Detail" />
               <div className="p-5 space-y-4">
                 <FormField
@@ -80,7 +80,7 @@ export default function CreateEmployeePage() {
             </div>
 
             {/* ── Company Detail ── */}
-            <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
+            <div className="rounded-2xl border border-theme-border bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Company Detail" />
               <div className="p-5 space-y-4">
                 <FormField label="Employee ID" required value={formData.employeeId} onChange={(v) => handleChange("employeeId", v)} />
@@ -106,7 +106,7 @@ export default function CreateEmployeePage() {
             </div>
 
             {/* ── Bank Account Detail ── */}
-            <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
+            <div className="rounded-2xl border border-theme-border bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Bank Account Detail" />
               <div className="p-5">
                 <div className="grid grid-cols-2 gap-4">
@@ -121,7 +121,7 @@ export default function CreateEmployeePage() {
             </div>
 
             {/* ── Document ── */}
-            <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
+            <div className="rounded-2xl border border-theme-border bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Document" />
               <div className="p-5 space-y-5">
                 <div className="flex gap-4 items-start">
