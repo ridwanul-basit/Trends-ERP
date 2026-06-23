@@ -29,7 +29,7 @@ export default function ThemeSettingsPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageToolbar
         title="Theme Customization"
         description="Personalize the visual appearance of your ERP."
@@ -53,7 +53,7 @@ export default function ThemeSettingsPage() {
           </div>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {/* Primary Color */}
