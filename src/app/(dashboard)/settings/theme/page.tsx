@@ -54,28 +54,50 @@ export default function ThemeSettingsPage() {
           </div>
         </div>
         <div className="p-6">
-          <div className="flex gap-6">
-            <label className="flex items-center gap-3 cursor-pointer">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
               <input
                 type="radio"
                 name="layoutPosition"
-                value="vertical"
-                checked={theme.layoutPosition === "vertical"}
-                onChange={() => updateTheme({ layoutPosition: "vertical" })}
+                value="left"
+                checked={theme.layoutPosition === "left"}
+                onChange={() => updateTheme({ layoutPosition: "left" })}
                 className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
               />
-              <span className="text-sm font-medium text-slate-700">Left Sidebar (Vertical)</span>
+              <span className="text-sm font-medium text-slate-700">Left Sidebar</span>
             </label>
-            <label className="flex items-center gap-3 cursor-pointer">
+            <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
               <input
                 type="radio"
                 name="layoutPosition"
-                value="horizontal"
-                checked={theme.layoutPosition === "horizontal"}
-                onChange={() => updateTheme({ layoutPosition: "horizontal" })}
+                value="right"
+                checked={theme.layoutPosition === "right"}
+                onChange={() => updateTheme({ layoutPosition: "right" })}
                 className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
               />
-              <span className="text-sm font-medium text-slate-700">Top Navigation (Horizontal)</span>
+              <span className="text-sm font-medium text-slate-700">Right Sidebar</span>
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+              <input
+                type="radio"
+                name="layoutPosition"
+                value="top"
+                checked={theme.layoutPosition === "top"}
+                onChange={() => updateTheme({ layoutPosition: "top" })}
+                className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+              />
+              <span className="text-sm font-medium text-slate-700">Top Navigation</span>
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+              <input
+                type="radio"
+                name="layoutPosition"
+                value="bottom"
+                checked={theme.layoutPosition === "bottom"}
+                onChange={() => updateTheme({ layoutPosition: "bottom" })}
+                className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+              />
+              <span className="text-sm font-medium text-slate-700">Bottom Navigation</span>
             </label>
           </div>
         </div>
