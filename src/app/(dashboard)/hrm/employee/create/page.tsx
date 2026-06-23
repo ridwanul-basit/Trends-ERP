@@ -46,16 +46,16 @@ export default function CreateEmployeePage() {
           { label: "Employee", href: "/hrm/employee" },
           { label: "Create Employee" },
         ]}
+        hideControls
       />
 
       <div className="flex-1 overflow-y-auto py-4 sidebar-scrollbar-hidden">
-        <form onSubmit={handleSubmit} className="w-full space-y-6">
+        <form onSubmit={handleSubmit} className="w-full space-y-4">
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
 
             {/* ── Personal Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Personal Detail" />
-              </div>
               <div className="p-5 space-y-4">
                 <FormField
                   label="Gender"
@@ -69,51 +69,12 @@ export default function CreateEmployeePage() {
                   onChange={(v) => handleChange("gender", v)}
                 />
                 <div className="grid grid-cols-2 gap-4">
-                  <FormField
-                    label="Name"
-                    required
-                    placeholder="Enter employee name"
-                    value={formData.name}
-                    onChange={(v) => handleChange("name", v)}
-                  />
-                  <FormField
-                    label="Phone"
-                    required
-                    placeholder="Enter Employee Phone"
-                    helperText="Please use with country code. (ex. +91)"
-                    value={formData.phone}
-                    onChange={(v) => handleChange("phone", v)}
-                  />
-                  <FormField
-                    label="Date of Birth"
-                    type="date"
-                    required
-                    value={formData.dob}
-                    onChange={(v) => handleChange("dob", v)}
-                  />
-                  <FormField
-                    label="Email"
-                    type="email"
-                    required
-                    placeholder="Enter employee email"
-                    value={formData.email}
-                    onChange={(v) => handleChange("email", v)}
-                  />
-                  <FormField
-                    label="Address"
-                    required
-                    placeholder="Enter employee address"
-                    value={formData.address}
-                    onChange={(v) => handleChange("address", v)}
-                  />
-                  <FormField
-                    label="Password"
-                    type="password"
-                    required
-                    placeholder="Enter employee new password"
-                    value={formData.password}
-                    onChange={(v) => handleChange("password", v)}
-                  />
+                  <FormField label="Name" required placeholder="Enter employee name" value={formData.name} onChange={(v) => handleChange("name", v)} />
+                  <FormField label="Phone" required placeholder="Enter Employee Phone" helperText="Please use with country code. (ex. +91)" value={formData.phone} onChange={(v) => handleChange("phone", v)} />
+                  <FormField label="Date of Birth" type="date" required value={formData.dob} onChange={(v) => handleChange("dob", v)} />
+                  <FormField label="Email" type="email" required placeholder="Enter employee email" value={formData.email} onChange={(v) => handleChange("email", v)} />
+                  <FormField label="Address" required placeholder="Enter employee address" value={formData.address} onChange={(v) => handleChange("address", v)} />
+                  <FormField label="Password" type="password" required placeholder="Enter employee new password" value={formData.password} onChange={(v) => handleChange("password", v)} />
                 </div>
               </div>
             </div>
@@ -121,58 +82,25 @@ export default function CreateEmployeePage() {
             {/* ── Company Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Company Detail" />
-              </div>
               <div className="p-5 space-y-4">
-                <FormField
-                  label="Employee ID"
-                  required
-                  value={formData.employeeId}
-                  onChange={(v) => handleChange("employeeId", v)}
-                />
+                <FormField label="Employee ID" required value={formData.employeeId} onChange={(v) => handleChange("employeeId", v)} />
                 <div className="grid grid-cols-2 gap-4">
                   <FormField
-                    label="Select Branch"
-                    type="select"
-                    required
-                    placeholder="Select Branch"
-                    options={[
-                      { label: "Head Office", value: "head_office" },
-                      { label: "Branch 1", value: "branch_1" },
-                    ]}
-                    value={formData.branch}
-                    onChange={(v) => handleChange("branch", v)}
+                    label="Select Branch" type="select" required placeholder="Select Branch"
+                    options={[{ label: "Head Office", value: "head_office" }, { label: "Branch 1", value: "branch_1" }]}
+                    value={formData.branch} onChange={(v) => handleChange("branch", v)}
                   />
                   <FormField
-                    label="Select Department"
-                    type="select"
-                    required
-                    placeholder="Select Department"
-                    options={[
-                      { label: "HR", value: "hr" },
-                      { label: "IT", value: "it" },
-                    ]}
-                    value={formData.department}
-                    onChange={(v) => handleChange("department", v)}
+                    label="Select Department" type="select" required placeholder="Select Department"
+                    options={[{ label: "HR", value: "hr" }, { label: "IT", value: "it" }]}
+                    value={formData.department} onChange={(v) => handleChange("department", v)}
                   />
                   <FormField
-                    label="Select Designation"
-                    type="select"
-                    required
-                    placeholder="Select any Designation"
-                    options={[
-                      { label: "Manager", value: "manager" },
-                      { label: "Developer", value: "developer" },
-                    ]}
-                    value={formData.designation}
-                    onChange={(v) => handleChange("designation", v)}
+                    label="Select Designation" type="select" required placeholder="Select any Designation"
+                    options={[{ label: "Manager", value: "manager" }, { label: "Developer", value: "developer" }]}
+                    value={formData.designation} onChange={(v) => handleChange("designation", v)}
                   />
-                  <FormField
-                    label="Company Date Of Joining"
-                    type="date"
-                    required
-                    value={formData.joiningDate}
-                    onChange={(v) => handleChange("joiningDate", v)}
-                  />
+                  <FormField label="Company Date Of Joining" type="date" required value={formData.joiningDate} onChange={(v) => handleChange("joiningDate", v)} />
                 </div>
               </div>
             </div>
@@ -180,45 +108,14 @@ export default function CreateEmployeePage() {
             {/* ── Bank Account Detail ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Bank Account Detail" />
-              </div>
               <div className="p-5">
                 <div className="grid grid-cols-2 gap-4">
-                  <FormField
-                    label="Account Holder Name"
-                    placeholder="Enter account holder name"
-                    value={formData.accountHolderName}
-                    onChange={(v) => handleChange("accountHolderName", v)}
-                  />
-                  <FormField
-                    label="Account Number"
-                    placeholder="Enter account number"
-                    value={formData.accountNumber}
-                    onChange={(v) => handleChange("accountNumber", v)}
-                  />
-                  <FormField
-                    label="Bank Name"
-                    placeholder="Enter bank name"
-                    value={formData.bankName}
-                    onChange={(v) => handleChange("bankName", v)}
-                  />
-                  <FormField
-                    label="Bank Identifier Code"
-                    placeholder="Enter bank identifier code"
-                    value={formData.bankIdentifierCode}
-                    onChange={(v) => handleChange("bankIdentifierCode", v)}
-                  />
-                  <FormField
-                    label="Branch Location"
-                    placeholder="Enter branch location"
-                    value={formData.branchLocation}
-                    onChange={(v) => handleChange("branchLocation", v)}
-                  />
-                  <FormField
-                    label="Tax Payer Id"
-                    placeholder="Enter tax payer id"
-                    value={formData.taxPayerId}
-                    onChange={(v) => handleChange("taxPayerId", v)}
-                  />
+                  <FormField label="Account Holder Name" placeholder="Enter account holder name" value={formData.accountHolderName} onChange={(v) => handleChange("accountHolderName", v)} />
+                  <FormField label="Account Number" placeholder="Enter account number" value={formData.accountNumber} onChange={(v) => handleChange("accountNumber", v)} />
+                  <FormField label="Bank Name" placeholder="Enter bank name" value={formData.bankName} onChange={(v) => handleChange("bankName", v)} />
+                  <FormField label="Bank Identifier Code" placeholder="Enter bank identifier code" value={formData.bankIdentifierCode} onChange={(v) => handleChange("bankIdentifierCode", v)} />
+                  <FormField label="Branch Location" placeholder="Enter branch location" value={formData.branchLocation} onChange={(v) => handleChange("branchLocation", v)} />
+                  <FormField label="Tax Payer Id" placeholder="Enter tax payer id" value={formData.taxPayerId} onChange={(v) => handleChange("taxPayerId", v)} />
                 </div>
               </div>
             </div>
@@ -226,44 +123,21 @@ export default function CreateEmployeePage() {
             {/* ── Document ── */}
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
               <FormSectionHeader title="Document" />
-              </div>
               <div className="p-5 space-y-5">
                 <div className="flex gap-4 items-start">
                   <div className="flex-1">
-                    <FormField
-                      label="Certificate"
-                      type="file"
-                      required
-                      placeholder="No file chosen"
-                      value={formData.certificate}
-                      onChange={(v) => handleChange("certificate", v)}
-                    />
+                    <FormField label="Certificate" type="file" required placeholder="No file chosen" value={formData.certificate} onChange={(v) => handleChange("certificate", v)} />
                   </div>
                   <div className="w-20 h-20 bg-slate-100 border border-slate-200 rounded overflow-hidden shrink-0 mt-5">
-                    <img
-                      src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=200&auto=format&fit=crop"
-                      alt="Certificate Preview"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=200&auto=format&fit=crop" alt="Certificate Preview" className="w-full h-full object-cover" />
                   </div>
                 </div>
-
                 <div className="flex gap-4 items-start">
                   <div className="flex-1">
-                    <FormField
-                      label="Photo"
-                      type="file"
-                      placeholder="No file chosen"
-                      value={formData.photo}
-                      onChange={(v) => handleChange("photo", v)}
-                    />
+                    <FormField label="Photo" type="file" placeholder="No file chosen" value={formData.photo} onChange={(v) => handleChange("photo", v)} />
                   </div>
                   <div className="w-20 h-20 bg-slate-100 border border-slate-200 rounded overflow-hidden shrink-0 mt-5">
-                    <img
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"
-                      alt="Photo Preview"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" alt="Photo Preview" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
@@ -271,10 +145,10 @@ export default function CreateEmployeePage() {
 
           </div>
 
-          <div className="pt-2 pb-6">
+          <div className="pb-6">
             <FormActions
               onCancel={() => toast("Cancelled")}
-              onSubmit={() => { }}
+              onSubmit={() => {}}
             />
           </div>
         </form>
