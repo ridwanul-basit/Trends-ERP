@@ -112,7 +112,7 @@ function HorizontalNavItem({
   );
 }
 
-export function AdminHorizontalNav() {
+export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
   const pathname = usePathname();
   const currentRole = useAppSelector((state) => state.auth.user?.role) || "ADMIN";
   const currentPermission = useAppSelector((state) => state.auth.user?.permissions) || [];
@@ -122,7 +122,7 @@ export function AdminHorizontalNav() {
   }, [currentPermission, currentRole]);
 
   return (
-    <div className="h-12 w-full bg-white border-b border-slate-200 flex items-center px-4 shadow-sm z-20 sticky top-[60px] overflow-x-auto sidebar-scrollbar-hidden">
+    <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 overflow-x-auto sidebar-scrollbar-hidden sticky", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
       <div className="flex h-full items-center gap-1 min-w-max">
         {allowedNavItems.map((item) => (
           <HorizontalNavItem
@@ -130,6 +130,7 @@ export function AdminHorizontalNav() {
             item={item}
             level={0}
             pathname={pathname}
+            isBottom={isBottom}
           />
         ))}
       </div>
