@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { DataTable, TableActions, SectionHeader } from "@/components/shared";
+import { DataTable, TableActions, SectionHeader, PageToolbar } from "@/components/shared";
 
 type SalarySectionProps = {
   title: string;
@@ -52,10 +52,16 @@ export default function SetSalaryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="mb-4">
-        <h1 className="text-xl font-medium text-slate-800">Employee Set Salary</h1>
-        <p className="text-xs text-theme-primary mt-1">Dashboard &gt; Employee &gt; Employee Set Salary</p>
-      </div>
+      <PageToolbar
+        title="Set Salary"
+        breadcrumbs={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "HRM" },
+          { label: "Payroll Setup" },
+          { label: "Set Salary" },
+        ]}
+        hideControls
+      />
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
         {/* Employee Salary */}
