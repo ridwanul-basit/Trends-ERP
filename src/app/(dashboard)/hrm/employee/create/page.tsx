@@ -42,7 +42,6 @@ export default function CreateEmployeePage() {
       <PageToolbar
         title="Create Employee"
         breadcrumbs={[
-          { label: "Dashboard", href: "/dashboard" },
           { label: "Employee", href: "/hrm/employee" },
           { label: "Create Employee" },
         ]}
