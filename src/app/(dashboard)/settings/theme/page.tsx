@@ -42,69 +42,10 @@ export default function ThemeSettingsPage() {
         onAction={handleReset}
       />
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-        {/* Layout Configuration */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden self-start max-w-2xl">
-          <div className="border-b border-slate-100 bg-slate-50/50 p-5 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-theme-primary/10 text-theme-primary">
-              <LayoutTemplate className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-800">Layout Configuration</h3>
-              <p className="text-xs text-slate-500">Choose the placement of the main navigation.</p>
-            </div>
-          </div>
-          <div className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
-                <input
-                  type="radio"
-                  name="layoutPosition"
-                  value="left"
-                  checked={theme.layoutPosition === "left"}
-                  onChange={() => updateTheme({ layoutPosition: "left" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
-                />
-                <span className="text-sm font-medium text-slate-700">Left Sidebar</span>
-              </label>
-              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
-                <input
-                  type="radio"
-                  name="layoutPosition"
-                  value="right"
-                  checked={theme.layoutPosition === "right"}
-                  onChange={() => updateTheme({ layoutPosition: "right" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
-                />
-                <span className="text-sm font-medium text-slate-700">Right Sidebar</span>
-              </label>
-              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
-                <input
-                  type="radio"
-                  name="layoutPosition"
-                  value="top"
-                  checked={theme.layoutPosition === "top"}
-                  onChange={() => updateTheme({ layoutPosition: "top" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
-                />
-                <span className="text-sm font-medium text-slate-700">Top Navigation</span>
-              </label>
-              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
-                <input
-                  type="radio"
-                  name="layoutPosition"
-                  value="bottom"
-                  checked={theme.layoutPosition === "bottom"}
-                  onChange={() => updateTheme({ layoutPosition: "bottom" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
-                />
-                <span className="text-sm font-medium text-slate-700">Bottom Navigation</span>
-              </label>
-            </div>
-          </div>
-        </div>
+
 
         {/* Color Palette */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden max-w-2xl">
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden w-full">
           <div className="border-b border-slate-100 bg-slate-50/50 p-5 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-theme-primary/10 text-theme-primary">
               <Paintbrush className="h-5 w-5" />
@@ -365,6 +306,67 @@ export default function ThemeSettingsPage() {
             </div>
           </div>
 
+        </div>
+
+        {/* Layout Configuration */}
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden self-start w-full">
+          <div className="border-b border-slate-100 bg-slate-50/50 p-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-theme-primary/10 text-theme-primary">
+              <LayoutTemplate className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-slate-800">Layout Configuration</h3>
+              <p className="text-xs text-slate-500">Choose the placement of the main navigation.</p>
+            </div>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+                <input
+                  type="radio"
+                  name="layoutPosition"
+                  value="left"
+                  checked={theme.layoutPosition === "left"}
+                  onChange={() => updateTheme({ layoutPosition: "left" })}
+                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                />
+                <span className="text-sm font-medium text-slate-700">Left Sidebar</span>
+              </label>
+              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+                <input
+                  type="radio"
+                  name="layoutPosition"
+                  value="right"
+                  checked={theme.layoutPosition === "right"}
+                  onChange={() => updateTheme({ layoutPosition: "right" })}
+                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                />
+                <span className="text-sm font-medium text-slate-700">Right Sidebar</span>
+              </label>
+              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+                <input
+                  type="radio"
+                  name="layoutPosition"
+                  value="top"
+                  checked={theme.layoutPosition === "top"}
+                  onChange={() => updateTheme({ layoutPosition: "top" })}
+                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                />
+                <span className="text-sm font-medium text-slate-700">Top Navigation</span>
+              </label>
+              <label className="flex items-center gap-3 cursor-pointer p-3 border border-slate-100 rounded-lg hover:bg-slate-50 transition-colors">
+                <input
+                  type="radio"
+                  name="layoutPosition"
+                  value="bottom"
+                  checked={theme.layoutPosition === "bottom"}
+                  onChange={() => updateTheme({ layoutPosition: "bottom" })}
+                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                />
+                <span className="text-sm font-medium text-slate-700">Bottom Navigation</span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
