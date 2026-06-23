@@ -53,7 +53,6 @@ export default function EmployeeSetupPage() {
       <PageToolbar
         title="Employee Setup"
         breadcrumbs={[
-          { label: "Dashboard", href: "/dashboard" },
           { label: "HRM" },
           { label: "Employee Setup", href: "/hrm/employee" },
         ]}
