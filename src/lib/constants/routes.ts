@@ -27,7 +27,7 @@ export const adminNavItems: AdminNavItem[] = [
     icon: Gauge,
   },
   {
-    title: "HRMm",
+    title: "HRM",
     icon: Users,
     children: [
       { title: "Employee Setup", href: "/hrm/employee" },
