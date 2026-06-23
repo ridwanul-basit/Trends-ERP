@@ -12,8 +12,10 @@ type ThemeColors = {
   sidebarParentBg: string;
   sidebarParentText: string;
   sidebarChildText: string;
+  sidebarChildText: string;
   paginationActiveBg: string;
   paginationActiveText: string;
+  layoutPosition: "vertical" | "horizontal";
 };
 
 const defaultTheme: ThemeColors = {
@@ -28,6 +30,7 @@ const defaultTheme: ThemeColors = {
   sidebarChildText: "#486AB8",
   paginationActiveBg: "#486AB8",
   paginationActiveText: "#ffffff",
+  layoutPosition: "vertical",
 };
 
 type ThemeContextType = {
