@@ -2,7 +2,7 @@
 
 import { useTheme } from "@/components/theme-provider";
 import { PageToolbar } from "@/components/shared";
-import { Paintbrush, RotateCcw } from "lucide-react";
+import { Paintbrush, RotateCcw, LayoutTemplate } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function ThemeSettingsPage() {
@@ -42,6 +42,46 @@ export default function ThemeSettingsPage() {
         onAction={handleReset}
       />
 
+      {/* Layout Configuration */}
+      <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden max-w-2xl">
+        <div className="border-b border-slate-100 bg-slate-50/50 p-5 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-theme-primary/10 text-theme-primary">
+            <LayoutTemplate className="h-5 w-5" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-slate-800">Layout Configuration</h3>
+            <p className="text-xs text-slate-500">Choose the placement of the main navigation.</p>
+          </div>
+        </div>
+        <div className="p-6">
+          <div className="flex gap-6">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="layoutPosition"
+                value="vertical"
+                checked={theme.layoutPosition === "vertical"}
+                onChange={() => updateTheme({ layoutPosition: "vertical" })}
+                className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+              />
+              <span className="text-sm font-medium text-slate-700">Left Sidebar (Vertical)</span>
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="layoutPosition"
+                value="horizontal"
+                checked={theme.layoutPosition === "horizontal"}
+                onChange={() => updateTheme({ layoutPosition: "horizontal" })}
+                className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+              />
+              <span className="text-sm font-medium text-slate-700">Top Navigation (Horizontal)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {/* Color Palette */}
       <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden max-w-2xl">
         <div className="border-b border-slate-100 bg-slate-50/50 p-5 flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-theme-primary/10 text-theme-primary">
