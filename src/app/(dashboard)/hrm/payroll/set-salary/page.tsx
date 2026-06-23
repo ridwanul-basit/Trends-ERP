@@ -55,7 +55,6 @@ export default function SetSalaryPage() {
       <PageToolbar
         title="Set Salary"
         breadcrumbs={[
-          { label: "Dashboard", href: "/dashboard" },
           { label: "HRM" },
           { label: "Payroll Setup", href: "/hrm/payroll" },
           { label: "Set Salary", href: "/hrm/payroll/set-salary" },
