@@ -19,6 +19,7 @@ import { authService } from "@/services/authService";
 
 type AdminTopbarProps = {
   onToggleSidebar: () => void;
+  hideSidebarToggle?: boolean;
 };
 
 function initials(name?: string) {
@@ -32,7 +33,7 @@ function initials(name?: string) {
     .toUpperCase();
 }
 
-export function AdminTopbar({ onToggleSidebar }: AdminTopbarProps) {
+export function AdminTopbar({ onToggleSidebar, hideSidebarToggle }: AdminTopbarProps) {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const session = useAppSelector((state) => state.auth.session);
