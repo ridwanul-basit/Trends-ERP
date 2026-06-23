@@ -57,8 +57,8 @@ export default function SetSalaryPage() {
         breadcrumbs={[
           { label: "Dashboard", href: "/dashboard" },
           { label: "HRM" },
-          { label: "Payroll Setup" },
-          { label: "Set Salary" },
+          { label: "Payroll Setup", href: "/hrm/payroll" },
+          { label: "Set Salary", href: "/hrm/payroll/set-salary" },
         ]}
         hideControls
       />
