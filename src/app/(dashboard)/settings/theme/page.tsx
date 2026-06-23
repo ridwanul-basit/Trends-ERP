@@ -31,7 +31,7 @@ export default function ThemeSettingsPage() {
   return (
     <div className="space-y-6">
       <PageToolbar
-        title="Theme Customization"
+        title="Theme"
         description="Personalize the visual appearance of your ERP."
         breadcrumbs={[
           { label: "Settings" },
