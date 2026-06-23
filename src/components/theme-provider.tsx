@@ -12,7 +12,6 @@ type ThemeColors = {
   sidebarParentBg: string;
   sidebarParentText: string;
   sidebarChildText: string;
-  sidebarChildText: string;
   paginationActiveBg: string;
   paginationActiveText: string;
   layoutPosition: "vertical" | "horizontal";
