@@ -5,6 +5,7 @@ import { AdminSidebar } from "@/components/layout/admin-sidebar";
 import { AdminTopbar } from "@/components/layout/admin-topbar";
 import { AdminHorizontalNav } from "@/components/layout/admin-horizontal-nav";
 import { useTheme } from "@/components/theme-provider";
+import { cn } from "@/lib/utils/cn";
 
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
