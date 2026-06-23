@@ -33,6 +33,11 @@ export default function ThemeSettingsPage() {
       <PageToolbar
         title="Theme Customization"
         description="Personalize the visual appearance of your ERP."
+        breadcrumbs={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "Settings" },
+          { label: "Theme", href: "/settings/theme" },
+        ]}
         showSearch={false}
         actionLabel="Reset to Defaults"
         onAction={handleReset}
