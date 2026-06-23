@@ -20,7 +20,9 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
     setCollapsed((current) => !current);
   };
 
-  const isHorizontal = theme.layoutPosition === "horizontal";
+  const isHorizontal = theme.layoutPosition === "top" || theme.layoutPosition === "bottom";
+  const isRight = theme.layoutPosition === "right";
+  const isBottom = theme.layoutPosition === "bottom";
 
   if (isHorizontal) {
     return (
@@ -28,7 +30,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         <div className="sticky top-0 z-30">
           <AdminTopbar onToggleSidebar={handleToggleSidebar} hideSidebarToggle />
         </div>
-        <AdminHorizontalNav />
+        {!isBottom && <AdminHorizontalNav isBottom={false} />}
 
         <div className="dashboard-content-scroll flex-1 overflow-y-auto overflow-x-clip p-4">
           <div className="min-h-full flex flex-col">
@@ -57,12 +59,14 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             </footer>
           </div>
         </div>
+        
+        {isBottom && <AdminHorizontalNav isBottom={true} />}
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-surface">
+    <div className={cn("flex h-screen w-full overflow-hidden bg-surface", isRight ? "flex-row-reverse" : "")}>
       <AdminSidebar
         collapsed={collapsed}
         mobileOpen={mobileOpen}
