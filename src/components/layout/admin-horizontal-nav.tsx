@@ -13,10 +13,12 @@ function HorizontalNavItem({
   item,
   level,
   pathname,
+  isBottom,
 }: {
   item: any;
   level: number;
   pathname: string;
+  isBottom?: boolean;
 }) {
   const Icon = item.icon;
 
@@ -67,7 +69,9 @@ function HorizontalNavItem({
         <div
           className={cn(
             "absolute hidden group-hover:block z-50 min-w-[200px] rounded-md border border-slate-100 bg-white p-1.5 shadow-lg",
-            level === 0 ? "left-0 top-full mt-1" : "left-full top-0 ml-1"
+            level === 0
+              ? (isBottom ? "left-0 bottom-full mb-1" : "left-0 top-full mt-1")
+              : (isBottom ? "left-full bottom-0 ml-1" : "left-full top-0 ml-1")
           )}
         >
           {item.children.map((child: any) => (
@@ -76,6 +80,7 @@ function HorizontalNavItem({
               item={child}
               level={level + 1}
               pathname={pathname}
+              isBottom={isBottom}
             />
           ))}
         </div>
