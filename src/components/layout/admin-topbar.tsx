@@ -95,7 +95,7 @@ export function AdminTopbar({ onToggleSidebar, hideSidebarToggle }: AdminTopbarP
   };
 
   return (
-    <header className="bg-white px-4 py-3 shadow-[0_4px_18px_rgba(39,59,82,0.04)] border-b border-slate-100">
+    <header className="bg-white px-4 py-3.5 shadow-[0_4px_18px_rgba(39,59,82,0.04)] border-b border-slate-100">
       <div className="flex items-center justify-between gap-3">
         {!hideSidebarToggle && (
           <button
