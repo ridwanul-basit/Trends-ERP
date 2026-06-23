@@ -94,6 +94,22 @@ export function PageToolbar({
           <h1 className="text-xl font-bold tracking-tight text-slate-800">
             {title}
           </h1>
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <nav className="flex items-center gap-1 text-[11px] text-slate-400">
+              {breadcrumbs.map((crumb, i) => (
+                <span key={i} className="flex items-center gap-1">
+                  {i > 0 && <ChevronRight className="h-3 w-3" />}
+                  {crumb.href ? (
+                    <Link href={crumb.href} className="hover:text-slate-600 transition-colors">
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span className="text-slate-500">{crumb.label}</span>
+                  )}
+                </span>
+              ))}
+            </nav>
+          )}
           {description && (
             <p className="text-xs text-slate-500">{description}</p>
           )}
