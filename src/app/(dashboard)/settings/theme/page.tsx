@@ -350,7 +350,7 @@ export default function ThemeSettingsPage() {
                   value="top"
                   checked={theme.layoutPosition === "top"}
                   onChange={() => updateTheme({ layoutPosition: "top" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                  className="h-4 w-4 text-theme-primary cursor-pointer focus:ring-theme-primary border-slate-300"
                 />
                 <span className="text-sm font-medium text-slate-700">Top Navigation</span>
               </label>
