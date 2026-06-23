@@ -12,7 +12,7 @@ export default function ThemeSettingsPage() {
     if (key === "primary") {
       // If primary is changed, cascade the change to sidebar and pagination as well
       // so they act linked by default. The user can still override them individually later.
-      updateTheme({ 
+      updateTheme({
         primary: value,
         sidebarParentBg: value,
         sidebarChildText: value,
@@ -34,7 +34,6 @@ export default function ThemeSettingsPage() {
         title="Theme Customization"
         description="Personalize the visual appearance of your ERP."
         breadcrumbs={[
-          { label: "Dashboard", href: "/dashboard" },
           { label: "Settings" },
           { label: "Theme", href: "/settings/theme" },
         ]}
