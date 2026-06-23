@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import { Users } from "lucide-react";
 import { DataTable, PageToolbar, TableActions, Pagination } from "@/components/shared";
-import Link from "next/link";
 
 const MOCK_EMPLOYEES = Array.from({ length: 12 }).map((_, i) => ({
   id: `EMP${123456 + i}`,
