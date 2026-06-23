@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Users } from "lucide-react";
 import { DataTable, PageToolbar, TableActions, Pagination } from "@/components/shared";
+import Link from "next/link";
 
 const MOCK_EMPLOYEES = Array.from({ length: 12 }).map((_, i) => ({
   id: `EMP${123456 + i}`,
@@ -50,16 +51,17 @@ export default function EmployeeSetupPage() {
 
   return (
     <div className="space-y-4">
-      <div className="mb-4">
-        <h1 className="text-xl font-medium text-slate-800">Manage-Employee</h1>
-        <p className="text-xs text-theme-primary mt-1">Dashboard &gt; Employee</p>
-      </div>
-
       <PageToolbar
-        title=""
-        description=""
+        title="Employee Setup"
+        breadcrumbs={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "HRM" },
+          { label: "Employee Setup" },
+        ]}
+        actionLabel="New Employee"
+        onAction={() => { window.location.href = "/hrm/employee/create"; }}
         searchValue={search}
-        searchPlaceholder="Search..."
+        searchPlaceholder="Search employees..."
         onSearchChange={(v) => {
           setSearch(v);
           setCurrentPage(1);
