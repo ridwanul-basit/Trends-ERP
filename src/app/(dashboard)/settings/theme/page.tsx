@@ -339,7 +339,7 @@ export default function ThemeSettingsPage() {
                   value="right"
                   checked={theme.layoutPosition === "right"}
                   onChange={() => updateTheme({ layoutPosition: "right" })}
-                  className="h-4 w-4 text-theme-primary focus:ring-theme-primary border-slate-300"
+                  className="h-4 w-4 text-theme-primary cursor-pointer focus:ring-theme-primary border-slate-300"
                 />
                 <span className="text-sm font-medium text-slate-700">Right Sidebar</span>
               </label>
