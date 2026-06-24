@@ -1,7 +1,8 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { DataTable, TableActions, SectionHeader, PageToolbar } from "@/components/shared";
+import { DataTable, TableActions, SectionHeader, PageToolbar, FormModal, FormModalField } from "@/components/shared";
+import { useState } from "react";
 
 type SalarySectionProps = {
   title: string;
