@@ -1,6 +1,6 @@
 "use client";
 
-import { Edit, Eye, Trash2 } from "lucide-react";
+import { Edit, Eye, Trash2, Play } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { confirmAction } from "@/lib/toast-utils";
 
@@ -76,6 +76,7 @@ export function TableActions({
 
   const buttons = [
     { show: showView, handler: handleView, Icon: Eye, label: "View", baseClass: "bg-slate-100 text-slate-600 hover:bg-slate-200" },
+    { show: showPlay, handler: onPlay || (() => {}), Icon: Play, label: "Action", baseClass: "bg-amber-400 text-white opacity-90 hover:opacity-100" },
     { show: showEdit, handler: handleEdit, Icon: Edit, label: "Edit", baseClass: "bg-theme-action-primary text-white opacity-90 hover:opacity-100" },
     { show: showDelete, handler: handleDelete, Icon: Trash2, label: "Delete", baseClass: "bg-theme-action-danger text-white opacity-90 hover:opacity-100" },
   ];
