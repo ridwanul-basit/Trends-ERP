@@ -7,3 +7,4 @@ export { FormField } from "./form-field";
 export { FormActions } from "./form-actions";
 export { FormSectionHeader } from "./form-section-header";
 export { FormModal } from "./form-modal";
+export type { FormModalField } from "./form-modal";
