@@ -54,6 +54,8 @@ type PageToolbarProps = {
   actionDisabled?: boolean;
   /** Breadcrumb navigation items */
   breadcrumbs?: BreadcrumbItem[];
+  /** Callback for a simple plus (add) button (renders without label) */
+  onAdd?: () => void;
 };
 
 export function PageToolbar({
@@ -76,6 +78,7 @@ export function PageToolbar({
   showUtilities = true,
   actionDisabled = false,
   breadcrumbs,
+  onAdd,
 }: PageToolbarProps) {
   const ActionIcon = actionLabel?.toLowerCase() === "back" ? ArrowLeft : Plus;
 
@@ -173,6 +176,18 @@ export function PageToolbar({
               >
                 <ActionIcon className="h-3.5 w-3.5" />
                 {actionLabel}
+              </button>
+            )}
+
+            {/* Icon-only Add button */}
+            {onAdd && (
+              <button
+                type="button"
+                onClick={onAdd}
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-theme-primary text-white transition hover:opacity-90"
+                aria-label="Add"
+              >
+                <Plus className="h-4 w-4" />
               </button>
             )}
           </div>
