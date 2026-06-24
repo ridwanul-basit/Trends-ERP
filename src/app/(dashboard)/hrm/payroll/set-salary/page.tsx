@@ -97,6 +97,11 @@ export default function SetSalaryPage() {
             { id: "2", payslipType: "Hourly Payslip", salary: "15000", account: "ROUND BANK" },
             { id: "3", payslipType: "Hourly Payslip", salary: "15000", account: "ROUND BANK" },
           ]}
+          onAdd={() => handleOpenModal("Create Employee Salary", [
+            { name: "payslipType", label: "Payslip Type", type: "select", options: [{ label: "Hourly Payslip", value: "hourly" }, { label: "Monthly Payslip", value: "monthly" }], required: true },
+            { name: "salary", label: "Salary", type: "text", placeholder: "Enter salary amount", required: true },
+            { name: "account", label: "Account", type: "select", options: [{ label: "ROUND BANK", value: "round_bank" }, { label: "SQUARE BANK", value: "square_bank" }], required: true },
+          ])}
         />
 
         {/* Allowance */}
@@ -108,6 +113,13 @@ export default function SetSalaryPage() {
             { id: "2", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
             { id: "3", emp: "Richard Atkinson", opt: "Non Taxable", title: "Transportation", type: "Percentage", amount: "7.00% (USD 1,050.00)" },
           ]}
+          onAdd={() => handleOpenModal("Create Allowance", [
+            { name: "employee", label: "Employee", type: "select", options: [{ label: "Richard Atkinson", value: "richard" }], required: true },
+            { name: "allowanceOption", label: "Allowance Option", type: "select", options: [{ label: "Non Taxable", value: "non_taxable" }, { label: "Taxable", value: "taxable" }], required: true },
+            { name: "title", label: "Title", type: "text", placeholder: "Enter title", required: true },
+            { name: "type", label: "Type", type: "select", options: [{ label: "Fixed", value: "fixed" }, { label: "Percentage", value: "percentage" }], required: true },
+            { name: "amount", label: "Amount", type: "text", placeholder: "Enter amount", required: true },
+          ])}
         />
 
         {/* Commission */}
@@ -119,6 +131,12 @@ export default function SetSalaryPage() {
             { id: "2", payslip: "Hourly Payslip", title: "Base Salary Plus Commission", type: "Fixed", amount: "USD 2,000.00" },
             { id: "3", payslip: "Hourly Payslip", title: "Base Salary Plus Commission", type: "Fixed", amount: "USD 3,500.00" },
           ]}
+          onAdd={() => handleOpenModal("Create Commission", [
+            { name: "payslipType", label: "Payslip Type", type: "select", options: [{ label: "Hourly Payslip", value: "hourly" }], required: true },
+            { name: "title", label: "Title", type: "text", placeholder: "Enter title", required: true },
+            { name: "type", label: "Type", type: "select", options: [{ label: "Fixed", value: "fixed" }, { label: "Percentage", value: "percentage" }], required: true },
+            { name: "amount", label: "Amount", type: "text", placeholder: "Enter amount", required: true },
+          ])}
         />
 
         {/* Loan */}
@@ -130,6 +148,13 @@ export default function SetSalaryPage() {
             { id: "2", emp: "Richard Atkinson", opt: "Housing Loan", title: "Housing Loan", type: "Fixed", amount: "USD 2,200.00" },
             { id: "3", emp: "Richard Atkinson", opt: "Emergency Loan", title: "Emergency Loan", type: "Percentage", amount: "USD 5,200.00" },
           ]}
+          onAdd={() => handleOpenModal("Create Loan", [
+            { name: "employee", label: "Employee", type: "select", options: [{ label: "Richard Atkinson", value: "richard" }], required: true },
+            { name: "loanOption", label: "Loan Option", type: "select", options: [{ label: "Emergency Loan", value: "emergency" }, { label: "Housing Loan", value: "housing" }], required: true },
+            { name: "title", label: "Title", type: "text", placeholder: "Enter title", required: true },
+            { name: "type", label: "Type", type: "select", options: [{ label: "Fixed", value: "fixed" }, { label: "Percentage", value: "percentage" }], required: true },
+            { name: "amount", label: "Amount", type: "text", placeholder: "Enter amount", required: true },
+          ])}
         />
 
         {/* Saturation Deduction */}
@@ -141,6 +166,13 @@ export default function SetSalaryPage() {
             { id: "2", emp: "Richard Atkinson", opt: "Retirement", title: "Retirement Contributions", type: "Percentage", amount: "1.00% ($150)" },
             { id: "3", emp: "Richard Atkinson", opt: "Social Security", title: "Social Security System", type: "Fixed", amount: "USD 1,000.00" },
           ]}
+          onAdd={() => handleOpenModal("Create Saturation Deduction", [
+            { name: "employee", label: "Employee", type: "select", options: [{ label: "Richard Atkinson", value: "richard" }], required: true },
+            { name: "deductionOption", label: "Deduction Option", type: "select", options: [{ label: "Social Security", value: "social" }, { label: "Retirement", value: "retirement" }], required: true },
+            { name: "title", label: "Title", type: "text", placeholder: "Enter title", required: true },
+            { name: "type", label: "Type", type: "select", options: [{ label: "Fixed", value: "fixed" }, { label: "Percentage", value: "percentage" }], required: true },
+            { name: "amount", label: "Amount", type: "text", placeholder: "Enter amount", required: true },
+          ])}
         />
 
         {/* Other Payment */}
@@ -152,6 +184,12 @@ export default function SetSalaryPage() {
             { id: "2", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
             { id: "3", emp: "Richard Atkinson", title: "Other Payment", type: "Fixed", amount: "USD 1,000.00" },
           ]}
+          onAdd={() => handleOpenModal("Create Other Payment", [
+            { name: "employee", label: "Employee", type: "select", options: [{ label: "Richard Atkinson", value: "richard" }], required: true },
+            { name: "title", label: "Title", type: "text", placeholder: "Enter title", required: true },
+            { name: "type", label: "Type", type: "select", options: [{ label: "Fixed", value: "fixed" }, { label: "Percentage", value: "percentage" }], required: true },
+            { name: "amount", label: "Amount", type: "text", placeholder: "Enter amount", required: true },
+          ])}
         />
 
         {/* Overtime */}
@@ -164,9 +202,25 @@ export default function SetSalaryPage() {
               { id: "2", emp: "Richard Atkinson", title: "Unexpected Situations", days: "1", hours: "94", rate: "USD 5.00" },
               { id: "3", emp: "Richard Atkinson", title: "Project Deadlines", days: "501", hours: "62", rate: "USD 75.00" },
             ]}
+            onAdd={() => handleOpenModal("Create Overtime", [
+              { name: "employee", label: "Employee", type: "select", options: [{ label: "Richard Atkinson", value: "richard" }], required: true },
+              { name: "title", label: "Overtime Title", type: "text", placeholder: "Enter title", required: true },
+              { name: "days", label: "Number of Days", type: "text", placeholder: "Enter days", required: true },
+              { name: "hours", label: "Hours", type: "text", placeholder: "Enter hours", required: true },
+              { name: "rate", label: "Rate", type: "text", placeholder: "Enter rate", required: true },
+            ])}
           />
         </div>
       </div>
+      
+      {/* Dynamic Form Modal */}
+      <FormModal
+        isOpen={modalState.isOpen}
+        onClose={handleCloseModal}
+        title={modalState.title}
+        fields={modalState.fields}
+        onSubmit={handleSubmitModal}
+      />
     </div>
   );
 }
