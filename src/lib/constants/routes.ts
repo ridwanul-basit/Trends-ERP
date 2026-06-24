@@ -37,7 +37,13 @@ export const adminNavItems: AdminNavItem[] = [
           { title: "Set Salary", href: "/hrm/payroll/set-salary" },
         ],
       },
-      { title: "Leave Management", href: "/hrm/leave" },
+      {
+        title: "Leave Management",
+        children: [
+          { title: "Manage Leave", href: "/hrm/leave/manage" },
+          { title: "Attendance", href: "/hrm/leave/attendance" },
+        ],
+      },
       { title: "Performance Setup", href: "/hrm/performance" },
       { title: "Training Setup", href: "/hrm/training" },
       { title: "Recruitment Setup", href: "/hrm/recruitment" },
