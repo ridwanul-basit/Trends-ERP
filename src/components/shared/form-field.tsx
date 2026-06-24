@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export type FormFieldProps = {
   label: string;
-  type?: "text" | "password" | "email" | "date" | "select" | "radio" | "file" | "textarea";
+  type?: "text" | "password" | "email" | "date" | "time" | "select" | "radio" | "file" | "textarea";
   placeholder?: string;
   options?: { label: string; value: string }[];
   required?: boolean;
@@ -40,8 +40,8 @@ export function FormField({
         </label>
       )}
 
-      {/* TEXT, EMAIL, PASSWORD, DATE */}
-      {(type === "text" || type === "password" || type === "email" || type === "date") && (
+      {/* TEXT, EMAIL, PASSWORD, DATE, TIME */}
+      {(type === "text" || type === "password" || type === "email" || type === "date" || type === "time") && (
         <input
           type={type}
           name={name}
