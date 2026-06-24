@@ -9,12 +9,13 @@ type SalarySectionProps = {
   colorClass?: string;
   headers: any[];
   data: any[];
+  onAdd?: () => void;
 };
 
-function SalarySection({ title, colorClass = "bg-theme-section-highlight", headers, data }: SalarySectionProps) {
+function SalarySection({ title, colorClass = "bg-theme-section-highlight", headers, data, onAdd }: SalarySectionProps) {
   return (
     <div className="rounded-xl  bg-white overflow-hidden flex flex-col h-full ">
-      <SectionHeader title={title} colorClass={colorClass} />
+      <SectionHeader title={title} colorClass={colorClass} onAdd={onAdd} />
 
       {/* Table Area */}
       <div className="p-0 flex-1">
@@ -45,6 +46,29 @@ function SalarySection({ title, colorClass = "bg-theme-section-highlight", heade
 }
 
 export default function SetSalaryPage() {
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    title: string;
+    fields: FormModalField[];
+  }>({
+    isOpen: false,
+    title: "",
+    fields: [],
+  });
+
+  const handleOpenModal = (title: string, fields: FormModalField[]) => {
+    setModalState({ isOpen: true, title, fields });
+  };
+
+  const handleCloseModal = () => {
+    setModalState((prev) => ({ ...prev, isOpen: false }));
+  };
+
+  const handleSubmitModal = (data: Record<string, any>) => {
+    console.log("Form submitted:", data);
+    handleCloseModal();
+  };
+
   const commonData = [
     { id: "1", name: "Richard Atkinson", type: "Non Taxable", title: "Transportation Allowance", amount: "7.00% (USD 1,050.00)" },
     { id: "2", name: "Richard Atkinson", type: "Non Taxable", title: "Transportation Allowance", amount: "7.00% (USD 1,050.00)" },
