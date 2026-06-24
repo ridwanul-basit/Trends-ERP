@@ -17,6 +17,8 @@ type FormModalProps = {
   fields: FormModalField[];
   onSubmit: (data: Record<string, any>) => void;
   isSubmitting?: boolean;
+  submitText?: string;
+  gridCols?: 1 | 2;
 };
 
 export function FormModal({
@@ -26,6 +28,8 @@ export function FormModal({
   fields,
   onSubmit,
   isSubmitting = false,
+  submitText = "Save",
+  gridCols = 1,
 }: FormModalProps) {
   const [formData, setFormData] = useState<Record<string, any>>({});
 
@@ -71,7 +75,7 @@ export function FormModal({
 
           {/* Form Content */}
           <div className="flex-1 overflow-y-auto p-6">
-            <form id="shared-form-modal" onSubmit={handleSubmit} className="space-y-4">
+            <form id="shared-form-modal" onSubmit={handleSubmit} className={cn("space-y-4", gridCols === 2 && "grid grid-cols-2 gap-4 space-y-0")}>
               {fields.map((field) => (
                 <FormField
                   key={field.name}
@@ -82,10 +86,10 @@ export function FormModal({
               ))}
               
               {/* Footer Actions inside form so submit works automatically */}
-              <div className="pt-4 mt-6 border-t border-slate-100">
+              <div className={cn("pt-4 mt-6 border-t border-slate-100", gridCols === 2 && "col-span-2")}>
                 <FormActions
                   onCancel={onClose}
-                  submitText="Save"
+                  submitText={submitText}
                   submitDisabled={isSubmitting}
                 />
               </div>
