@@ -162,7 +162,7 @@ export default function MarkAttendancePage() {
         </DataTable>
       </div>
 
-      {/* Edit Attendance Modal – reuses FormModal with time type */}
+      {/* Edit Attendance Modal – reuses FormModal with time type, 2-col grid */}
       <FormModal
         isOpen={editModal.isOpen}
         onClose={() => setEditModal({ isOpen: false, data: null })}
@@ -170,6 +170,7 @@ export default function MarkAttendancePage() {
         fields={editFields}
         onSubmit={handleEditSubmit}
         submitText="Update"
+        gridCols={2}
       />
     </div>
   );
