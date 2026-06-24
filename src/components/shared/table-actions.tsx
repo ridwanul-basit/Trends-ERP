@@ -19,12 +19,16 @@ type TableActionsProps = {
   onView?: () => void;
   /** Custom handler for Edit */
   onEdit?: () => void;
+  /** Custom handler for Play */
+  onPlay?: () => void;
   /** Custom handler for Delete (shows confirm toast) */
   onDelete?: () => void;
   /** Custom confirm message for Delete */
   confirmMessage?: string;
   /** Show the View button */
   showView?: boolean;
+  /** Show the Play button */
+  showPlay?: boolean;
   /** Show the Edit button */
   showEdit?: boolean;
   /** Show the Delete button */
@@ -38,10 +42,12 @@ export function TableActions({
   viewUrl,
   editUrl,
   onView,
+  onPlay,
   onEdit,
   onDelete,
   confirmMessage,
-  showView = true,
+  showView = false,
+  showPlay = false,
   showEdit = true,
   showDelete = true,
 }: TableActionsProps) {
