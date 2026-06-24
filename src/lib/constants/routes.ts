@@ -41,7 +41,13 @@ export const adminNavItems: AdminNavItem[] = [
         title: "Leave Management",
         children: [
           { title: "Manage Leave", href: "/hrm/leave/manage" },
-          { title: "Attendance", href: "/hrm/leave/attendance" },
+          {
+            title: "Attendance",
+            children: [
+              { title: "Mark Attendance", href: "/hrm/leave/attendance/mark" },
+              { title: "Bulk Attendance", href: "/hrm/leave/attendance/bulk" },
+            ],
+          },
         ],
       },
       { title: "Performance Setup", href: "/hrm/performance" },
