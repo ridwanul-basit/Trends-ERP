@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export type FormFieldProps = {
   label: string;
-  type?: "text" | "password" | "email" | "date" | "select" | "radio" | "file";
+  type?: "text" | "password" | "email" | "date" | "select" | "radio" | "file" | "textarea";
   placeholder?: string;
   options?: { label: string; value: string }[];
   required?: boolean;
@@ -12,6 +12,7 @@ export type FormFieldProps = {
   className?: string;
   name?: string;
   helperText?: ReactNode;
+  rows?: number;
 };
 
 export function FormField({
@@ -25,6 +26,7 @@ export function FormField({
   className,
   name,
   helperText,
+  rows = 3,
 }: FormFieldProps) {
   const commonInputClasses =
     "w-full rounded-md border border-theme-border bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none transition focus:border-theme-primary focus:ring-2 focus:ring-theme-primary/10";
@@ -48,6 +50,19 @@ export function FormField({
           onChange={(e) => onChange?.(e.target.value)}
           required={required}
           className={commonInputClasses}
+        />
+      )}
+
+      {/* TEXTAREA */}
+      {type === "textarea" && (
+        <textarea
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange?.(e.target.value)}
+          required={required}
+          rows={rows}
+          className={cn(commonInputClasses, "resize-y min-h-[80px]")}
         />
       )}
 
