@@ -1,0 +1,99 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils/cn";
+import { FormField, FormFieldProps } from "./form-field";
+import { FormActions } from "./form-actions";
+
+export type FormModalField = Omit<FormFieldProps, "value" | "onChange"> & {
+  name: string;
+};
+
+type FormModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  fields: FormModalField[];
+  onSubmit: (data: Record<string, any>) => void;
+  isSubmitting?: boolean;
+};
+
+export function FormModal({
+  isOpen,
+  onClose,
+  title,
+  fields,
+  onSubmit,
+  isSubmitting = false,
+}: FormModalProps) {
+  const [formData, setFormData] = useState<Record<string, any>>({});
+
+  // Reset form data when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({});
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  const handleChange = (name: string, value: any) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      />
+
+      {/* Modal */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+        <div className="w-full max-w-md rounded-xl bg-white shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-full">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+            <h2 className="text-lg font-semibold text-slate-800">{title}</h2>
+            <button
+              onClick={onClose}
+              className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 hover:text-slate-600 transition-colors"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Form Content */}
+          <div className="p-6 overflow-y-auto">
+            <form id="shared-form-modal" onSubmit={handleSubmit} className="space-y-4">
+              {fields.map((field) => (
+                <FormField
+                  key={field.name}
+                  {...field}
+                  value={formData[field.name] || ""}
+                  onChange={(val) => handleChange(field.name, val)}
+                />
+              ))}
+            </form>
+          </div>
+
+          {/* Footer Actions */}
+          <div className="px-6 py-4 border-t border-slate-100 bg-slate-50">
+            <FormActions
+              onCancel={onClose}
+              submitLabel="Save"
+              // The form id connects the external button to the form inside the scrollable area
+              isSubmitting={isSubmitting}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
