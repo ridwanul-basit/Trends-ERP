@@ -62,7 +62,7 @@ export default function BulkAttendancePage() {
 
       {/* Filter Bar */}
       <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex flex-wrap items-end gap-4">
+        <div className="flex flex-wrap items-end justify-end gap-4">
           <FormField
             name="date"
             label="Date"
@@ -95,7 +95,7 @@ export default function BulkAttendancePage() {
           <div className="flex items-end pb-0.5">
             <button className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-theme-primary text-white hover:opacity-90 transition">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
               </svg>
             </button>
           </div>
