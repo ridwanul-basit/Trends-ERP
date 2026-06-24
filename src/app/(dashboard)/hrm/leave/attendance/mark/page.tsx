@@ -64,14 +64,14 @@ export default function MarkAttendancePage() {
           { label: "Dashboard", href: "/" },
           { label: "Attendance", href: "/hrm/leave/attendance/mark" },
         ]}
-        onAdd={() => {}}
+        onAdd={() => { }}
         showSearch
         searchPlaceholder="Search..."
       />
 
       {/* Filter Bar */}
       <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex flex-wrap items-end gap-4">
+        <div className="flex flex-wrap items-end justify-end gap-4">
           {/* Type toggle */}
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-bold text-slate-700">Type</span>
