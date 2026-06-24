@@ -35,7 +35,7 @@ export function SectionHeader({
         {showAdd && !actionElement && (
           <button
             onClick={onAdd}
-            className="flex h-7 w-7 items-center justify-center rounded bg-theme-primary text-white transition hover:opacity-90"
+            className="flex h-7 w-7 items-center cursor-pointer justify-center rounded bg-theme-primary text-white transition hover:opacity-90"
           >
             <Plus className="h-4 w-4" />
           </button>
