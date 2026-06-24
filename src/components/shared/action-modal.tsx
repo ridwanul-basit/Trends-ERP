@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { X } from "lucide-react";
 import { FormActions, CustomAction } from "./form-actions";
 
