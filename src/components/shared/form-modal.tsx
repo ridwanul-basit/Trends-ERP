@@ -70,7 +70,7 @@ export function FormModal({
           </div>
 
           {/* Form Content */}
-          <div className="p-6 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto p-6">
             <form id="shared-form-modal" onSubmit={handleSubmit} className="space-y-4">
               {fields.map((field) => (
                 <FormField
@@ -80,17 +80,16 @@ export function FormModal({
                   onChange={(val) => handleChange(field.name, val)}
                 />
               ))}
+              
+              {/* Footer Actions inside form so submit works automatically */}
+              <div className="pt-4 mt-6 border-t border-slate-100">
+                <FormActions
+                  onCancel={onClose}
+                  submitText="Save"
+                  submitDisabled={isSubmitting}
+                />
+              </div>
             </form>
-          </div>
-
-          {/* Footer Actions */}
-          <div className="px-6 py-4 border-t border-slate-100 bg-slate-50">
-            <FormActions
-              onCancel={onClose}
-              submitLabel="Save"
-              // The form id connects the external button to the form inside the scrollable area
-              isSubmitting={isSubmitting}
-            />
           </div>
         </div>
       </div>
