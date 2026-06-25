@@ -114,8 +114,8 @@ function HorizontalNavItem({
 
 export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
   const pathname = usePathname();
-  const currentRole = useAppSelector((state) => state.auth.user?.role) || "ADMIN";
-  const currentPermission = useAppSelector((state) => state.auth.user?.permissions) || [];
+  const currentRole = useAppSelector((state) => state.auth.session?.user?.role) || "ADMIN";
+  const currentPermission = useAppSelector((state) => state.auth.session?.user?.permissions) || [];
 
   const allowedNavItems = useMemo(() => {
     return filterNavByPermissions(adminNavItems, currentPermission, currentRole);
