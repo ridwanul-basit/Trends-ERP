@@ -54,8 +54,9 @@ export default function BulkAttendancePage() {
       <PageToolbar
         title="Manage Bulk Attendance"
         breadcrumbs={[
-          { label: "Dashboard", href: "/" },
-          { label: "Attendance", href: "/hrm/leave/attendance/bulk" },
+          { label: "HRM", href: "" }, { label: "Leave Management", href: "" },
+          { label: "Attendance", href: "" },
+          { label: "Bulk Attendance", href: "/hrm/leave/attendance/bulk" },
         ]}
         hideControls
       />
