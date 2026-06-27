@@ -50,7 +50,14 @@ export const adminNavItems: AdminNavItem[] = [
           },
         ],
       },
-      { title: "Performance Setup", href: "/hrm/performance" },
+      {
+        title: "Performance Setup",
+        children: [
+          { title: "Indicator", href: "/hrm/performance/indicator" },
+          { title: "Appraisal", href: "/hrm/performance/appraisal" },
+          { title: "Goal Tracking", href: "/hrm/performance/goal-tracking" },
+        ],
+      },
       { title: "Training Setup", href: "/hrm/training" },
       { title: "Recruitment Setup", href: "/hrm/recruitment" },
       { title: "HR Admin Setup", href: "/hrm/admin" },
