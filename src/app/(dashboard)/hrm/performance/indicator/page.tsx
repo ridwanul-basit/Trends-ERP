@@ -63,7 +63,7 @@ export default function IndicatorPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Manage Indicator"
-        breadcrumbs={[{ label: "Dashboard", href: "/" }, { label: "Indicator", href: "/hrm/performance/indicator" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Performance Setup", href: "" }, { label: "Indicator", href: "/hrm/performance/indicator" }]}
         onAdd={() => setEditModal({ isOpen: true, data: {} })}
         showSearch
       />
