@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { PageToolbar, FormField } from "@/components/shared";
+import { PageToolbar, FormField, FormSectionHeader } from "@/components/shared";
 
 // Mock training detail — in real use, fetch by id
 const mockDetail = {
@@ -88,9 +88,7 @@ export default function TrainingDetailPage() {
         <div className="flex flex-col gap-4">
           {/* Training Employee card */}
           <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <div className="flex items-center gap-2 px-5 py-3 border-b-2 border-theme-primary bg-white">
-              <span className="text-sm font-semibold text-slate-800">Training Employee</span>
-            </div>
+            <FormSectionHeader title="Training Employee" />
             <div className="px-5 py-4 flex items-center gap-3">
               <img
                 src={mockDetail.employee.avatar}
@@ -106,9 +104,7 @@ export default function TrainingDetailPage() {
 
           {/* Update Status card */}
           <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <div className="flex items-center gap-2 px-5 py-3 border-b-2 border-theme-primary bg-white">
-              <span className="text-sm font-semibold text-slate-800">Update Status</span>
-            </div>
+            <FormSectionHeader title="Update Status" />
             <div className="px-5 py-4 space-y-4">
               {/* Performance + Status side by side */}
               <div className="grid grid-cols-2 gap-4">
