@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, RotateCcw, MoreVertical } from "lucide-react";
-import { PageToolbar, FormField, FormSectionHeader, StarRating, FormModal } from "@/components/shared";
+import { PageToolbar, FormField, FormSectionHeader, StarRating, FormModal, FormModalField } from "@/components/shared";
 
 // Mock candidates
 const initialCandidates = [
