@@ -56,18 +56,17 @@ export default function CustomQuestionPage() {
         onAdd={() => setIsCreateModalOpen(true)}
       />
 
-      <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+      <div className="rounded-xl  bg-white overflow-hidden">
         <DataTable headers={headers} colSpan={headers.length} isEmpty={list.length === 0}>
           {list.map((row) => (
             <tr key={row.id}>
               <td className="px-5 py-3 text-slate-600 font-semibold max-w-lg truncate">{row.question}</td>
               <td className="whitespace-nowrap px-5 py-3">
                 <span
-                  className={`inline-flex rounded px-2.5 py-1 text-xs font-bold text-white shadow-sm ${
-                    row.isRequired === "Yes" || row.isRequired === "Active"
+                  className={`inline-flex rounded px-2.5 py-1 text-xs font-bold text-white shadow-sm ${row.isRequired === "Yes" || row.isRequired === "Active"
                       ? "bg-green-500"
                       : "bg-red-500"
-                  }`}
+                    }`}
                 >
                   {row.isRequired === "Active" ? "Active" : row.isRequired}
                 </span>
