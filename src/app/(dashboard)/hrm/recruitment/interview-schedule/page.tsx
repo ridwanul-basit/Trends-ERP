@@ -69,7 +69,7 @@ export default function InterviewSchedulePage() {
         onAdd={() => setIsCreateModalOpen(true)}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Calendar Grid Card */}
         <div className="lg:col-span-8 rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
           <FormSectionHeader title="Calendar" />
