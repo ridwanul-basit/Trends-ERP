@@ -126,7 +126,7 @@ function JobCreateInner() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageToolbar
         title={isEdit ? "Edit Job" : "Create Job"}
         breadcrumbs={[
