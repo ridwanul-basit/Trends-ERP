@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Sparkles, Bold, Italic, Underline, Strikethrough, List, AlignLeft, Link, RotateCcw, RotateCw } from "lucide-react";
-import { PageToolbar, FormSectionHeader, FormField, FormModal } from "@/components/shared";
+import { PageToolbar, FormSectionHeader, FormField, FormModal, FormModalField } from "@/components/shared";
 
 export default function JobCreatePage() {
   const router = useRouter();
