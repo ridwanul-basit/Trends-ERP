@@ -6,6 +6,14 @@ import { Sparkles, Bold, Italic, Underline, Strikethrough, List, AlignLeft, Link
 import { PageToolbar, FormSectionHeader, FormField, FormModal, FormModalField } from "@/components/shared";
 
 export default function JobCreatePage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-sm text-slate-500">Loading...</div>}>
+      <JobCreateInner />
+    </Suspense>
+  );
+}
+
+function JobCreateInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isEdit = searchParams.get("edit");
@@ -72,6 +80,51 @@ export default function JobCreatePage() {
     setIsAiModalOpen(false);
   };
 
+  const aiFields: FormModalField[] = [
+    {
+      name: "forWhat",
+      label: "For what",
+      type: "select",
+      required: true,
+      options: [
+        { label: "Title", value: "title" },
+        { label: "Description", value: "description" },
+        { label: "Requirement", value: "requirement" },
+      ],
+    },
+    {
+      name: "language",
+      label: "Language",
+      type: "select",
+      required: true,
+      options: [{ label: "EN", value: "en" }],
+    },
+    {
+      name: "creativity",
+      label: "AI Creativity",
+      type: "select",
+      required: true,
+      options: [{ label: "High", value: "high" }, { label: "Medium", value: "medium" }],
+    },
+    {
+      name: "numResults",
+      label: "Number of Result",
+      type: "select",
+      required: true,
+      options: [{ label: "10", value: "10" }, { label: "5", value: "5" }],
+    },
+    {
+      name: "maxLength",
+      label: "Maximum Result Length",
+      type: "select",
+      required: true,
+      options: [{ label: "10", value: "10" }, { label: "20", value: "20" }],
+    },
+    { name: "workplace", label: "Work Place", type: "text", placeholder: "e.g. IT Company, Hospital" },
+    { name: "field", label: "Field", type: "text", placeholder: "e.g. Backend" },
+    { name: "positions", label: "Positions", type: "text", placeholder: "e.g. Developer, Tester" },
+  ];
+
   return (
     <div className="space-y-6">
       <PageToolbar
@@ -100,90 +153,18 @@ export default function JobCreatePage() {
         <div className="p-6 space-y-6">
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <FormField
-              label="Job Title"
-              type="text"
-              name="title"
-              placeholder="Enter Job Title"
-              required
-              value={title}
-              onChange={setTitle}
-            />
-            <FormField
-              label="Branch"
-              type="select"
-              name="branch"
-              options={[
-                { label: "All", value: "all" },
-                { label: "India", value: "india" },
-                { label: "Greece", value: "greece" },
-              ]}
-              value={branch}
-              onChange={setBranch}
-            />
-            <FormField
-              label="Skill"
-              type="text"
-              name="skill"
-              placeholder="e.g. Sales, Marketing"
-              required
-              value={skill}
-              onChange={setSkill}
-            />
-            <FormField
-              label="Status"
-              type="select"
-              name="status"
-              options={[
-                { label: "Active", value: "active" },
-                { label: "Inactive", value: "inactive" },
-              ]}
-              value={status}
-              onChange={setStatus}
-            />
+            <FormField label="Job Title" type="text" name="title" placeholder="Enter Job Title" required value={title} onChange={setTitle} />
+            <FormField label="Branch" type="select" name="branch" options={[{ label: "All", value: "all" }, { label: "India", value: "india" }, { label: "Greece", value: "greece" }]} value={branch} onChange={setBranch} />
+            <FormField label="Skill" type="text" name="skill" placeholder="e.g. Sales, Marketing" required value={skill} onChange={setSkill} />
+            <FormField label="Status" type="select" name="status" options={[{ label: "Active", value: "active" }, { label: "Inactive", value: "inactive" }]} value={status} onChange={setStatus} />
           </div>
 
           {/* Row 2 */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <FormField
-              label="Job Category"
-              type="select"
-              name="category"
-              options={[
-                { label: "Manager", value: "management" },
-                { label: "Technical", value: "tech" },
-                { label: "Sales", value: "sales" },
-              ]}
-              placeholder="Select Category"
-              required
-              value={category}
-              onChange={setCategory}
-            />
-            <FormField
-              label="Positions"
-              type="text"
-              name="positions"
-              placeholder="Enter Positions"
-              required
-              value={positions}
-              onChange={setPositions}
-            />
-            <FormField
-              label="Start Date"
-              type="date"
-              name="startDate"
-              required
-              value={startDate}
-              onChange={setStartDate}
-            />
-            <FormField
-              label="End Date"
-              type="date"
-              name="endDate"
-              required
-              value={endDate}
-              onChange={setEndDate}
-            />
+            <FormField label="Job Category" type="select" name="category" options={[{ label: "Manager", value: "management" }, { label: "Technical", value: "tech" }, { label: "Sales", value: "sales" }]} placeholder="Select Category" required value={category} onChange={setCategory} />
+            <FormField label="Positions" type="text" name="positions" placeholder="Enter Positions" required value={positions} onChange={setPositions} />
+            <FormField label="Start Date" type="date" name="startDate" required value={startDate} onChange={setStartDate} />
+            <FormField label="End Date" type="date" name="endDate" required value={endDate} onChange={setEndDate} />
           </div>
 
           {/* Rich Text Editor Simulated Fields Side-by-Side */}
@@ -192,27 +173,20 @@ export default function JobCreatePage() {
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold text-slate-700">Job Description</label>
               <div className="rounded-lg border border-slate-200 overflow-hidden">
-                {/* Simulated Toolbar */}
                 <div className="flex items-center gap-1 bg-slate-50 border-b border-slate-200 px-3 py-1.5 text-slate-500">
                   <Bold className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Italic className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Underline className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Strikethrough className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
-                  <div className="h-4 w-px bg-slate-350 mx-1" />
+                  <div className="h-4 w-px bg-slate-300 mx-1" />
                   <List className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <AlignLeft className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Link className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
-                  <div className="h-4 w-px bg-slate-350 mx-1" />
+                  <div className="h-4 w-px bg-slate-300 mx-1" />
                   <RotateCcw className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <RotateCw className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                 </div>
-                <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Write here..."
-                  rows={6}
-                  className="w-full bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none resize-none"
-                />
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Write here..." rows={6} className="w-full bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none resize-none" />
               </div>
             </div>
 
@@ -220,149 +194,64 @@ export default function JobCreatePage() {
             <div className="flex flex-col gap-2">
               <div className="flex justify-between items-center">
                 <label className="text-xs font-bold text-slate-700">Job Requirement<span className="text-red-500">*</span></label>
-                <button
-                  onClick={() => setIsAiModalOpen(true)}
-                  className="flex items-center gap-1 text-[10px] font-bold text-theme-primary hover:underline"
-                >
+                <button onClick={() => setIsAiModalOpen(true)} className="flex items-center gap-1 text-[10px] font-bold text-theme-primary hover:underline">
                   <Sparkles className="h-3 w-3" /> Grammar check with AI
                 </button>
               </div>
               <div className="rounded-lg border border-slate-200 overflow-hidden">
-                {/* Simulated Toolbar */}
                 <div className="flex items-center gap-1 bg-slate-50 border-b border-slate-200 px-3 py-1.5 text-slate-500">
                   <Bold className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Italic className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Underline className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Strikethrough className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
-                  <div className="h-4 w-px bg-slate-350 mx-1" />
+                  <div className="h-4 w-px bg-slate-300 mx-1" />
                   <List className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <AlignLeft className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <Link className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
-                  <div className="h-4 w-px bg-slate-350 mx-1" />
+                  <div className="h-4 w-px bg-slate-300 mx-1" />
                   <RotateCcw className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                   <RotateCw className="h-3.5 w-3.5 cursor-pointer hover:text-slate-800" />
                 </div>
-                <textarea
-                  value={requirement}
-                  onChange={(e) => setRequirement(e.target.value)}
-                  placeholder="Write here..."
-                  rows={6}
-                  className="w-full bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none resize-none"
-                />
+                <textarea value={requirement} onChange={(e) => setRequirement(e.target.value)} placeholder="Write here..." rows={6} className="w-full bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none resize-none" />
               </div>
             </div>
           </div>
 
           {/* Bottom Checkbox Options Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-100">
-            {/* Need to ask */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-slate-800">Need to ask ?</h4>
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={askGender}
-                    onChange={(e) => setAskGender(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Gender
-                </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={askDob}
-                    onChange={(e) => setAskDob(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Date Of Birth
-                </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={askCountry}
-                    onChange={(e) => setAskCountry(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Country
-                </label>
+                {[{ label: "Gender", state: askGender, set: setAskGender }, { label: "Date Of Birth", state: askDob, set: setAskDob }, { label: "Country", state: askCountry, set: setAskCountry }].map(({ label, state, set }) => (
+                  <label key={label} className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
+                    <input type="checkbox" checked={state} onChange={(e) => set(e.target.checked)} className="h-4 w-4 rounded border-slate-300 accent-theme-primary" />
+                    {label}
+                  </label>
+                ))}
               </div>
             </div>
 
-            {/* Need to show option */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-slate-800">Need to show option ?</h4>
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={showProfileImage}
-                    onChange={(e) => setShowProfileImage(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Profile Image
-                </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={showResume}
-                    onChange={(e) => setShowResume(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Resume
-                </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={showCoverLetter}
-                    onChange={(e) => setShowCoverLetter(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Cover Letter
-                </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={showTnc}
-                    onChange={(e) => setShowTnc(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 accent-theme-primary"
-                  />
-                  Terms And Conditions
-                </label>
+                {[{ label: "Profile Image", state: showProfileImage, set: setShowProfileImage }, { label: "Resume", state: showResume, set: setShowResume }, { label: "Cover Letter", state: showCoverLetter, set: setShowCoverLetter }, { label: "Terms And Conditions", state: showTnc, set: setShowTnc }].map(({ label, state, set }) => (
+                  <label key={label} className="flex items-center gap-2 text-xs font-medium text-slate-650 cursor-pointer">
+                    <input type="checkbox" checked={state} onChange={(e) => set(e.target.checked)} className="h-4 w-4 rounded border-slate-300 accent-theme-primary" />
+                    {label}
+                  </label>
+                ))}
               </div>
             </div>
 
-            {/* Custom Question */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-slate-800">Custom Question</h4>
               <div className="space-y-2">
-                <label className="flex items-start gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={qWeakness}
-                    onChange={(e) => setQWeakness(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 mt-0.5 accent-theme-primary"
-                  />
-                  What Do You Consider to Be Your Weaknesses?
-                </label>
-                <label className="flex items-start gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={qWhyJob}
-                    onChange={(e) => setQWhyJob(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 mt-0.5 accent-theme-primary"
-                  />
-                  Why Do You Want This Job?
-                </label>
-                <label className="flex items-start gap-2 text-xs font-medium text-slate-650 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={qWhyCompany}
-                    onChange={(e) => setQWhyCompany(e.target.checked)}
-                    className="h-4 w-4 rounded border-slate-300 text-theme-primary focus:ring-theme-primary/10 mt-0.5 accent-theme-primary"
-                  />
-                  Why Do You Want to Work at This Company?
-                </label>
+                {[{ label: "What Do You Consider to Be Your Weaknesses?", state: qWeakness, set: setQWeakness }, { label: "Why Do You Want This Job?", state: qWhyJob, set: setQWhyJob }, { label: "Why Do You Want to Work at This Company?", state: qWhyCompany, set: setQWhyCompany }].map(({ label, state, set }) => (
+                  <label key={label} className="flex items-start gap-2 text-xs font-medium text-slate-650 cursor-pointer">
+                    <input type="checkbox" checked={state} onChange={(e) => set(e.target.checked)} className="h-4 w-4 rounded border-slate-300 mt-0.5 accent-theme-primary" />
+                    {label}
+                  </label>
+                ))}
               </div>
             </div>
           </div>
@@ -370,22 +259,16 @@ export default function JobCreatePage() {
 
         {/* Form Actions Footer */}
         <div className="flex justify-end gap-3 px-6 py-4 bg-slate-50 border-t border-slate-200">
-          <button
-            onClick={() => router.push("/hrm/recruitment/jobs")}
-            className="rounded-lg bg-amber-500 px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer"
-          >
+          <button onClick={() => router.push("/hrm/recruitment/jobs")} className="rounded-lg bg-amber-500 px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer">
             Cancel
           </button>
-          <button
-            onClick={handleSave}
-            className="rounded-lg bg-theme-primary px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer"
-          >
+          <button onClick={handleSave} className="rounded-lg bg-theme-primary px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer">
             {isEdit ? "Update" : "Create"}
           </button>
         </div>
       </div>
 
-      {/* AI Content Generation Helper Modal (using FormModal) */}
+      {/* AI Content Generation Helper Modal */}
       <FormModal
         isOpen={isAiModalOpen}
         onClose={() => setIsAiModalOpen(false)}
@@ -394,51 +277,9 @@ export default function JobCreatePage() {
         onSubmit={handleAiModalSubmit}
         gridCols={2}
         maxWidth="max-w-2xl"
-        fields={[
-          {
-            name: "forWhat",
-            label: "For what",
-            type: "select",
-            required: true,
-            options: [
-              { label: "Title", value: "title" },
-              { label: "Description", value: "description" },
-              { label: "Requirement", value: "requirement" },
-            ],
-          },
-          {
-            name: "language",
-            label: "Language",
-            type: "select",
-            required: true,
-            options: [{ label: "EN", value: "en" }],
-          },
-          {
-            name: "creativity",
-            label: "AI Creativity",
-            type: "select",
-            required: true,
-            options: [{ label: "High", value: "high" }, { label: "Medium", value: "medium" }],
-          },
-          {
-            name: "numResults",
-            label: "Number of Result",
-            type: "select",
-            required: true,
-            options: [{ label: "10", value: "10" }, { label: "5", value: "5" }],
-          },
-          {
-            name: "maxLength",
-            label: "Maximum Result Length",
-            type: "select",
-            required: true,
-            options: [{ label: "10", value: "10" }, { label: "20", value: "20" }],
-          },
-          { name: "workplace", label: "Work Place", type: "text", placeholder: "e.g. IT Company, Hospital" },
-          { name: "field", label: "Field", type: "text", placeholder: "e.g. Backend" },
-          { name: "positions", label: "Positions", type: "text", placeholder: "e.g. Developer, Tester" },
-        ]}
+        fields={aiFields}
       />
     </div>
   );
 }
+
