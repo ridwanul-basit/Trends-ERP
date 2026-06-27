@@ -96,7 +96,7 @@ export default function OnBoardingPage() {
         showSearch
       />
 
-      <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+      <div className="rounded-xl  bg-white overflow-hidden ">
         <DataTable headers={headers} colSpan={headers.length} isEmpty={list.length === 0}>
           {list.map((row) => (
             <tr key={row.id}>
@@ -107,13 +107,12 @@ export default function OnBoardingPage() {
               <td className="whitespace-nowrap px-5 py-3 text-slate-600">{row.joinedAt}</td>
               <td className="whitespace-nowrap px-5 py-3">
                 <span
-                  className={`inline-flex rounded-md px-3 py-1 text-xs font-bold text-white shadow-sm ${
-                    row.status === "Confirm"
+                  className={`inline-flex rounded-md px-3 py-1 text-xs font-bold text-white shadow-sm ${row.status === "Confirm"
                       ? "bg-green-500"
                       : row.status === "Pending"
-                      ? "bg-amber-500"
-                      : "bg-red-500"
-                  }`}
+                        ? "bg-amber-500"
+                        : "bg-red-500"
+                    }`}
                 >
                   {row.status}
                 </span>
