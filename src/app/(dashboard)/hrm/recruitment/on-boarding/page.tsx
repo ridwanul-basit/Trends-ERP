@@ -42,7 +42,7 @@ export default function OnBoardingPage() {
     setIsCreateModalOpen(false);
   };
 
-  const createFields = [
+  const createFields: FormModalField[] = [
     {
       name: "interviewer",
       label: "Interviewer",
