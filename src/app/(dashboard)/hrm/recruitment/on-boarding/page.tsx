@@ -118,42 +118,37 @@ export default function OnBoardingPage() {
                   {row.status}
                 </span>
               </td>
-              <td className="px-5 py-2">
-                <div className="flex items-center gap-1.5">
-                  {row.status !== "Pending" && row.status !== "Cancel" && (
+              <TableActions
+                id={row.id}
+                showView={false}
+                showEdit
+                onEdit={() => console.log("Edit onboarding:", row.id)}
+                showDelete
+                onDelete={() => console.log("Delete onboarding:", row.id)}
+              >
+                {row.status !== "Pending" && row.status !== "Cancel" && (
+                  <>
                     <button
                       className="flex h-7 w-7 items-center justify-center rounded bg-amber-500 text-white hover:opacity-90 transition cursor-pointer"
                       title="View Details"
                     >
-                      <Download className="h-3.5 w-3.5 rotate-180" /> {/* Eye/View representation */}
+                      <Download className="h-3.5 w-3.5 rotate-180" />
                     </button>
-                  )}
-                  <TableActions
-                    id={row.id}
-                    showView={false}
-                    showEdit
-                    onEdit={() => console.log("Edit onboarding:", row.id)}
-                    showDelete
-                    onDelete={() => console.log("Delete onboarding:", row.id)}
-                  />
-                  {row.status !== "Pending" && row.status !== "Cancel" && (
-                    <>
-                      <button
-                        className="flex h-7 w-7 items-center justify-center rounded bg-green-500 text-white hover:opacity-90 transition cursor-pointer"
-                        title="Download Offer Letter"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                      </button>
-                      <button
-                        className="flex h-7 w-7 items-center justify-center rounded bg-green-600 text-white hover:opacity-90 transition cursor-pointer"
-                        title="View Document"
-                      >
-                        <FileText className="h-3.5 w-3.5" />
-                      </button>
-                    </>
-                  )}
-                </div>
-              </td>
+                    <button
+                      className="flex h-7 w-7 items-center justify-center rounded bg-green-500 text-white hover:opacity-90 transition cursor-pointer"
+                      title="Download Offer Letter"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      className="flex h-7 w-7 items-center justify-center rounded bg-green-600 text-white hover:opacity-90 transition cursor-pointer"
+                      title="View Document"
+                    >
+                      <FileText className="h-3.5 w-3.5" />
+                    </button>
+                  </>
+                )}
+              </TableActions>
             </tr>
           ))}
         </DataTable>
