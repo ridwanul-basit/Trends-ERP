@@ -1,8 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { Download, FileText } from "lucide-react";
-import { DataTable, PageToolbar, TableActions } from "@/components/shared";
+import { DataTable, PageToolbar, TableActions, FormModal } from "@/components/shared";
 
 const mockOnboardings = [
   { id: "1", name: "Jessie", job: "Highly Competitive Fashion Jobs", branch: "China", appliedAt: "21-07-2021", joinedAt: "21-07-2024", status: "Confirm" },
@@ -14,6 +12,9 @@ const mockOnboardings = [
 ];
 
 export default function OnBoardingPage() {
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [list, setList] = useState(mockOnboardings);
+
   const headers = [
     { label: "NAME" },
     { label: "JOB" },
@@ -22,6 +23,62 @@ export default function OnBoardingPage() {
     { label: "JOINED AT" },
     { label: "STATUS" },
     { label: <span className="block">ACTION</span> },
+  ];
+
+  const handleCreateSubmit = (data: Record<string, any>) => {
+    console.log("Create Job OnBoard:", data);
+    const newOnboard = {
+      id: String(list.length + 1),
+      name: "Jessie",
+      job: "The Great Versatility of Business Jobs",
+      branch: "China",
+      appliedAt: "21-07-2021",
+      joinedAt: data.joiningDate || "21-07-2024",
+      status: "Pending",
+    };
+    setList([newOnboard, ...list]);
+    setIsCreateModalOpen(false);
+  };
+
+  const createFields = [
+    {
+      name: "interviewer",
+      label: "Interviewer",
+      type: "select",
+      required: true,
+      options: [{ label: "Teresa", value: "teresa" }, { label: "Anabel", value: "anabel" }],
+    },
+    { name: "joiningDate", label: "Joining Date", type: "date", required: true },
+    { name: "daysOfWeek", label: "Days Of Week", type: "text", required: true, placeholder: "Days Of Week" },
+    { name: "salary", label: "Salary", type: "text", required: true, placeholder: "Salary" },
+    {
+      name: "salaryType",
+      label: "Salary Type",
+      type: "select",
+      required: true,
+      options: [{ label: "Hourly Payslip", value: "hourly" }, { label: "Monthly Payslip", value: "monthly" }],
+    },
+    {
+      name: "salaryDuration",
+      label: "Salary Duration",
+      type: "select",
+      required: true,
+      options: [{ label: "Monthly", value: "monthly" }, { label: "Weekly", value: "weekly" }],
+    },
+    {
+      name: "jobType",
+      label: "Job Type",
+      type: "select",
+      required: true,
+      options: [{ label: "Full Time", value: "full" }, { label: "Part Time", value: "part" }],
+    },
+    {
+      name: "status",
+      label: "Status",
+      type: "select",
+      required: true,
+      options: [{ label: "Active", value: "active" }, { label: "Inactive", value: "inactive" }],
+    },
   ];
 
   return (
@@ -33,7 +90,7 @@ export default function OnBoardingPage() {
           { label: "Recruitment Setup", href: "" },
           { label: "Job On-boarding", href: "/hrm/recruitment/on-boarding" },
         ]}
-        onAdd={() => console.log("Add on-boarding click")}
+        onAdd={() => setIsCreateModalOpen(true)}
         showSearch
       />
 
