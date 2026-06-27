@@ -66,7 +66,7 @@ export default function JobsPage() {
       </div>
 
       {/* Data Table */}
-      <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+      <div className="rounded-xl  bg-white overflow-hidden">
         <DataTable headers={headers} colSpan={headers.length} isEmpty={mockJobs.length === 0}>
           {mockJobs.map((row) => (
             <tr key={row.id}>
