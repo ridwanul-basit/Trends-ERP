@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Download, FileText } from "lucide-react";
 import { DataTable, PageToolbar, TableActions, FormModal } from "@/components/shared";
