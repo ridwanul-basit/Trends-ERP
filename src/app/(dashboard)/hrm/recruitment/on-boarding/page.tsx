@@ -95,8 +95,8 @@ export default function OnBoardingPage() {
       />
 
       <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
-        <DataTable headers={headers} colSpan={headers.length} isEmpty={mockOnboardings.length === 0}>
-          {mockOnboardings.map((row) => (
+        <DataTable headers={headers} colSpan={headers.length} isEmpty={list.length === 0}>
+          {list.map((row) => (
             <tr key={row.id}>
               <td className="whitespace-nowrap px-5 py-3 text-slate-600 font-semibold">{row.name}</td>
               <td className="px-5 py-3 text-slate-600 font-medium max-w-xs truncate">{row.job}</td>
@@ -156,6 +156,17 @@ export default function OnBoardingPage() {
           ))}
         </DataTable>
       </div>
+
+      <FormModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        title="Create New Job OnBoard"
+        fields={createFields}
+        onSubmit={handleCreateSubmit}
+        submitText="Create"
+        gridCols={2}
+        maxWidth="max-w-2xl"
+      />
     </div>
   );
 }
