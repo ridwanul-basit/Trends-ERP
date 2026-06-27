@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Search, RotateCcw, MoreVertical } from "lucide-react";
-import { PageToolbar, FormField, FormSectionHeader, StarRating } from "@/components/shared";
+import { PageToolbar, FormField, FormSectionHeader, StarRating, FormModal } from "@/components/shared";
 
 // Mock candidates
 const initialCandidates = [
