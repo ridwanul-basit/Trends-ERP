@@ -74,7 +74,7 @@ export function FormModal({
               onClick={onClose}
               className="rounded-lg p-1.5 text-slate-400 cursor-pointer hover:bg-slate-200 hover:text-slate-600 transition-colors border border-slate-200 bg-white"
             >
-              <X className="h-4 w-4 " />
+              <X className="h-4 w-4" />
             </button>
           </div>
 
