@@ -95,7 +95,7 @@ export default function GoalTrackingPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Manage Goal Tracking"
-        breadcrumbs={[{ label: "Dashboard", href: "/" }, { label: "Goal Tracking", href: "/hrm/performance/goal-tracking" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Performance Setup", href: "" }, { label: "Goal Tracking", href: "/hrm/performance/goal-tracking" }]}
         onAdd={() => { setStarRating(0); setProgress(0); setEditModal({ isOpen: true, data: {} }); }}
         showSearch
       />
