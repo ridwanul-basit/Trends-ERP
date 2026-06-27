@@ -70,7 +70,7 @@ export default function JobApplicationPage() {
     setIsCreateModalOpen(false);
   };
 
-  const createFields = [
+  const createFields: FormModalField[] = [
     {
       name: "job",
       label: "Job",
