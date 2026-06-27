@@ -108,7 +108,7 @@ function SidebarItem({
 
         {!(collapsed && level === 0) && isOpen && (
           <div className={cn(
-            "space-y-1 border-l border-slate-100",
+            "space-y-1",
             level === 0 ? "ml-7 mt-1 pl-3" : "ml-4 mt-1 pl-3"
           )}>
             {item.children.map((child: any) => (
