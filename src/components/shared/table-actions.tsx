@@ -37,6 +37,8 @@ type TableActionsProps = {
   showEdit?: boolean;
   /** Show the Delete button */
   showDelete?: boolean;
+  /** Custom extra actions */
+  children?: React.ReactNode;
 };
 
 export function TableActions({
@@ -56,6 +58,7 @@ export function TableActions({
   showPlay = false,
   showEdit = true,
   showDelete = true,
+  children,
 }: TableActionsProps) {
   const router = useRouter();
 
@@ -108,6 +111,7 @@ export function TableActions({
               </span>
             </div>
           ))}
+        {children}
       </div>
     </td>
   );
