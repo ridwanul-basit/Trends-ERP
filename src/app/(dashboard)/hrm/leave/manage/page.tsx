@@ -74,7 +74,7 @@ export default function ManageLeavePage() {
       <PageToolbar
         title="Manage Leave"
         breadcrumbs={[
-          { label: "Dashboard", href: "/" },
+          { label: "HRM", href: "" }, { label: "Leave Management", href: "" },
           { label: "Manage Leave", href: "/hrm/leave/manage" },
         ]}
         onAdd={() => setIsCreateModalOpen(true)}
