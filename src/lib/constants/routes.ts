@@ -58,7 +58,13 @@ export const adminNavItems: AdminNavItem[] = [
           { title: "Goal Tracking", href: "/hrm/performance/goal-tracking" },
         ],
       },
-      { title: "Training Setup", href: "/hrm/training" },
+      {
+        title: "Training Setup",
+        children: [
+          { title: "Training List", href: "/hrm/training/list" },
+          { title: "Trainer", href: "/hrm/training/trainer" },
+        ],
+      },
       { title: "Recruitment Setup", href: "/hrm/recruitment" },
       { title: "HR Admin Setup", href: "/hrm/admin" },
       { title: "Event Setup", href: "/hrm/event" },
