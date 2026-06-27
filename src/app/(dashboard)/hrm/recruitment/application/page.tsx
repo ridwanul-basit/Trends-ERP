@@ -34,10 +34,12 @@ const stages = [
 ];
 
 export default function JobApplicationPage() {
+  const router = useRouter();
   const [filterStatus, setFilterStatus] = useState("applied");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [job, setJob] = useState("");
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   const [candidates, setCandidates] = useState(initialCandidates);
 
@@ -52,6 +54,38 @@ export default function JobApplicationPage() {
     setJob("");
   };
 
+  const handleCreateSubmit = (data: Record<string, any>) => {
+    console.log("New Applicant:", data);
+    const newCand = {
+      id: String(candidates.length + 1),
+      name: data.name || "Unnamed Candidate",
+      rating: 3,
+      job: data.job === "se" ? "Software Engineer" : "The Great Versatility of Business Jobs",
+      date: new Date().toLocaleDateString("en-GB").replace(/\//g, "-"),
+      status: "applied",
+      avatar: `https://i.pravatar.cc/150?img=${candidates.length + 20}`,
+    };
+    setCandidates([newCand, ...candidates]);
+    setIsCreateModalOpen(false);
+  };
+
+  const createFields = [
+    {
+      name: "job",
+      label: "Job",
+      type: "select",
+      required: true,
+      options: [
+        { label: "China", value: "china" },
+        { label: "The Great Versatility of Business Jobs", value: "business" },
+        { label: "Highly Competitive Fashion Jobs", value: "fashion" },
+      ],
+    },
+    { name: "name", label: "Name", type: "text", required: true, placeholder: "Enter Name" },
+    { name: "email", label: "Email", type: "email", required: true, placeholder: "Enter Email" },
+    { name: "phone", label: "Phone", type: "text", required: true, placeholder: "Enter Phone" },
+  ];
+
   return (
     <div className="space-y-6">
       <PageToolbar
@@ -61,7 +95,7 @@ export default function JobApplicationPage() {
           { label: "Recruitment Setup", href: "" },
           { label: "Job Application", href: "/hrm/recruitment/application" },
         ]}
-        onAdd={() => console.log("Add Application click")}
+        onAdd={() => setIsCreateModalOpen(true)}
         hideControls={false}
       />
 
