@@ -83,7 +83,7 @@ export default function AppraisalPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Manage Appraisal"
-        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Performance", href: "" }, { label: "Appraisal", href: "/hrm/performance/appraisal" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Performance Setup", href: "" }, { label: "Appraisal", href: "/hrm/performance/appraisal" }]}
         onAdd={() => setEditModal({ isOpen: true, data: {} })}
         showSearch
       />
