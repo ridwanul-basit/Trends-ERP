@@ -61,8 +61,9 @@ export default function MarkAttendancePage() {
       <PageToolbar
         title="Manage Attendance List"
         breadcrumbs={[
-          { label: "Dashboard", href: "/" },
-          { label: "Attendance", href: "/hrm/leave/attendance/mark" },
+          { label: "HRM", href: "" }, { label: "Leave Management", href: "" },
+          { label: "Attendance", href: "" },
+          { label: "Manage Attendance", href: "/hrm/leave/attendance/mark" },
         ]}
         onAdd={() => { }}
         showSearch
