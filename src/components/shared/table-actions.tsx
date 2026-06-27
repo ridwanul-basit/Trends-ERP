@@ -1,6 +1,6 @@
 "use client";
 
-import { Edit, Eye, Trash2, Play } from "lucide-react";
+import { Edit, Eye, Trash2, Play, Link as LinkIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { confirmAction } from "@/lib/toast-utils";
 
@@ -21,10 +21,14 @@ type TableActionsProps = {
   onEdit?: () => void;
   /** Custom handler for Play */
   onPlay?: () => void;
+  /** Custom handler for Link */
+  onLink?: () => void;
   /** Custom handler for Delete (shows confirm toast) */
   onDelete?: () => void;
   /** Custom confirm message for Delete */
   confirmMessage?: string;
+  /** Show the Link button */
+  showLink?: boolean;
   /** Show the View button */
   showView?: boolean;
   /** Show the Play button */
@@ -44,8 +48,10 @@ export function TableActions({
   onView,
   onPlay,
   onEdit,
+  onLink,
   onDelete,
   confirmMessage,
+  showLink = false,
   showView = false,
   showPlay = false,
   showEdit = true,
@@ -75,7 +81,8 @@ export function TableActions({
   };
 
   const buttons = [
-    { show: showView, handler: handleView, Icon: Eye, label: "View", baseClass: "bg-slate-100 text-slate-600 hover:bg-slate-200" },
+    { show: showLink, handler: onLink || (() => {}), Icon: LinkIcon, label: "Copy Link", baseClass: "bg-slate-500 text-white hover:bg-slate-650" },
+    { show: showView, handler: handleView, Icon: Eye, label: "View", baseClass: "bg-amber-500 text-white opacity-90 hover:opacity-100" },
     { show: showPlay, handler: onPlay || (() => {}), Icon: Play, label: "Action", baseClass: "bg-amber-400 text-white opacity-90 hover:opacity-100" },
     { show: showEdit, handler: handleEdit, Icon: Edit, label: "Edit", baseClass: "bg-theme-action-primary text-white opacity-90 hover:opacity-100" },
     { show: showDelete, handler: handleDelete, Icon: Trash2, label: "Delete", baseClass: "bg-theme-action-danger text-white opacity-90 hover:opacity-100" },
@@ -83,7 +90,7 @@ export function TableActions({
 
   return (
     <td className="px-5 py-2">
-      <div className="flex items-center  gap-1.5">
+      <div className="flex items-center gap-1.5">
         {buttons
           .filter((b) => b.show)
           .map(({ handler, Icon, label, baseClass }) => (
@@ -105,3 +112,4 @@ export function TableActions({
     </td>
   );
 }
+
