@@ -34,7 +34,7 @@ export default function CandidatePage() {
         hideControls
       />
 
-      <div className="rounded-xl  bg-white overflow-hidden shadow-sm">
+      <div className="rounded-xl  bg-white overflow-hidden ">
         <DataTable headers={headers} colSpan={headers.length} isEmpty={mockCandidates.length === 0}>
           {mockCandidates.map((row) => (
             <tr key={row.id}>
