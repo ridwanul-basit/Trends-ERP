@@ -28,7 +28,7 @@ export default function JobsPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageToolbar
         title="Manage Job"
         breadcrumbs={[
