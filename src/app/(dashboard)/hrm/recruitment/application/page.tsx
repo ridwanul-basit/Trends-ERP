@@ -192,7 +192,10 @@ export default function JobApplicationPage() {
                       </button>
 
                       {/* Header info */}
-                      <div className="flex gap-3 items-center">
+                      <div
+                        onClick={() => router.push(`/hrm/recruitment/application/${candidate.id}`)}
+                        className="flex gap-3 items-center cursor-pointer hover:opacity-80"
+                      >
                         <img
                           src={candidate.avatar}
                           alt={candidate.name}
@@ -205,7 +208,10 @@ export default function JobApplicationPage() {
                       </div>
 
                       {/* Job details */}
-                      <div className="mt-3 flex flex-col gap-1">
+                      <div
+                        onClick={() => router.push(`/hrm/recruitment/application/${candidate.id}`)}
+                        className="mt-3 flex flex-col gap-1 cursor-pointer hover:opacity-80"
+                      >
                         <span className="text-[10px] text-slate-500 font-medium leading-relaxed">
                           {candidate.job}
                         </span>
@@ -226,6 +232,16 @@ export default function JobApplicationPage() {
           );
         })}
       </div>
+
+      <FormModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        title="Create New Job Application"
+        fields={createFields}
+        onSubmit={handleCreateSubmit}
+        submitText="Create"
+        maxWidth="max-w-lg"
+      />
     </div>
   );
 }
