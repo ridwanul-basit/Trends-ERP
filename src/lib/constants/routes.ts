@@ -75,7 +75,7 @@ export const adminNavItems: AdminNavItem[] = [
           { title: "Job On-boarding", href: "/hrm/recruitment/on-boarding" },
           { title: "Custom Question", href: "/hrm/recruitment/custom-question" },
           { title: "Interview schedule", href: "/hrm/recruitment/interview-schedule" },
-          { title: "Career", href: "/hrm/recruitment/career" },
+          // { title: "Career", href: "/hrm/recruitment/career" },
         ],
       },
       { title: "HR Admin Setup", href: "/hrm/admin" },
