@@ -35,7 +35,7 @@ function SidebarItem({
   activeFolderTitle: string | undefined;
 }) {
   const Icon = item.icon;
-  
+
   // Check if this item or any of its children are active
   const isActiveRecursively = (navItem: any): boolean => {
     if (navItem.href && pathname.startsWith(navItem.href)) return true;
@@ -44,7 +44,7 @@ function SidebarItem({
     }
     return false;
   };
-  
+
   const isActive = isActiveRecursively(item);
   const isExactActive = Boolean(item.href && pathname === item.href);
 
@@ -73,8 +73,8 @@ function SidebarItem({
             isParentActive
               ? "bg-theme-sidebar-parent-bg font-semibold text-theme-sidebar-parent-text"
               : isChildActive
-              ? "text-theme-sidebar-child-text font-semibold"
-              : "text-foreground hover:bg-muted",
+                ? "text-theme-sidebar-child-text font-semibold"
+                : "text-foreground hover:bg-muted",
             collapsed && level === 0
               ? "h-12 w-12 justify-center p-0"
               : level === 0 ? "h-[47px] px-2" : "h-[41px] px-4"
@@ -141,8 +141,8 @@ function SidebarItem({
         isParentActive
           ? "bg-theme-sidebar-parent-bg font-semibold text-theme-sidebar-parent-text"
           : isChildActive
-          ? "text-theme-sidebar-child-text font-semibold"
-          : "text-foreground hover:bg-muted",
+            ? "text-theme-sidebar-child-text font-semibold"
+            : "text-foreground hover:bg-muted",
         collapsed && level === 0
           ? "h-12 w-12 justify-center p-0"
           : level === 0 ? "h-[47px] px-2 w-full" : "h-[41px] px-4 w-full"
@@ -196,15 +196,15 @@ export function AdminSidebar({
   );
 
   const logoSVG = collapsed ? (
-    <img 
-      src="/Site_Logo-removebg-preview.png" 
-      alt="Trends ERP Logo" 
+    <img
+      src="/Site_Logo-removebg-preview.png"
+      alt="Trends ERP Logo"
       className="h-9 w-9 object-contain"
     />
   ) : (
-    <img 
-      src="/Site_Logo-removebg-preview.png" 
-      alt="Trends ERP Logo" 
+    <img
+      src="/Site_Logo-removebg-preview.png"
+      alt="Trends ERP Logo"
       className="h-10 w-auto object-contain"
     />
   );
@@ -220,7 +220,7 @@ export function AdminSidebar({
       <div
         className={cn(
           "flex items-center justify-center border-b border-slate-100",
-          collapsed ? "h-16 px-2 py-2" : "py-3.5 px-4",
+          collapsed ? "px-2 py-4" : "py-3.5 px-4",
         )}
       >
         <Link href="/dashboard" className="flex w-full items-center justify-center">
