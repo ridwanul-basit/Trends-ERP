@@ -63,7 +63,7 @@ export default function MarkAttendancePage() {
         breadcrumbs={[
           { label: "HRM", href: "" }, { label: "Leave Management", href: "" },
           { label: "Attendance", href: "" },
-          { label: "Manage Attendance", href: "/hrm/leave/attendance/mark" },
+          { label: "Mark Attendance", href: "/hrm/leave/attendance/mark" },
         ]}
         onAdd={() => { }}
         showSearch
