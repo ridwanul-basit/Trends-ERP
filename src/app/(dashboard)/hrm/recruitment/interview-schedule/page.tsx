@@ -58,7 +58,7 @@ export default function InterviewSchedulePage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageToolbar
         title="Manage Interview Schedule"
         breadcrumbs={[
@@ -120,9 +120,8 @@ export default function InterviewSchedulePage() {
                 {calendarDays.map((cell, idx) => (
                   <div
                     key={idx}
-                    className={`h-16 p-2 border-r border-b border-slate-200 last:border-r-0 flex flex-col justify-between ${
-                      cell.isSpecial ? "bg-cyan-50/50" : ""
-                    } ${!cell.isCurrentMonth ? "text-slate-400 font-medium" : ""}`}
+                    className={`h-16 p-2 border-r border-b border-slate-200 last:border-r-0 flex flex-col justify-between ${cell.isSpecial ? "bg-cyan-50/50" : ""
+                      } ${!cell.isCurrentMonth ? "text-slate-400 font-medium" : ""}`}
                   >
                     <span className="self-end">{cell.day < 10 ? `0${cell.day}` : cell.day}</span>
                     {cell.isSpecial && (
