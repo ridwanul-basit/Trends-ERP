@@ -38,7 +38,7 @@ export default function SystemPage() {
     <div className="space-y-4">
       <PageToolbar
         title={`Manage ${activeTab}`}
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: activeTab, href: "/hrm/system" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "HR System Setup", href: "" }, { label: activeTab, href: "/hrm/system" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
 
