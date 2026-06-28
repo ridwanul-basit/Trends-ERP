@@ -27,7 +27,7 @@ export default function SystemPage() {
     <div className="space-y-4">
       <PageToolbar
         title="HRM System Setup"
-        breadcrumbs={[{ label: "HRM", href: "/dashboard" }, { label: "HRM System Setup", href: "/hrm/system" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "HRM System Setup", href: "/hrm/system" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
       <DataTable headers={HEADERS} colSpan={HEADERS.length}>
