@@ -53,7 +53,7 @@ export default function JobApplicationDetailsPage() {
             </span>
           </div>
 
-          <div className="p-6 space-y-6">
+          <div className="p-6 space-y-4">
             {/* Applicant Profile Header */}
             <div className="flex items-center gap-4">
               <img
