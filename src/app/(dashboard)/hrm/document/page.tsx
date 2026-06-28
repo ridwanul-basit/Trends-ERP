@@ -26,7 +26,7 @@ export default function DocumentPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Document Setup"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Document", href: "/hrm/document" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Document Setup", href: "/hrm/document" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
       <DataTable headers={HEADERS} colSpan={HEADERS.length}>
