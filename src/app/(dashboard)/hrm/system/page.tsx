@@ -42,38 +42,36 @@ export default function SystemPage() {
         onAdd={() => setIsCreateOpen(true)}
       />
 
-      <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-        {/* Tabs */}
-        <div className="flex overflow-x-auto border-b border-slate-100 sidebar-scrollbar-hidden bg-slate-50/50">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={cn(
-                "whitespace-nowrap px-5 py-3.5 text-sm font-semibold transition-colors border-b-2",
-                activeTab === tab
-                  ? "border-theme-primary text-theme-primary bg-white"
-                  : "border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-100/50"
-              )}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+      {/* Tabs */}
+      <div className="flex overflow-x-auto rounded-lg bg-white shadow-sm sidebar-scrollbar-hidden border border-slate-200">
+        {TABS.map((tab, index) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={cn(
+              "whitespace-nowrap px-5 py-2.5 text-[13px] font-medium transition-colors border-r border-slate-200 last:border-r-0",
+              activeTab === tab
+                ? "bg-[#1ccab8] text-white"
+                : "text-slate-600 hover:bg-slate-50"
+            )}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
 
-        {/* Table */}
-        <div className="pt-2">
-          <DataTable headers={headers} colSpan={headers.length}>
-            {currentData.map((item) => (
-              <tr key={item.id}>
-                <td className="px-5 py-3 font-medium text-slate-700">{item.name}</td>
-                <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
-              </tr>
-            ))}
-          </DataTable>
-          <div className="px-5 pb-4">
-            <p className="text-xs text-slate-400">Showing 1 to {currentData.length} of {currentData.length} entries</p>
-          </div>
+      {/* Table */}
+      <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+        <DataTable headers={headers} colSpan={headers.length}>
+          {currentData.map((item) => (
+            <tr key={item.id}>
+              <td className="px-5 py-3 font-medium text-slate-700">{item.name}</td>
+              <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
+            </tr>
+          ))}
+        </DataTable>
+        <div className="px-5 pb-4">
+          <p className="text-xs text-slate-400">Showing 1 to {currentData.length} of {currentData.length} entries</p>
         </div>
       </div>
 
