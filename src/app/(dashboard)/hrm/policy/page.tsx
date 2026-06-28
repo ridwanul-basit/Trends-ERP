@@ -26,7 +26,7 @@ export default function PolicyPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Manage Document"
-        breadcrumbs={[{ label: "HRM", href: "/dashboard" }, { label: "Document", href: "/hrm/policy" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Document", href: "/hrm/policy" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
       <DataTable headers={HEADERS} colSpan={HEADERS.length}>
