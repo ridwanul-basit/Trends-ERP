@@ -61,7 +61,7 @@ export default function SystemPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+      <div className="bg-white rounded-lg  overflow-hidden">
         <DataTable headers={headers} colSpan={headers.length}>
           {currentData.map((item) => (
             <tr key={item.id}>
@@ -70,7 +70,7 @@ export default function SystemPage() {
             </tr>
           ))}
         </DataTable>
-        <div className="px-5 pb-4">
+        <div className="px-5 pb-4 mt-5">
           <p className="text-xs text-slate-400">Showing 1 to {currentData.length} of {currentData.length} entries</p>
         </div>
       </div>
