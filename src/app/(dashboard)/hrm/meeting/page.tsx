@@ -30,7 +30,7 @@ export default function MeetingPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Meeting"
-        breadcrumbs={[{ label: "HRM", href: "/dashboard" }, { label: "Meeting", href: "/hrm/meeting" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Meeting", href: "/hrm/meeting" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
       <DataTable headers={HEADERS} colSpan={HEADERS.length}>
