@@ -59,19 +59,19 @@ function HorizontalNavItem({
 
   if (item.children?.length) {
     return (
-      <div ref={menuRef} className={cn("relative", level === 0 ? "h-full" : "")}>
+      <div ref={menuRef} className="relative">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className={cn(
             "flex items-center gap-2 rounded-md transition-colors cursor-pointer w-full whitespace-nowrap",
             level === 0
-              ? "h-full px-4 border-b-2"
+              ? "px-4 py-2" // Removed border-b-2 and h-full since we wrap now
               : "px-4 py-2 hover:bg-slate-50",
             level === 0 && isParentActive
-              ? "border-theme-primary text-theme-primary font-semibold"
+              ? "text-theme-primary font-semibold bg-theme-primary/10"
               : level === 0
-              ? "border-transparent text-slate-600 hover:text-slate-900"
+              ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               : isChildActive
               ? "text-theme-primary font-semibold bg-theme-primary/5"
               : "text-slate-600"
@@ -117,12 +117,12 @@ function HorizontalNavItem({
       className={cn(
         "flex items-center gap-2 rounded-md transition-colors cursor-pointer w-full whitespace-nowrap",
         level === 0
-          ? "h-full px-4 border-b-2"
+          ? "px-4 py-2" // Removed border-b-2 and h-full
           : "px-4 py-2 hover:bg-slate-50",
         level === 0 && isParentActive
-          ? "border-theme-primary text-theme-primary font-semibold"
+          ? "text-theme-primary font-semibold bg-theme-primary/10"
           : level === 0
-          ? "border-transparent text-slate-600 hover:text-slate-900"
+          ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
           : isChildActive
           ? "text-theme-primary font-semibold bg-theme-primary/5"
           : "text-slate-600"
@@ -144,8 +144,8 @@ export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
   }, [currentPermission, currentRole]);
 
   return (
-    <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 sticky overflow-x-auto sidebar-scrollbar-hidden", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
-      <div className="flex h-full items-center gap-1 min-w-max lg:mx-auto">
+    <div className={cn("w-full bg-white border-slate-200 flex items-center px-4 py-1.5 shadow-sm z-20 sticky min-h-[3.5rem]", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
+      <div className="flex flex-wrap items-center gap-1 w-full lg:justify-center">
         {allowedNavItems.map((item) => (
           <HorizontalNavItem
             key={item.title}
