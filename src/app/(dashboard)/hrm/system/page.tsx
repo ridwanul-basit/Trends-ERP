@@ -61,7 +61,7 @@ export default function SystemPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg  overflow-hidden">
+      <div className=" overflow-hidden">
         <DataTable headers={headers} colSpan={headers.length}>
           {currentData.map((item) => (
             <tr key={item.id}>
