@@ -25,24 +25,26 @@ export default function TripPage() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
 
-  const rows = SAMPLE_DATA.map((item) => [
-    item.employeeName,
-    item.startDate,
-    item.endDate,
-    item.purposeOfTrip,
-    item.country,
-    item.description,
-    <TableActions key={item.id} id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />,
-  ]);
-
   return (
     <div className="space-y-4">
       <PageToolbar
         title="Manage Trip"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Trip", href: "#" }]}
+        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Trip", href: "/hrm/admin/trip" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
-      <DataTable headers={HEADERS} rows={rows} colSpan={HEADERS.length} />
+      <DataTable headers={HEADERS} colSpan={HEADERS.length}>
+        {SAMPLE_DATA.map((item) => (
+          <tr key={item.id}>
+            <td className="px-5 py-3">{item.employeeName}</td>
+            <td className="px-5 py-3">{item.startDate}</td>
+            <td className="px-5 py-3">{item.endDate}</td>
+            <td className="px-5 py-3">{item.purposeOfTrip}</td>
+            <td className="px-5 py-3">{item.country}</td>
+            <td className="px-5 py-3">{item.description}</td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
+          </tr>
+        ))}
+      </DataTable>
       <FormModal isOpen={isCreateOpen} onClose={() => setIsCreateOpen(false)} title="Create Trip" submitText="Create" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("create", data); setIsCreateOpen(false); }} />
       <FormModal isOpen={!!editItem} onClose={() => setEditItem(null)} title="Edit Trip" submitText="Update" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("update", data); setEditItem(null); }} />
     </div>

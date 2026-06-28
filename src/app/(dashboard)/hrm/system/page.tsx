@@ -23,23 +23,25 @@ export default function SystemPage() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
 
-  const rows = SAMPLE_DATA.map((item) => [
-    item.settingName,
-    item.category,
-    item.value,
-    item.lastUpdated,
-    item.description,
-    <TableActions key={item.id} id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />,
-  ]);
-
   return (
     <div className="space-y-4">
       <PageToolbar
         title="HRM System Setup"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "HRM System Setup", href: "#" }]}
+        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "HRM System Setup", href: "/hrm/system" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
-      <DataTable headers={HEADERS} rows={rows} colSpan={HEADERS.length} />
+      <DataTable headers={HEADERS} colSpan={HEADERS.length}>
+        {SAMPLE_DATA.map((item) => (
+          <tr key={item.id}>
+            <td className="px-5 py-3">{item.settingName}</td>
+            <td className="px-5 py-3">{item.category}</td>
+            <td className="px-5 py-3">{item.value}</td>
+            <td className="px-5 py-3">{item.lastUpdated}</td>
+            <td className="px-5 py-3">{item.description}</td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
+          </tr>
+        ))}
+      </DataTable>
       <FormModal isOpen={isCreateOpen} onClose={() => setIsCreateOpen(false)} title="Add Setting" submitText="Add" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("create", data); setIsCreateOpen(false); }} />
       <FormModal isOpen={!!editItem} onClose={() => setEditItem(null)} title="Edit Setting" submitText="Update" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("update", data); setEditItem(null); }} />
     </div>

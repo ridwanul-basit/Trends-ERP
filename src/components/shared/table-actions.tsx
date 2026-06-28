@@ -6,7 +6,7 @@ import { confirmAction } from "@/lib/toast-utils";
 
 type TableActionsProps = {
   /** Record id for URL construction */
-  id?: string;
+  id?: string | number;
   /** Record name for accessibility labels */
   name?: string;
   /** Base URL prefix (e.g. "/participants") */

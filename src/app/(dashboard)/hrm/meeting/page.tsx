@@ -25,24 +25,26 @@ export default function MeetingPage() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
 
-  const rows = SAMPLE_DATA.map((item) => [
-    item.meetingTitle,
-    item.meetingDate,
-    item.time,
-    item.location,
-    item.participants,
-    item.description,
-    <TableActions key={item.id} id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />,
-  ]);
-
   return (
     <div className="space-y-4">
       <PageToolbar
         title="Manage Meeting"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Meeting", href: "#" }]}
+        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Meeting", href: "/hrm/meeting" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
-      <DataTable headers={HEADERS} rows={rows} colSpan={HEADERS.length} />
+      <DataTable headers={HEADERS} colSpan={HEADERS.length}>
+        {SAMPLE_DATA.map((item) => (
+          <tr key={item.id}>
+            <td className="px-5 py-3">{item.meetingTitle}</td>
+            <td className="px-5 py-3">{item.meetingDate}</td>
+            <td className="px-5 py-3">{item.time}</td>
+            <td className="px-5 py-3">{item.location}</td>
+            <td className="px-5 py-3">{item.participants}</td>
+            <td className="px-5 py-3">{item.description}</td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
+          </tr>
+        ))}
+      </DataTable>
       <FormModal isOpen={isCreateOpen} onClose={() => setIsCreateOpen(false)} title="Create Meeting" submitText="Create" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("create", data); setIsCreateOpen(false); }} />
       <FormModal isOpen={!!editItem} onClose={() => setEditItem(null)} title="Edit Meeting" submitText="Update" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("update", data); setEditItem(null); }} />
     </div>

@@ -39,9 +39,7 @@ export default function TransferPage() {
             <td className="px-5 py-3">{item.department}</td>
             <td className="px-5 py-3">{item.transferDate}</td>
             <td className="px-5 py-3">{item.description}</td>
-            <td className="px-5 py-3">
-              <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
-            </td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
           </tr>
         ))}
       </DataTable>

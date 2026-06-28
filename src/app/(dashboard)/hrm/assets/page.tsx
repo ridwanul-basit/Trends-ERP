@@ -25,24 +25,30 @@ export default function AssetsPage() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
 
-  const rows = SAMPLE_DATA.map((item) => [
-    item.employeeName,
-    item.assetName,
-    item.assetType,
-    item.assignDate,
-    item.returnDate,
-    <span key={`status-${item.id}`} className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${item.status === "Assigned" ? "bg-green-100 text-green-700" : "bg-slate-100 text-slate-600"}`}>{item.status}</span>,
-    <TableActions key={item.id} id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />,
-  ]);
-
   return (
     <div className="space-y-4">
       <PageToolbar
         title="Employee Asset Setup"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Employee Asset Setup", href: "#" }]}
+        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Employee Asset Setup", href: "/hrm/assets" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
-      <DataTable headers={HEADERS} rows={rows} colSpan={HEADERS.length} />
+      <DataTable headers={HEADERS} colSpan={HEADERS.length}>
+        {SAMPLE_DATA.map((item) => (
+          <tr key={item.id}>
+            <td className="px-5 py-3">{item.employeeName}</td>
+            <td className="px-5 py-3">{item.assetName}</td>
+            <td className="px-5 py-3">{item.assetType}</td>
+            <td className="px-5 py-3">{item.assignDate}</td>
+            <td className="px-5 py-3">{item.returnDate}</td>
+            <td className="px-5 py-3">
+              <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${item.status === "Assigned" ? "bg-green-100 text-green-700" : "bg-slate-100 text-slate-600"}`}>
+                {item.status}
+              </span>
+            </td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
+          </tr>
+        ))}
+      </DataTable>
       <FormModal isOpen={isCreateOpen} onClose={() => setIsCreateOpen(false)} title="Assign Asset" submitText="Assign" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("create", data); setIsCreateOpen(false); }} />
       <FormModal isOpen={!!editItem} onClose={() => setEditItem(null)} title="Edit Asset" submitText="Update" fields={sharedFields} gridCols={2} maxWidth="max-w-2xl" onSubmit={(data) => { console.log("update", data); setEditItem(null); }} />
     </div>

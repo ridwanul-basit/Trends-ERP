@@ -36,9 +36,7 @@ export default function AwardPage() {
             <td className="px-5 py-3">{item.awardName}</td>
             <td className="px-5 py-3">{item.awardDate}</td>
             <td className="px-5 py-3">{item.description}</td>
-            <td className="px-5 py-3">
-              <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
-            </td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
           </tr>
         ))}
       </DataTable>

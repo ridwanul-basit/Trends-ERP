@@ -39,9 +39,7 @@ export default function RegistrationPage() {
             <td className="px-5 py-3">{item.lastWorkingDate}</td>
             <td className="px-5 py-3">{item.noticePeriod}</td>
             <td className="px-5 py-3">{item.reason}</td>
-            <td className="px-5 py-3">
-              <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
-            </td>
+            <TableActions id={item.id} showEdit showDelete onEdit={() => setEditItem(item)} onDelete={() => console.log("delete", item.id)} />
           </tr>
         ))}
       </DataTable>
