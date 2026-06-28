@@ -29,7 +29,7 @@ export default function AssetsPage() {
   return (
     <div className="space-y-4">
       <PageToolbar
-        title="Assets"
+        title="mployee Assets Setup"
         breadcrumbs={[{ label: "HRM", href: "" }, { label: "Employee Assets Setup", href: "/hrm/assets" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
