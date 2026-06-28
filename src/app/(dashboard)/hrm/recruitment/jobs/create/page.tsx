@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Sparkles, Bold, Italic, Underline, Strikethrough, List, AlignLeft, Link, RotateCcw, RotateCw } from "lucide-react";
-import { PageToolbar, FormSectionHeader, FormField, FormModal, FormModalField } from "@/components/shared";
+import { PageToolbar, FormSectionHeader, FormField, FormModal, FormModalField, FormActions } from "@/components/shared";
 
 export default function JobCreatePage() {
   return (
@@ -258,13 +258,13 @@ function JobCreateInner() {
         </div>
 
         {/* Form Actions Footer */}
-        <div className="flex justify-end gap-3 px-6 py-4 bg-slate-50 border-t border-slate-200">
-          <button onClick={() => router.push("/hrm/recruitment/jobs")} className="rounded-lg bg-amber-500 px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer">
-            Cancel
-          </button>
-          <button onClick={handleSave} className="rounded-lg bg-theme-primary px-6 py-2 text-xs font-bold text-white hover:opacity-90 transition cursor-pointer">
-            {isEdit ? "Update" : "Create"}
-          </button>
+        <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+          <FormActions
+            onCancel={() => router.push("/hrm/recruitment/jobs")}
+            onSubmit={handleSave}
+            cancelText="Cancel"
+            submitText={isEdit ? "Update" : "Create"}
+          />
         </div>
       </div>
 
