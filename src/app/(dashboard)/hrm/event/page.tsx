@@ -103,7 +103,7 @@ export default function EventPage() {
   return (
     <div className="space-y-4">
       <PageToolbar
-        title="Event"
+        title="Event Setup"
         breadcrumbs={[{ label: "HRM", href: "" }, { label: "Event Setup", href: "/hrm/event" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
