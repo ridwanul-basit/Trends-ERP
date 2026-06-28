@@ -51,7 +51,7 @@ function SidebarItem({
   // If level 0 parent is active, we give it a background (the user requested "main parent will take bg").
   // If it's a child (level > 0), we only change the font color if it's active.
   const isParentActive = level === 0 && isActive;
-  const isChildActive = level > 0 && isExactActive;
+  const isChildActive = level > 0 && isActive;
 
   if (item.children?.length) {
     const isOpen = openItems[item.title] ?? (level === 0 ? activeFolderTitle === item.title : isActive);
