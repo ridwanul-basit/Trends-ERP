@@ -30,7 +30,7 @@ export default function AssetsPage() {
     <div className="space-y-4">
       <PageToolbar
         title="Assets"
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard" }, { label: "Assets", href: "/hrm/assets" }]}
+        breadcrumbs={[{ label: "HRM", href: "" }, { label: "Employee Assets Setup", href: "/hrm/assets" }]}
         onAdd={() => setIsCreateOpen(true)}
       />
       <DataTable headers={HEADERS} colSpan={HEADERS.length}>
