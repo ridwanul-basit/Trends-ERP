@@ -122,8 +122,8 @@ export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
   }, [currentPermission, currentRole]);
 
   return (
-    <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 sticky", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
-      <div className="flex h-full items-center gap-1 mx-auto">
+    <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 sticky overflow-x-auto sidebar-scrollbar-hidden", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
+      <div className="flex h-full items-center gap-1 min-w-max lg:mx-auto">
         {allowedNavItems.map((item) => (
           <HorizontalNavItem
             key={item.title}
