@@ -22,19 +22,32 @@ function HorizontalNavItem({
 }) {
   const Icon = item.icon;
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [dropdownPos, setDropdownPos] = useState<React.CSSProperties>({});
 
-  // Close on outside click
+  // Close on outside click or scroll
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        buttonRef.current && !buttonRef.current.contains(event.target as Node) &&
+        dropdownRef.current && !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
+
+    const handleScroll = () => setIsOpen(false);
+
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      // capture phase catches scrolls on any scrollable container (like the nav itself)
+      window.addEventListener("scroll", handleScroll, true);
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll, true);
+    };
   }, [isOpen]);
 
   // Close when pathname changes (user navigated)
@@ -57,21 +70,42 @@ function HorizontalNavItem({
   const isParentActive = level === 0 && isActive;
   const isChildActive = level > 0 && isExactActive;
 
+  const handleToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      if (level === 0) {
+        setDropdownPos({
+          top: isBottom ? undefined : rect.bottom + 2,
+          bottom: isBottom ? window.innerHeight - rect.top + 2 : undefined,
+          left: rect.left,
+        });
+      } else {
+        setDropdownPos({
+          top: rect.top,
+          left: rect.right + 2,
+        });
+      }
+    }
+    setIsOpen(!isOpen);
+  };
+
   if (item.children?.length) {
     return (
-      <div ref={menuRef} className="relative">
+      <div className={cn("relative", level === 0 ? "h-full" : "")}>
         <button
+          ref={buttonRef}
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleToggle}
           className={cn(
-            "flex items-center gap-2 rounded-md transition-colors cursor-pointer w-full whitespace-nowrap",
+            "flex items-center gap-2 transition-colors cursor-pointer w-full whitespace-nowrap",
             level === 0
-              ? "px-4 py-2" // Removed border-b-2 and h-full since we wrap now
-              : "px-4 py-2 hover:bg-slate-50",
+              ? "h-full px-4 border-b-2"
+              : "px-4 py-2 hover:bg-slate-50 rounded-md",
             level === 0 && isParentActive
-              ? "text-theme-primary font-semibold bg-theme-primary/10"
+              ? "border-theme-primary text-theme-primary font-semibold bg-theme-primary/5"
               : level === 0
-              ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+              ? "border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               : isChildActive
               ? "text-theme-primary font-semibold bg-theme-primary/5"
               : "text-slate-600"
@@ -86,26 +120,24 @@ function HorizontalNavItem({
           )}
         </button>
 
-        {/* Dropdown Menu */}
-        <div
-          className={cn(
-            "absolute z-50 min-w-[200px] rounded-md border border-slate-100 bg-white p-1.5 shadow-lg",
-            isOpen ? "block" : "hidden",
-            level === 0
-              ? (isBottom ? "left-0 bottom-full mb-1" : "left-0 top-full mt-1")
-              : (isBottom ? "left-full bottom-0 ml-1" : "left-full top-0 ml-1")
-          )}
-        >
-          {item.children.map((child: any) => (
-            <HorizontalNavItem
-              key={child.title}
-              item={child}
-              level={level + 1}
-              pathname={pathname}
-              isBottom={isBottom}
-            />
-          ))}
-        </div>
+        {/* Dropdown Menu - Fixed Position to escape overflow hidden */}
+        {isOpen && (
+          <div
+            ref={dropdownRef}
+            style={{ ...dropdownPos, position: "fixed" }}
+            className="z-50 min-w-[200px] rounded-md border border-slate-100 bg-white p-1.5 shadow-lg"
+          >
+            {item.children.map((child: any) => (
+              <HorizontalNavItem
+                key={child.title}
+                item={child}
+                level={level + 1}
+                pathname={pathname}
+                isBottom={isBottom}
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
@@ -115,14 +147,14 @@ function HorizontalNavItem({
     <Link
       href={item.href || "#"}
       className={cn(
-        "flex items-center gap-2 rounded-md transition-colors cursor-pointer w-full whitespace-nowrap",
+        "flex items-center gap-2 transition-colors cursor-pointer w-full whitespace-nowrap",
         level === 0
-          ? "px-4 py-2" // Removed border-b-2 and h-full
-          : "px-4 py-2 hover:bg-slate-50",
+          ? "h-full px-4 border-b-2"
+          : "px-4 py-2 hover:bg-slate-50 rounded-md",
         level === 0 && isParentActive
-          ? "text-theme-primary font-semibold bg-theme-primary/10"
+          ? "border-theme-primary text-theme-primary font-semibold bg-theme-primary/5"
           : level === 0
-          ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+          ? "border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50"
           : isChildActive
           ? "text-theme-primary font-semibold bg-theme-primary/5"
           : "text-slate-600"
@@ -144,8 +176,8 @@ export function AdminHorizontalNav({ isBottom }: { isBottom?: boolean }) {
   }, [currentPermission, currentRole]);
 
   return (
-    <div className={cn("w-full bg-white border-slate-200 flex items-center px-4 py-1.5 shadow-sm z-20 sticky min-h-[3.5rem]", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
-      <div className="flex flex-wrap items-center gap-1 w-full lg:justify-center">
+    <div className={cn("h-12 w-full bg-white border-slate-200 flex items-center px-4 shadow-sm z-20 sticky overflow-x-auto sidebar-scrollbar-hidden", isBottom ? "bottom-0 border-t" : "top-[60px] border-b")}>
+      <div className="flex h-full items-center gap-1 min-w-max mx-auto">
         {allowedNavItems.map((item) => (
           <HorizontalNavItem
             key={item.title}
