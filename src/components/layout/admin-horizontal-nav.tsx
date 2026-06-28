@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { adminNavItems, filterNavByPermissions } from "@/lib/constants/routes";
 import { cn } from "@/lib/utils/cn";
 import { useAppSelector } from "@/store/hooks";
@@ -21,6 +21,26 @@ function HorizontalNavItem({
   isBottom?: boolean;
 }) {
   const Icon = item.icon;
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
+  // Close when pathname changes (user navigated)
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   const isActiveRecursively = (navItem: any): boolean => {
     if (navItem.href && pathname.startsWith(navItem.href)) return true;
@@ -39,9 +59,10 @@ function HorizontalNavItem({
 
   if (item.children?.length) {
     return (
-      <div className={cn("group relative", level === 0 ? "h-full" : "")}>
+      <div ref={menuRef} className={cn("relative", level === 0 ? "h-full" : "")}>
         <button
           type="button"
+          onClick={() => setIsOpen(!isOpen)}
           className={cn(
             "flex items-center gap-2 rounded-md transition-colors cursor-pointer w-full whitespace-nowrap",
             level === 0
@@ -59,16 +80,17 @@ function HorizontalNavItem({
           {Icon && level === 0 && <Icon className="h-4 w-4" />}
           <span className="truncate">{item.title}</span>
           {level === 0 ? (
-            <ChevronDown className="h-3.5 w-3.5 opacity-50 ml-1" />
+            <ChevronDown className={cn("h-3.5 w-3.5 opacity-50 ml-1 transition-transform", isOpen && "rotate-180")} />
           ) : (
-            <ChevronRight className="h-3.5 w-3.5 opacity-50 ml-auto" />
+            <ChevronRight className={cn("h-3.5 w-3.5 opacity-50 ml-auto transition-transform", isOpen && "rotate-90")} />
           )}
         </button>
 
         {/* Dropdown Menu */}
         <div
           className={cn(
-            "absolute hidden group-hover:block z-50 min-w-[200px] rounded-md border border-slate-100 bg-white p-1.5 shadow-lg",
+            "absolute z-50 min-w-[200px] rounded-md border border-slate-100 bg-white p-1.5 shadow-lg",
+            isOpen ? "block" : "hidden",
             level === 0
               ? (isBottom ? "left-0 bottom-full mb-1" : "left-0 top-full mt-1")
               : (isBottom ? "left-full bottom-0 ml-1" : "left-full top-0 ml-1")
