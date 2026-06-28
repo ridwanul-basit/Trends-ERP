@@ -93,12 +93,12 @@ export const adminNavItems: AdminNavItem[] = [
           { title: "Holidays", href: "/hrm/admin/holidays" },
         ],
       },
-      // { title: "Event Setup", href: "/hrm/event" },
-      // { title: "Meeting", href: "/hrm/meeting" },
-      // { title: "Employee Asset Setup", href: "/hrm/assets" },
-      // { title: "Document Setup", href: "/hrm/document" },
-      // { title: "Company Policy", href: "/hrm/policy" },
-      // { title: "HRM System Setup", href: "/hrm/system" },
+      { title: "Event Setup", href: "/hrm/event" },
+      { title: "Meeting", href: "/hrm/meeting" },
+      { title: "Employee Asset Setup", href: "/hrm/assets" },
+      { title: "Document Setup", href: "/hrm/document" },
+      { title: "Company Policy", href: "/hrm/policy" },
+      { title: "HRM System Setup", href: "/hrm/system" },
     ]
   },
   {
