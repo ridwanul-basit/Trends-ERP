@@ -101,26 +101,26 @@ export const adminNavItems: AdminNavItem[] = [
       { title: "HRM System Setup", href: "/hrm/system" },
     ]
   },
-  {
-    title: "Finance",
-    href: "/finance",
-    icon: Wallet,
-  },
-  {
-    title: "Inventory",
-    href: "/inventory",
-    icon: Package,
-  },
-  {
-    title: "CRM",
-    href: "/crm",
-    icon: HeartHandshake,
-  },
-  {
-    title: "Procurement",
-    href: "/procurement",
-    icon: ShoppingCart,
-  },
+  // {
+  //   title: "Finance",
+  //   href: "/finance",
+  //   icon: Wallet,
+  // },
+  // {
+  //   title: "Inventory",
+  //   href: "/inventory",
+  //   icon: Package,
+  // },
+  // {
+  //   title: "CRM",
+  //   href: "/crm",
+  //   icon: HeartHandshake,
+  // },
+  // {
+  //   title: "Procurement",
+  //   href: "/procurement",
+  //   icon: ShoppingCart,
+  // },
   {
     title: "Access Control",
     icon: ShieldCheck,
