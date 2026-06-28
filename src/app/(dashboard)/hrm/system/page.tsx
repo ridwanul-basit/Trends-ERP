@@ -51,7 +51,7 @@ export default function SystemPage() {
             className={cn(
               "whitespace-nowrap px-5 py-2.5 text-[13px] cursor-pointer font-medium transition-colors border-r border-slate-200 last:border-r-0",
               activeTab === tab
-                ? "bg-[#1ccab8] text-white"
+                ? "bg-primary text-white"
                 : "text-slate-600 hover:bg-slate-50"
             )}
           >
