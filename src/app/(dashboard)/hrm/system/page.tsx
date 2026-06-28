@@ -43,7 +43,7 @@ export default function SystemPage() {
       />
 
       {/* Tabs */}
-      <div className="flex overflow-x-auto rounded-lg bg-white  sidebar-scrollbar-hidden border border-slate-200">
+      <div className="flex overflow-x-auto rounded-lg bg-white shadow-sm sidebar-scrollbar-hidden border border-slate-200">
         {TABS.map((tab, index) => (
           <button
             key={tab}
